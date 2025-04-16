@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Decathlon Math Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2a2a2a;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    select, button.generate-btn {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .generate-btn {
+      background-color: #4f46e5;
+      color: gray;
+      border: none;
+    }
+
+    .generate-btn:hover {
+      background-color: #4338ca;
+        color: white;
+    }
+
+    .question-box {
+      margin-bottom: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem 1rem;
+      background-color: #e0e7ff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .options button:hover {
+      background-color: #c7d2fe;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #777;
+    }
+
+    .answer-field {
+      margin-bottom: 1rem;
+    }
+    #answer {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e0e7ff;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      transition: all 0.2s ease;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    #answer:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+      background-color: #fff;
+    }
+    #answer::placeholder {
+      color: #94a3b8;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Academic Decathlon Math Trainer</h1>
+
+    <div class="controls">
+      <select id="mode" >
+        <option value="practice">Practice Mode</option>
+        <option value="test">Test Mode</option>
+      </select>
+      <button class="generate-btn" id="generate-btn" >Generate Question</button>
+    </div>
+
+    <div class="question-box">
+      <div class="question-text" id="question">Select a mode and generate a question.</div>
+      <div class="options" id="options"></div>
+    </div>
+
+  </div>
+
+  <script type="module">
+    import { generateNthTermSequenceProblem } from './generator.js';
+    import { generateMeanMedianModeRangeVarianceStdDev } from './generator.js';
+    import { generateExpectedValueVarianceStdDev } from './generator.js';
+  
+    document.getElementById("mode").addEventListener("change", () => {
+      const mode = document.getElementById("mode").value;
+      const btn = document.getElementById("generate-btn");
+      btn.textContent = mode === "test" ? "Generate Test" : "Generate Question";
+      const txt = document.getElementById("question");
+      txt.textContent = mode === "test" ? "Generate a 45-question, 30-minute test." : "Select a mode and generate a question.";
+    });
+  
+    document.getElementById("generate-btn").addEventListener("click", () => {
+      const mode = document.getElementById("mode").value;
+      const generator = generators[Math.floor(Math.random() * generators.length)];
+      const { question, answer } = generator();
+      renderQuestion(question, answer);
+    });
+  
+    const generators = [
+      generateNthTermSequenceProblem,
+      generateMeanMedianModeRangeVarianceStdDev,
+      generateExpectedValueVarianceStdDev
+    ];
+  
+    function renderQuestion(q, a) {
+      document.getElementById("question").textContent = q;
+      const optionsBox = document.getElementById("options");
+      optionsBox.innerHTML = `
+        <div class="answer-field">
+          <input type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
+        </div>
+        <button class='generate-btn' id='check-answer'>Check Answer</button>
+        <button class='generate-btn' id='next-question'>Next Question</button>
+        <div id='feedback'></div>
+      `;
+  
+      document.getElementById('check-answer').addEventListener('click', function () {
+        const userAnswer = document.getElementById('answer').value.trim();
+        const feedback = document.getElementById('feedback');
+        if (userAnswer == a) {
+          feedback.textContent = "Correct!";
+          feedback.style.color = "green";
+        } else {
+          feedback.textContent = `Incorrect. The correct answer is ${a}.`;
+          feedback.style.color = "red";
+        }
+      });
+  
+      document.getElementById('next-question').addEventListener('click', function () {
+        const generator = generators[Math.floor(Math.random() * generators.length)];
+        const { question, answer } = generator();
+        renderQuestion(question, answer);
+      });
+    }
+  </script>  
+</body>
+</html>
