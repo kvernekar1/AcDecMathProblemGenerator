@@ -9,18 +9,17 @@ export function generateNthTermSequenceProblem()
     const questions = ["nth term given two other terms", "nth term given a and d", "nth term given one term and d"]
     const question = questions[Math.floor(Math.random() * questions.length)];
     const a = Math.floor(Math.random() * 41) - 20; 
-    const n = Math.floor(Math.random() * 30) + 1;
+    let n = Math.floor(Math.random() * 30) + 1;
     let r = 0;
     while (r === 0) 
     {
-        r = Math.floor(Math.random() * 11) - 5; 
+        r = (Math.floor(Math.random() * 41) - 20)/10.0;
     }
     let answer = 0;
-
     const q = Math.floor(Math.random()) + 1;
     if(type == "Arithmetic")
     {
-        answer = a + (n - 1) * r;
+        answer = smartRound(a + (n - 1) * r);
         if(question == "nth term given two other terms")
         {
             let termOne = n;
@@ -30,17 +29,19 @@ export function generateNthTermSequenceProblem()
                 termOne = Math.floor(Math.random() * 30) + 1;
                 termTwo = Math.floor(Math.random() * 30) + 1;
             }
+            const ans1 = smartRound(a + (termOne - 1) * r);
+            const ans2 = smartRound(a + (termTwo - 1) * r);
             if(q == 1)
             {
                 return {
-                    question: `What term is ${answer} in the arithmetic sequence with ${termOne}th term ${a + (termOne - 1) * r} and ${termTwo}th term ${a + (termTwo - 1) * r}?`,
+                    question: `What term is ${answer} in the arithmetic sequence with ${termOne}th term ${ans1} and ${termTwo}th term ${ans2}?`,
                     answer: n
                 };
             }
             else
             {
                 return {
-                    question: `What is the ${n}th term of the arithmetic sequence with ${termOne}th term ${a + (termOne - 1) * r} and ${termTwo}th term ${a + (termTwo - 1) * r}?`,
+                    question: `What is the ${n}th term of the arithmetic sequence with ${termOne}th term ${ans1} and ${termTwo}th term ${ans2}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -58,7 +59,7 @@ export function generateNthTermSequenceProblem()
             else
             {
                 return {
-                    question: `What is the ${n}th term of the arithmetic sequence with first term ${a} and common difference ${r}?`,
+                    question: `What is the ${n}th term of the arithmetic sequence with first term ${a} and common difference ${r}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -70,17 +71,18 @@ export function generateNthTermSequenceProblem()
             {
                 term = Math.floor(Math.random() * 30) + 1;
             }
+            const ans = smartRound(a + (term - 1) * r);
             if(q == 1)
             {
                 return {
-                    question: `What term is ${answer} in the arithmetic sequence with ${term}th term ${a + (term - 1) * r} and common difference ${r}?`,
+                    question: `What term is ${answer} in the arithmetic sequence with ${term}th term ${ans} and common difference ${r}?`,
                     answer: n
                 };
             }
             else
             {
                 return {
-                    question: `What is the ${n}th term of the arithmetic sequence with ${term}th term ${a + (term - 1) * r} and common difference ${r}?`,
+                    question: `What is the ${n}th term of the arithmetic sequence with ${term}th term ${ans} and common difference ${r}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -89,27 +91,30 @@ export function generateNthTermSequenceProblem()
 
     else if(type == "Geometric")
     {
-        answer = a * Math.pow(r, n - 1);
+        n = Math.floor(Math.random() * 10) + 1;
+        answer = smartRound(a * Math.pow(r, n - 1));
         if(question == "nth term given two other terms")
         {
             let termOne = n;
             let termTwo = n;
-            while(termOne == n || termTwo == n)
+            while(termOne == n || termTwo == n || termOne == termTwo)
             {
-                termOne = Math.floor(Math.random() * 30) + 1;
-                termTwo = Math.floor(Math.random() * 30) + 1;
+                termOne = Math.floor(Math.random() * 10) + 1;
+                termTwo = Math.floor(Math.random() * 10) + 1;
             }
+            const ans1 = smartRound(a * Math.pow(r, termOne - 1));
+            const ans2 = smartRound(a * Math.pow(r, termTwo - 1));
             if(q == 1)
             {
                 return {
-                    question: `What term is ${answer} in the geometric sequence with ${termOne}th term ${a * Math.pow(r, termOne - 1)} and ${termTwo}th term ${a * Math.pow(r, termTwo - 1)}?`,
+                    question: `What term is ${answer} in the geometric sequence with ${termOne}th term ${ans1} and ${termTwo}th term ${ans2}?`,
                     answer: n
                 };
             }
             else
             {
                 return {
-                    question: `What is the ${n}th term of the geometric sequence with ${termOne}th term ${a * Math.pow(r, termOne - 1)} and ${termTwo}th term ${a * Math.pow(r, termTwo - 1)}?`,
+                    question: `What is the ${n}th term of the geometric sequence with ${termOne}th term ${ans1} and ${termTwo}th term ${ans2}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -126,7 +131,7 @@ export function generateNthTermSequenceProblem()
             else
             {
                 return {
-                    question: `What is the ${n}th term of the geometric sequence with first term ${a} and common ratio ${r}?`,
+                    question: `What is the ${n}th term of the geometric sequence with first term ${a} and common ratio ${r}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -138,17 +143,18 @@ export function generateNthTermSequenceProblem()
             {
                 term = Math.floor(Math.random() * 30) + 1;
             }
+            const ans = smartRound(a * Math.pow(r, term - 1));
             if(q == 1)
             {
                 return {
-                    question: `What term is ${answer} in the geometric sequence with ${term}th term ${a * Math.pow(r, term - 1)} and common ratio ${r}?`,
+                    question: `What term is ${answer} in the geometric sequence with ${term}th term ${ans} and common ratio ${r}?`,
                     answer: n
                 };
             }
             else
             {
                 return {
-                    question: `What is the ${n}th term of the geometric sequence with ${term}th term ${a * Math.pow(r, term - 1)} and common ratio ${r}?`,
+                    question: `What is the ${n}th term of the geometric sequence with ${term}th term ${ans} and common ratio ${r}?(Round to 3 decimal places)`,
                     answer: answer
                 };
             }
@@ -223,8 +229,8 @@ export function generateMeanMedianModeRangeVarianceStdDev()
     }
 
     return{
-        question: `What is the ${question} of the data set ${dataSet.join(", ")}?`,
-        answer: answer.toFixed(3) 
+        question: `What is the ${question} of the data set ${dataSet.join(", ")}?(Round to 3 decimal places)`,
+        answer: smartRound(answer) 
 
     }
 }
@@ -272,8 +278,8 @@ export function generateExpectedValueVarianceStdDev()
     }
 
     return{
-        question: `What is the ${question} of the data set ${dataSet.join(", ")} with probabilities ${probabilities.join(", ")}?`,
-        answer: answer.toFixed(3) 
+        question: `What is the ${question} of the data set ${dataSet.join(", ")} with probabilities ${probabilities.join(", ")}?(Round to 3 decimal places)`,
+        answer: smartRound(answer) 
     }
 }
 
@@ -298,6 +304,25 @@ function generateNumbersThatSumToTarget(n)
 
     return parts;    
 }
+
+function smartRound(num, epsilon = 1e-10) {
+    const ans =  Math.abs(num) < epsilon ? 0 : parseFloat(num.toPrecision(15));
+    if (hasMoreThanThreeDecimals(ans)) {
+        return parseFloat(ans.toFixed(3));
+    }
+    return ans;
+}
+
+function hasMoreThanThreeDecimals(num) {
+    const str = num.toString();
+    if (str.includes(".")) {
+      const decimalPart = str.split(".")[1];
+      return decimalPart.length > 3;
+    }
+    return false;
+  }
+  
+
   
 
 
