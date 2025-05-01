@@ -19,6 +19,42 @@
       padding: 2rem;
     }
 
+    .navbar {
+      position: sticky;
+      display: flex;
+      background-color: #4f46e5;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: white;
+      padding: 10px 20px;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .navbar a:hover {
+      background-color: #4338ca;
+    }
+
+    .navbar a.active {
+      background-color: #3730a3;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
     .container {
       max-width: 800px;
       margin: auto;
@@ -71,7 +107,7 @@
       margin-bottom: 1rem;
     }
 
-    .submit button {
+    .options button {
       display: block;
       width: 100%;
       margin-bottom: 0.5rem;
@@ -84,7 +120,7 @@
       transition: background 0.2s ease;
     }
 
-    .submit button:hover {
+    .options button:hover {
       background-color: #c7d2fe;
     }
 
@@ -120,9 +156,17 @@
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="logo">
+        <a href="#" style="font-weight: bold; font-size: 18px;">Academic Decathlon Math Trainer</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Trainer</a>
+      <a href="learn.html">Learn</a>
+    </div>
+  </div>
+  <h1 style="text-align: center; color: #3730a3; margin-top: 2.5rem;">Academic Decathlon Math Trainer</h1>
   <div class="container">
-    <h1>Academic Decathlon Math Trainer</h1>
-
     <div class="controls">
       <select id="mode" >
         <option value="practice">Practice Mode</option>
@@ -131,11 +175,9 @@
       <button class="generate-btn" id="generate-btn" >Generate Question</button>
     </div>
 
-    <div id="timerBox"></div>
-
     <div class="question-box">
       <div class="question-text" id="question">Select a mode and generate a question.</div>
-      <div class="submit" id="submit"></div>
+      <div class="options" id="options"></div>
     </div>
 
   </div>
@@ -145,7 +187,6 @@
     import { generateMeanMedianModeRangeVarianceStdDev } from './generator.js';
     import { generateExpectedValueVarianceStdDev } from './generator.js';
   
-    let testQuestions = [];
     document.getElementById("mode").addEventListener("change", () => {
       const mode = document.getElementById("mode").value;
       const btn = document.getElementById("generate-btn");
@@ -155,43 +196,10 @@
     });
   
     document.getElementById("generate-btn").addEventListener("click", () => {
-      document.getElementById("question").innerHTML = "";
       const mode = document.getElementById("mode").value;
-      if(mode === "test") {
-        testQuestions = Array.from({ length: 45 }, () => {
-          const generator = generators[Math.floor(Math.random() * generators.length)];
-          return generator();
-        });
-        renderTest(testQuestions);
-        const timerBox = document.getElementById("timerBox");
-        timerBox.innerHTML = `
-          <div id="timer" style="font-size: 2rem; font-weight: bold;">30:00</div>
-        `;
-        let timeLeft = 1800; 
-        const timer = setInterval(() => {
-          timeLeft--;
-          const minutes = Math.floor(timeLeft / 60);
-          const seconds = timeLeft % 60;
-          document.getElementById("timer").textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-          if (timeLeft <= 0) {
-            clearInterval(timer);
-            alert("Time's up!");
-            document.getElementById("finish-test").click();
-          }
-        }, 1000);
-        const finishTestBtn = document.getElementById("finish-test");
-        finishTestBtn.addEventListener("click", () => {
-          clearInterval(timer);
-          alert("Test completed!");
-        });
-        const feedback = document.getElementById('feedback');
-      } 
-      else {
-        document.getElementById("timerBox").innerHTML = "";
-        const generator = generators[Math.floor(Math.random() * generators.length)];
-        const { question, answer } = generator();
-        renderQuestion(question, answer);
-      }
+      const generator = generators[Math.floor(Math.random() * generators.length)];
+      const { question, answer } = generator();
+      renderQuestion(question, answer);
     });
   
     const generators = [
@@ -202,14 +210,13 @@
   
     function renderQuestion(q, a) {
       document.getElementById("question").textContent = q;
-      const submitBox = document.getElementById("submit");
-      submitBox.innerHTML = `
+      const optionsBox = document.getElementById("options");
+      optionsBox.innerHTML = `
         <div class="answer-field">
           <input type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
         </div>
         <button class='generate-btn' id='check-answer'>Check Answer</button>
         <button class='generate-btn' id='next-question'>Next Question</button>
-
         <div id='feedback'></div>
       `;
   
@@ -230,54 +237,6 @@
         const { question, answer } = generator();
         renderQuestion(question, answer);
       });
-    }
-
-    function renderTest(questions) {
-      const questionBox = document.getElementById("question");
-      for(let i = 0; i < 45; i++){
-        const div = document.createElement("div");
-        div.innerHTML = `
-        <p>Question ${i + 1}: ${questions[i].question}</p>
-        <div id='correctAns${i+1}' style="display: none;"></div>
-        <div class="answer-field">
-          <input type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
-        </div>
-        <div id='explanation'></div>
-        `;
-        questionBox.appendChild(div);
-      }
-      const submitBox = document.getElementById("submit");
-      submitBox.innerHTML = `
-        <button class='generate-btn' id='finish-test'>Finish Test</button>
-        <div id='feedback'></div>
-      `;
-  
-      document.getElementById('finish-test').addEventListener('click', function () {
-        const feedback = document.getElementById('feedback');
-        const grade = gradeTest();
-        feedback.textContent = grade;
-        feedback.display = "block";
-        feedback.style.color = "blue";
-      });
-    }
-
-    function gradeTest()
-    {
-      const answers = document.querySelectorAll("#answer");
-      let correctCount = 0;
-      answers.forEach((input, index) => {
-        const correctAns = document.getElementById(`correctAns${index+1}`);
-        correctAns.style.display = "block";
-        if(input.value == testQuestions[index].answer) {
-          correctAns.style.color = "green";
-          correctAns.textContent = 'Correct!'
-          correctCount++;
-        } else {
-          correctAns.style.color = "red";
-          correctAns.textContent = `Incorrect. The correct answer is ${testQuestions[index].answer}.`;
-        }
-      });
-      return `You got ${correctCount} out of ${testQuestions.length} questions correct.`;
     }
   </script>  
 </body>

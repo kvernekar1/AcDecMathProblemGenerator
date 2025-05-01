@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Decathlon Math Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .navbar {
+      display: flex;
+      background-color: #4f46e5;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .navbar a:hover {
+      background-color: #4338ca;
+    }
+
+    .navbar a.active {
+      background-color: #3730a3;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2a2a2a;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    select, button.generate-btn {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .generate-btn {
+      background-color: #4f46e5;
+      color: gray;
+      border: none;
+    }
+
+    .generate-btn:hover {
+      background-color: #4338ca;
+        color: white;
+    }
+
+    .question-box {
+      margin-bottom: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem 1rem;
+      background-color: #e0e7ff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .options button:hover {
+      background-color: #c7d2fe;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #777;
+    }
+
+    .answer-field {
+      margin-bottom: 1rem;
+    }
+    #answer {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e0e7ff;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      transition: all 0.2s ease;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    #answer:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+      background-color: #fff;
+    }
+    #answer::placeholder {
+      color: #94a3b8;
+      opacity: 0.7;
+    }
+    .section-card {
+        background: #ffffff;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .section-title {
+        color: #4f46e5;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e0e7ff;
+    }
+    
+    .topic-card {
+        background: #f8fafc;
+        border-left: 4px solid #4f46e5;
+        border-radius: 4px;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .topic-heading {
+        color: #1e293b;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .math-example {
+        margin-bottom: 1.5rem;
+    }
+    
+    .math-example h4 {
+        color: #4338ca;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .steps {
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .steps li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .calculator-key {
+        background: #e0e7ff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-weight: bold;
+    }
+    
+    .formula {
+        background: #f1f5f9;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-family: monospace;
+        display: inline-block;
+    }
+    
+    .example-box {
+        background: #f0f9ff;
+        border-left: 3px solid #0ea5e9;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .formula-card {
+        background: #f8fafc;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .info-box {
+        background: #f0fdf4;
+        border-left: 3px solid #22c55e;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    p {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar" style="justify-content: center;">
+        <a href="index.html">Trainer</a>
+        <a href="learn.html" class="active">Learn</a>
+    </nav>
+    <div class="container">
+        <h1>Academic Decathlon Math Trainer</h1>
+        <div class="section-card">
+            <h2 class="section-title">How to Approach Sequence Problems</h2>
+            <div class="topic-card">
+                <h3 class="topic-heading">Finding the nth Term or n from Two Known Terms</h3>
+                
+                <div class="math-example">
+                    <h4>Arithmetic Sequences</h4>
+                    <p>When you have two terms in an arithmetic sequence:</p>
+                    <ol class="steps">
+                        <li>Enter the term positions in L1 (e.g., 13 and 25)</li>
+                        <li>Enter the term values in L2 (e.g., 27 and 63)</li>
+                        <li>Press <span class="calculator-key">[STAT]</span> → <span class="calculator-key">CALC</span> → <span class="calculator-key">LinReg(ax+b)</span></li>
+                        <li>The <em>a</em> value is your common difference, <em>b</em> is your first term</li>
+                        <li>Find any nth term: <span class="formula">b + (n-1) × a</span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 13 = 27 and term 25 = 63:</p>
+                        <p>a = 3 (common difference), b = -12 (first term)</p>
+                        <p>Term 50 = -12 + (50-1) × 3 = 135</p>
+                    </div>
+                    <p>If you simply want to find what term the number x is(i.e what term number 51 would be):</p>
+                    <ol class="steps">
+                        <li>Find a and b using the same steps mentioned above</li>
+                        <li>Use the formula: <span class="formula">n = ((x - b)/a) + 1</span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 13 = 27 and term 25 = 63:</p>
+                        <p>a = 3 (common difference), b = -12 (first term)</p>
+                        <p>The position of the number 51 = ((x - b)/a) + 1 = ((51 - (-12))/3) + 1 = 22nd term</p>
+                    </div>
+                </div>
+                        
+                <div class="math-example">
+                    <h4>Geometric Sequences</h4>
+                    <p>When you have two terms in a geometric sequence:</p>
+                    <ol class="steps">
+                        <li>Enter the term positions in L1 (e.g., 4 and 6)</li>
+                        <li>Enter the term values in L2 (e.g., 27 and 243)</li>
+                        <li>Press <span class="calculator-key">[STAT]</span> → <span class="calculator-key">CALC</span> → <span class="calculator-key">ExpReg</span></li>
+                        <li>The <em>a</em> value is your first term, <em>b</em> is your common ratio</li>
+                        <li>Find any nth term: <span class="formula">a × b<sup>(n-1)</sup></span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 4 = 27 and term 6 = 243:</p>
+                        <p>a = 0.333 (first term), b = 3 (common ratio)</p>
+                        <p>Term 9 = 0.333 × 3<sup>(9-1)</sup> = 2187</p>
+                    </div>
+                    <p>If you simply want to find what term the number x is(i.e what term number 9 would be):</p>
+                    <ol class="steps">
+                        <li>Find a and b using the same steps mentioned above</li>
+                        <li>Use the formula: <span class="formula">n = (log(x/a)/log(b)) + 1</span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 4 = 27 and term 6 = 243:</p>
+                        <p>a = 0.333 (first term), b = 3 (common ratio)</p>
+                        <p>The position of the number 729 = (log(729/0.333)/log(3)) + 1 = 8th term</p>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="topic-card">
+                <h3 class="topic-heading">Finding the nth Term from One Term and Common Difference/Ratio</h3>
+                        
+                <div class="math-example">
+                    <h4>Arithmetic Sequences</h4>
+                    <p>When you know term x is y and common difference d:</p>
+                    <p class="formula">Term n = (n - x) × d + y</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 21 = 72 and d = 3:</p>
+                        <p>Term 37 = (37 - 21) × 3 + 72 = 120</p>
+                        <p>Term 15 = (15 - 21) × 3 + 72 = 54</p>
+                    </div>
+                    <p>If you simply want to find what term the number x is(i.e what term number 15 would be):</p>
+                    <ol class="steps">
+                        <li>Use the formula: <span class="formula">n = ((x - y)/d) + x</span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 21 = 72 and d = 3:</p>
+                        <p>The position of the number 54 = ((x - y)/d) + x = ((54 - 72)/3) + 21 = 15th term</p>
+                    </div>
+                </div>
+                        
+                <div class="math-example">
+                    <h4>Geometric Sequences</h4>
+                    <p>When you know term x is y and common ratio r:</p>
+                    <p class="formula">Term n = r<sup>(n - x)</sup> × y</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 7 = 63 and r = 3:</p>
+                        <p>Term 12 = 3<sup>(12 - 7)</sup> × 63 = 15,309</p>
+                        <p>Term 5 = 3<sup>(5 - 7)</sup> × 63 = 7</p>
+                    </div>
+                    <p>If you simply want to find what term the number z is(i.e what term number 567 would be):</p> 
+                    <ol class="steps">
+                        <li>Use the formula: <span class="formula">n = (log(z/y)/log(r)) + x</span></li>
+                    </ol>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> If term 7 = 63 and r = 3:</p>
+                        <p>The position of the number 567 = (log(567/63)/log(3)) + 7 = 9th term</p>
+                    </div>
+
+                </div>
+            </div>
+                
+            <div class="topic-card">
+                <h3 class="topic-heading">Finding the Sum of a Sequence</h3>
+                <div class="formula-card">
+                    <h4>Finite Arithmetic Sequence</h4>
+                    <p>When first term is a, common difference is d, number of terms is n:</p>
+                    <p class="formula">Sum = [n(2a + (n-1)d)]/2</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>Sum of first 10 terms of an arithmetic sequence with first term 2 and common difference 3:</p>
+                    <p>Sum = [10(2 × 2 + (10-1) × 3)]/2 = 155</p>
+                </div>
+
+                <div class="formula-card">
+                    <h4>Finite Geometric Sequence</h4>
+                    <p>When first term is a, common ratio is r, number of terms is n:</p>
+                    <p class="formula">Sum = a(1 - r<sup>n</sup>)/(1-r)</p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Example:</strong> Sum of first 5 terms of a geometric sequence with first term 2 and common ratio 3:</p>
+                    <p>Sum = 2(1 - 3<sup>5</sup>)/(1-3) = 242</p>
+                </div>
+                
+                <div class="formula-card">
+                    <h4>Infinite Geometric Sequence</h4>
+                    <p>When first term is a, common ratio is r (where |r| < 1):</p>
+                    <p class="formula">Sum = a/(1-r)</p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Example:</strong> Sum of an infinite geometric sequence with first term 2 and common ratio 0.5:</p>
+                    <p>Sum = 2/(1-0.5) = 4</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="section-card">
+            <h2 class="section-title">How to Approach Statistics Problems</h2>
+            
+            <div class="topic-card">
+                <h3 class="topic-heading">Quick Calculation of Statistical Measures</h3>
+                <ol class="steps">
+                    <li>Go to <span class="calculator-key">[STAT]</span> → <span class="calculator-key">[EDIT]</span></li>
+                    <li>Enter your data in L1</li>
+                    <li>Go to <span class="calculator-key">[STAT]</span> → <span class="calculator-key">CALC</span> → <span class="calculator-key">1-Var Stats</span></li>
+                    <li>Press <span class="calculator-key">[ENTER]</span> three times</li>
+                </ol>
+                <div class="info-box">
+                    <p>You will see:</p>
+                    <ul>
+                        <li>Mean (x̄)</li>
+                        <li>Median (Med)</li>
+                        <li>Quartiles (Q1, Q3)</li>
+                        <li>Min and Max values (range = max - min)</li>
+                        <li>Standard deviation (Sx)</li>
+                    </ul>
+                    <p>To get variance, you just square Sx.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 class="topic-heading">Quick Calculation of Expected Value/Variance/Standard Deviation</h3>
+                <ol class="steps">
+                    <li>Go to <span class="calculator-key">[STAT]</span> → <span class="calculator-key">[EDIT]</span></li>
+                    <li>Enter the values in L1 and the probability in L2</li>
+                    <li>Go to <span class="calculator-key">[STAT]</span> → <span class="calculator-key">CALC</span> → <span class="calculator-key">1-Var Stats</span></li>
+                    <li>Put your cursor next to <span class="calculator-key">FreqList</span> and press <span class="calculator-key">[2ND]</span> → <span class="calculator-key">[STAT]</span> and select L2</li>
+                    <li>Press <span class="calculator-key">[ENTER]</span> two times</li>
+                </ol>
+                <div class="info-box">
+                    <p>You will see:</p>
+                    <ul>
+                        <li>Expected Value (x̄)</li>
+                        <li>Standard deviation (σx)</li> 
+                    </ul>
+                    <p>To get variance, you just square σx.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
