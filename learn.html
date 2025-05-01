@@ -234,13 +234,39 @@
         margin-bottom: 0.75rem;
         line-height: 1.6;
     }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar {
+      position: sticky;
+      display: flex;
+      background-color: #4f46e5;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: white;
+      padding: 10px 20px;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      z-index: 1000;
+    }
+
   </style>
 </head>
 <body>
-    <nav class="navbar" style="justify-content: center;">
-        <a href="index.html">Trainer</a>
-        <a href="learn.html" class="active">Learn</a>
-    </nav>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#" style="font-weight: bold; font-size: 18px;">Academic Decathlon Math Trainer</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Trainer</a>
+          <a href="learn.html" class="active">Learn</a>
+        </div>
+      </div>
     <div class="container">
         <h1>Academic Decathlon Math Trainer</h1>
         <div class="section-card">
