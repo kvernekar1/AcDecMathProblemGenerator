@@ -1,7 +1,3 @@
-import { GoogleGenAI } from 'https://cdn.jsdelivr.net/npm/@google/genai@0.7.0/+esm'
-        
-const ai = new GoogleGenAI({apiKey: "AIzaSyCEc4hZrMP6mgUjwho0qu3Qth0ZxlfK2uk"})
-
 export function generateNthTermSequenceProblem()
 {
     const types = ["Arithmetic", "Geometric"];
@@ -159,7 +155,6 @@ export function generateNthTermSequenceProblem()
 
 export function generateMeanMedianModeRangeVarianceStdDev()
 {
-    //make a data set that is between 5 and 10 numbers long and has values from -100 to 100
     const dataSet = [];
     const dataSetLength = Math.floor(Math.random() * 6) + 5;
     for(let i = 0; i < dataSetLength; i++)
@@ -258,14 +253,12 @@ export function generateExpectedValueVarianceStdDev()
     }
     else if(question == "variance")
     {
-        //find the variance of the expected value and probability data
         const mean = dataSet.reduce((acc, val) => acc + val * probabilities[dataSet.indexOf(val)], 0);
         answer = dataSet.reduce((acc, val) => acc + Math.pow(val - mean, 2) * probabilities[dataSet.indexOf(val)], 0);
     }
 
     else if(question == "standard deviation")
     {
-        //find the standard deviation of the expected value and probability data
         const mean = dataSet.reduce((acc, val) => acc + val * probabilities[dataSet.indexOf(val)], 0);
         const variance = dataSet.reduce((acc, val) => acc + Math.pow(val - mean, 2) * probabilities[dataSet.indexOf(val)], 0);
         answer = Math.sqrt(variance);
@@ -284,17 +277,15 @@ function generateNumbersThatSumToTarget(n)
         cuts.add(Math.floor(Math.random() * (20 - 1)) + 1);
     }
 
-    // Convert to sorted array
     const sortedCuts = Array.from(cuts).sort((a, b) => a - b);
 
-    // Use the cuts to create partitions
     const parts = [];
     let prev = 0;
     for (const cut of sortedCuts) {
         parts.push(cut - prev);
         prev = cut;
     }
-    parts.push(20 - prev); // Last segment
+    parts.push(20 - prev); 
 
     return parts;    
 }
