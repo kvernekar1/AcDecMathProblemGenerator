@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Decathlon Math Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #333;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .navbar {
+      position: sticky;
+      display: flex;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset;
+      color: white;
+      padding: 12px 24px;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      z-index: 1000;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .navbar .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo a:hover {
+      transform: translateY(-1px);
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .navbar .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .nav-links a.active {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .section-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .section-title {
+      color: #4f46e5;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e7ff;
+    }
+    
+    .topic-card {
+      background: #f8fafc;
+      border-left: 4px solid #4f46e5;
+      border-radius: 4px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .topic-heading {
+      color: #1e293b;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .math-example {
+      margin-bottom: 1.5rem;
+    }
+    
+    .math-example h4 {
+      color: #4338ca;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .steps {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .steps li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .calculator-key {
+      background: #e0e7ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+    
+    .formula {
+      background: #f1f5f9;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      display: inline-block;
+    }
+    
+    .example-box {
+      background: #f0f9ff;
+      border-left: 3px solid #0ea5e9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .formula-card {
+      background: #f8fafc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .info-box {
+      background: #f0fdf4;
+      border-left: 3px solid #22c55e;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    p {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .steps ul {
+      padding-left: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .steps ul ul {
+      padding-left: 2.5rem;
+    }
+
+    .steps ul ul ul {
+      padding-left: 3rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.5rem;
+    }
+
+    .steps ul li {
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">Academic Decathlon Math Trainer</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Trainer</a>
+          <a href="learn.html" class="active">Learn</a>
+          <a href="about.html">About the Creator/FAQ</a>
+          <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Academic Decathlon Math Learner</h1>
+        <p>Welcome to the Academic Decathlon Math Learner! This page is designed to help you quickly learn the shortcuts and techniques needed to excel in the 2025-2026 curriculum.</p>
+        <p>Before we dive into the specific topics, let's go over some general shortcuts that can help you throughout the year.</p>
+        <p>Before I proceed, I must mention that <strong>This page is not a substitute for reading the USAD Math Guide/understanding the concepts.</strong> I would suggest you become familiar with the guide and use the training page to practice concepts and the learning page as a cramming/supplementing resource.</p>
+        <p>With that said, let's get started!</p>
+        <div class="section-card">
+            <h2 class="section-title">General Shortcuts for Academic Decathlon Math for 2025-2026 Curriculum</h2>
+            <div class="topic-card">
+                <h3 class="topic-heading">Shortcut 1: Using the Calculator's Equation Solver</h3>
+                <p>Whenever you need to find the solution(s) for an equation quickly, your calculator's equation solver will come in handy. Here is how to use the Ti-84 Plus CE's built in equation solver:</p>
+                <ul class="steps">
+                    <li>Press the <span class="calculator-key">MATH</span> key, and then press up the up arrow.</li>
+                    <li>The cursor should be hovering over "Numeric Solver". Press enter.</li>
+                    <li>You will now see two boxes. One will say E1, and one will say E2. Enter the left hand side on E1 and the right hand side on E2.</li>
+                    <li>Press the <span class="calculator-key">GRAPH</span> key twice to see the solution next to where it says "X=". If there is no solution, the calculator will tell you.</li>
+                </ul>
+                <p>Now, if you need to check a specific solution, simply change the guess value(the number next to "X=") to the number you want to check and press the graph key again. If the same number comes up next to X=, then the solution is valid.</p>
+                <div class="info-box">
+                  <p>This method is particularly useful and can allow you to substitute answer choices to complete equation-related questions very quickly if you are able to type moderately fast.</p>
+                  <p>For example, lets say I  have an equation like x^2 + 4x - 5 = 0, and the answer choices were as follows:</p>
+                  <ul class="steps">
+                    <li>1, -4</li>
+                    <li>-1, 4</li>
+                    <li>-5, 4</li>
+                    <li>5, -1</li>
+                    <li>-5, 1</li>
+                  </ul>
+                  <p>In this case, I would enter x^2 + 4x - 5 on E1 and 0 on E2. </p>
+                  <p>Then I would press the graph key twice, and change the guess value to -5, 1, and 4 to check each answer choice quickly.</p>
+                  <p>In this case, I would find that the solution is -5, 1, which is the last answer choice.</p>
+                </div>
+            </div>
+            <div class="topic-card">
+                <h3 class="topic-heading">Shortcut 2: Evaluate a Function Using Your Calculator</h3>
+                <p>When you need to find the value of a function at a specific point, you can do the following:</p>
+                <ul class="steps">
+                    <li>Press the <span class="calculator-key">Y=</span>. You will see a bunch of lines saying Y1=, Y2=, etc.</li>
+                    <li>Enter your function in one of the Y= lines, using the variable X from the button that says <span class="calculator-key">X,T,θ,n</span>.</li>
+                    <li>If you want to find the value of the function at, say x = 2, you simply type in Y1(2), assuming Y1 is the line where you entered your function.</li>
+                    <li>To do this, press the <span class="calculator-key">ALPHA</span> and then <span class="calculator-key">TRACE</span>. You will get the option to choose Y1, Y2, etc.</li>
+                    <li>Click on the corresponding number, and next to that, type in parentheses around the value you want to check.</li>
+                    <li>Press enter, and the calculator will give you the value of the function at that point.</li>
+                </ul>
+              
+                <div class="info-box">
+                  <p>This method is particularly useful for quickly evaluating functions and checking for solutions in equations and inequalities swiftly.</p>
+                  <p> For example, let's say that the the problem is to find the solution set for x^2 + 5x + 6 &lt; 0, and the answer choices were as follows:</p>
+                    <ul class="steps">
+                      <li>(-inf, -3) U (-2, inf)</li>
+                      <li>(-3, -2)</li>
+                      <li>[-3, -2]</li>
+                      <li>(-6, 1)</li>
+                      <li>[-1, 6]</li>
+                    </ul>
+                  <p>In this case, I would enter x^2 + 5x + 6 on Y1, and then I would type in Y1(-3), Y1(-2), Y1(-1), Y1(6), Y1(1), and Y1(-6) since these are the points at the ends of the intervals.</p>
+                  <p>After pressing enter, I would find that Y1(-3) = 0 and Y1(-2) = 0, which means that the function is equal to 0 at those points. We can eliminate the answer choices that don't have these numbers in their intervals.</p>
+                  <p>Next, I would find Y1(-2.5), which is between the two solutions, and since this satisfies the inequality, I know now that the solution is (-3, -2) which is the second answer choice.</p>
+                </div>
+            </div>
+            <p>While both of these shortcuts can help you solve equations and inequalities quickly, in my testing, Shortcut 1 is generally faster for solving equations, while Shortcut 2 is more efficient for inequalities.</p>
+            <p>However, I still recommend practicing and being familiar with both methods, as they can be useful in different situations. And who knows? Maybe you might feel that Shortcut 2 is faster for equations! Or maybe you find a way to solve inequalities with Shortcut 1!</p>
+        </div>
+        <p>Now, let's jump in to what you need to know for this year. Instead of splitting by sections, I have split it by the following topics:</p>
+        <ul class="steps">
+          <li>Equations & Inequalities</li>
+          <li>Functions & Polynomials</li>
+          <li>Coordinate Geometry</li>
+          <li>Trigonometry</li>
+        </ul>
+        <p>Each topic will have a brief overview of the key concepts. You can practice these concepts through the "Trainer" tab.</p>
+        
+        <div class="info-box">
+          <p>Remember, practice is key to success in mathematics. Don't hesitate to revisit these topics and work through the examples and problems multiple times.</p>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Equations & Inequalities</h2>
+            <div class="topic-card">
+              <h3 class="topic-heading">Important Concepts</h3>
+              <p>Some concepts that are nice to know:</p>
+              <ul class="steps">
+                  <li>Quadratic Formula: x = (-b ± √(b² - 4ac)) / 2a, where x is the solution to the quadratic equation ax² + bx + c = 0</li>
+                  <li>Discriminant: b² - 4ac, which determines the nature of the roots of a quadratic equation.</li>
+                  <li>If b^2 - 4ac &lt; 0, then the quadratic has no real solutions. If b^2 - 4ac = 0, then the quadratic has exactly one real solution. If b^2 - 4ac > 0, then the quadratic has two distinct real solutions.</li>
+              </ul>
+            </div>
+            <div class="info-box">
+              <p>A large majority of the problems under Equations & Inequalities involve solving for the equation or inequality at hand. Learning Shortcut 1 and/or Shortcut 2 will help you tackle these problems efficiently.</p>
+              <p>Sometimes, you will need to be able to decode word problems into solvable linear/quadratic equations, and this skill gets developed through practice.</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Functions & Polynomials</h2>
+            <div class="topic-card">
+              <h3 class="topic-heading">Important Concepts</h3>
+              <p>Some concepts that are nice to know:</p>
+              <ul class="steps">
+                <li>Adding/Subtracting polynomials involve combining like terms.</li>
+                <li>Rational Root Theorem: If a polynomial has rational roots, they can be expressed as p/q, where p is a factor of the constant term and q is a factor of the leading coefficient.</li>
+                <li>Factor Theorem: A polynomial f(x) has a factor (x - c) if and only if f(c) = 0.</li>
+                <li>Remainder Theorem: When a polynomial f(x) is divided by (x - c), the remainder is f(c).</li>
+                <li>Function Transformations: </li>
+                <ul>
+                    <li>Vertical shifts: f(x) + k shifts the graph vertically by k units.</li>
+                    <li>Horizontal shifts: f(x - h) shifts the graph horizontally by h units.</li>
+                    <li>Vertical stretches/compressions: a * f(x) stretches the graph vertically by a factor of |a|.</li>
+                    <li>Reflections: -f(x) reflects the graph across the x-axis and f(-x) reflects it across the y-axis.</li>
+                    <li>Horizontal stretches/compressions: f(bx) compresses the graph horizontally by a factor of |b|.</li>
+                    <li>Vertical stretches/compressions: f(x) compresses the graph vertically by a factor of |a|.</li>
+                </ul>
+                <li> Inverses: f(x) and f^(-1)(x) are inverse functions if and only if f(f^(-1)(x)) = x and f^(-1)(f(x)) = x.</li>
+                <li> To quickly find inverses, substitute a point (a, b) into f(x) and check that substituting b into another function yields a.</li>
+                <li> Domain and Range of Radical, Rational, Logarithmic, and Exponential Functions:</li>
+                <ul>
+                    <li>Radical: The domain is all x such that the radicand is non-negative. The range is all y such that y is non-negative.</li>
+                    <li>Rational: The domain excludes values that make the denominator zero. The range can be determined by analyzing the behavior of the function.</li>
+                    <li>Logarithmic: The domain is all x such that the expression inside the log is positive. The range is all real numbers.</li>
+                    <li>Exponential: The domain is all real numbers. The range is all y > vertical shift.</li>
+                </ul>
+                <li> Note that the domain and range can be affected by transformations applied to the parent functions.</li>
+              </ul>
+            </div>
+            <div class="info-box">
+              <p>Whenever you will need to divide polynomials, you can use long division or synthetic division (only for linear divisors) to simplify the process.</p>
+            </div>
+        </div>
+        <div class="section-card">
+            <h2 class="section-title">Coordinate Geometry</h2>
+            <div class="topic-card">
+              <h3 class="topic-heading">Important Concepts</h3>
+              <p>Some concepts that are nice to know:</p>
+              <ul class="steps">
+                <li>Pythagorean Theorem: a² + b² = c², where c is the hypotenuse of a right triangle.</li>
+                <li>Distance Formula: d = √((x2 - x1)² + (y2 - y1)²), where (x1, y1) and (x2, y2) are two points in the plane.</li>
+                <li>Midpoint Formula: M = ((x1 + x2)/2, (y1 + y2)/2), which gives the midpoint between two points.</li>
+                <li>Perpendicular Bisector: The perpendicular bisector of a segment is the line that is perpendicular to the segment and passes through its midpoint.</li>
+                <li>Equation of a Circle: The equation of a circle with center (h, k) and radius r is (x - h)² + (y - k)² = r².</li>
+                <li>The diagonals of a parallelogram bisect each other.</li>
+                <li>The three perpendicular bisectors are concurrent(intersect at one point)</li>
+                <li>The three medians are concurrent at a point where it divides each median in a 2:1 ratio.</li>
+                <li>The concurrency point of the medians is the average of the coordinates of the vertices.</li>
+              </ul>
+            </div>
+            <div class="info-box">
+              <p>Drawing a diagram for these kind of problems will help visualize the relationships between points, lines, and shapes, making it easier to apply the relevant concepts and formulas.</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Trigonometry</h2>
+            <div class="topic-card">
+              <h3 class="topic-heading">Important Concepts</h3>
+              <p>Some concepts that are nice to know:</p>
+              <ul class="steps">
+                <li>Sine, Cosine, and Tangent Ratios: In a right triangle, sin(θ) = opposite/hypotenuse, cos(θ) = adjacent/hypotenuse, and tan(θ) = opposite/adjacent.</li>
+                <li>Law of Sines: a/sin(A) = b/sin(B) = c/sin(C), where a, b, and c are the lengths of the sides opposite angles A, B, and C respectively.</li>
+                <li>Law of Cosines: c² = a² + b² - 2ab * cos(C), which relates the lengths of the sides of a triangle to the cosine of one of its angles.</li>
+                <li>Graphing Trigonometric Functions:</li>
+                <ul>
+                  <li>Amplitude: The coefficient in front of the sine or cosine function, which affects the height of the waves.</li>
+                  <li>Period: 2π divided by the coefficient of x inside the function.</li>
+                </ul>
+                <li>Trigonometric Identities: Some common identities include:</li>
+                <ul>
+                  <li>sin²(θ) + cos²(θ) = 1</li>
+                  <li>tan(θ) = sin(θ)/cos(θ)</li>
+                  <li>Double Angle Identities:</li>
+                  <ul>
+                    <li>sin(2θ) = 2sin(θ)cos(θ)</li>
+                    <li>cos(2θ) = cos²(θ) - sin²(θ)</li>
+                    <li>tan(2θ) = 2tan(θ)/(1 - tan²(θ))</li>
+                  </ul>
+                  <li>Half Angle Identities:</li>
+                  <ul>
+                    <li>sin(θ/2) = ±√((1 - cos(θ))/2)</li>
+                    <li>cos(θ/2) = ±√((1 + cos(θ))/2)</li>
+                    <li>tan(θ/2) = ±sin(θ)/(1 + cos(θ))</li>
+                    <li>cot(θ/2) = ±(1 + cos(θ))/sin(θ)</li>
+                  </ul>
+                  <li>Sum and Difference Identities:</li>
+                  <ul>
+                    <li>sin(A + B) = sin(A)cos(B) + cos(A)sin(B)</li>
+                    <li>sin(A - B) = sin(A)cos(B) - cos(A)sin(B)</li>
+                    <li>cos(A + B) = cos(A)cos(B) - sin(A)sin(B)</li>
+                    <li>cos(A - B) = cos(A)cos(B) + sin(A)sin(B)</li>
+                    <li>tan(A + B) = (tan(A) + tan(B))/(1 - tan(A)tan(B))</li>
+                    <li>tan(A - B) = (tan(A) - tan(B))/(1 + tan(A)tan(B))</li>
+                  </ul>
+                  <li>Sum-to-Product Identities:</li>
+                  <ul>
+                    <li>sin(A) + sin(B) = 2sin((A + B)/2)cos((A - B)/2)</li>
+                    <li>sin(A) - sin(B) = 2cos((A + B)/2)sin((A - B)/2)</li>
+                    <li>cos(A) + cos(B) = 2cos((A + B)/2)cos((A - B)/2)</li>
+                    <li>cos(A) - cos(B) = -2sin((A + B)/2)sin((A - B)/2)</li>
+                    <li>tan(A) ± tan(B) = sin(A ± B)/(cos(A)cos(B))</li>
+                    <li>cot(A) ± cot(B) = sin(B ± A)/(sin(A)sin(B))</li>
+                  </ul>
+                  <li>Product-to-Sum Identities:</li>
+                  <ul>
+                    <li>sin(A)sin(B) = 1/2[cos(A - B) - cos(A + B)]</li>
+                    <li>cos(A)cos(B) = 1/2[cos(A - B) + cos(A + B)]</li>
+                    <li>sin(A)cos(B) = 1/2[sin(A + B) + sin(A - B)]</li>
+                  </ul>
+                </ul>
+                <li>Inverse Trigonometric Functions:</li>
+                <ul>
+                  <li>sin⁻¹(x) or arcsin(x) is the angle whose sine is x.</li>
+                  <li>cos⁻¹(x) or arccos(x) is the angle whose cosine is x.</li>
+                  <li>tan⁻¹(x) or arctan(x) is the angle whose tangent is x.</li>
+                </ul>
+                <li> Domain and Range of Trigonometric and Inverse Functions:</li>
+                <ul>
+                  <li>Domain of sin(x) and cos(x): all real numbers</li>
+                  <li>Range of sin(x): [-1, 1]</li>
+                  <li>Range of cos(x): [-1, 1]</li>
+                  <li>Domain of tan(x): all real numbers except (π/2 + nπ), where n is an integer</li>
+                  <li>Range of tan(x): all real numbers</li>
+                  <li>Domain of sin⁻¹(x): [-1, 1]</li>
+                  <li>Range of sin⁻¹(x): [-π/2, π/2]</li>
+                  <li>Domain of cos⁻¹(x): [-1, 1]</li>
+                  <li>Range of cos⁻¹(x): [0, π]</li>
+                  <li>Domain of tan⁻¹(x): all real numbers</li>
+                  <li>Range of tan⁻¹(x): (-π/2, π/2)</li>
+                </ul>
+              </ul>
+            </div>
+            <div class="info-box">
+              <p>There are A LOT of identities in trigonometry, but you don't need to remember all of them.</p>
+              <p>If a problem asks you to simplify a trig expression into another trig expression, you can simply plug in values to determine which answer choices is right.</p>
+              <p>For example, if I needed to simplify 2sin(x)cos(x), and one of the answer choices was sin(2x), I could plug in several values for x (like 30, 45, 60, and 90 degrees) to see if it holds true.</p>
+              <p>However, I would recommend familiarizing yourself with common trigonometric identities, double angle identities, and half angle identities.</p>
+              <p>Remember to use the unit circle to help visualize the relationships between angles and their corresponding sine and cosine values.</p>
+              <p>If you come across a problem that involves a trigonometric equation, use Shortcut 1 or 2 to get your answer quickly.</p>
+            </div>
+          </div>
+          <p>That is all the content I have to offer! If there are topics that I missed or stuff that I should add, please fill out the bug/feature report form and let me know! I would hate to miss anything important information.</p>
+          <p>I hope this helps, and good luck studying!</p>
+        </div>
+    </div>
+</body>
+</html>

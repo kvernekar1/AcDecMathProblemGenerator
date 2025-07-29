@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #333;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .navbar {
+      position: sticky;
+      display: flex;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset;
+      color: white;
+      padding: 12px 24px;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      z-index: 1000;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .navbar .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo a:hover {
+      transform: translateY(-1px);
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .navbar .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .nav-links a.active {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .section-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .section-title {
+      color: #4f46e5;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e7ff;
+    }
+    
+    .topic-card {
+      background: #f8fafc;
+      border-left: 4px solid #4f46e5;
+      border-radius: 4px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .topic-heading {
+      color: #1e293b;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .math-example {
+      margin-bottom: 1.5rem;
+    }
+    
+    .math-example h4 {
+      color: #4338ca;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .steps {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .steps li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .calculator-key {
+      background: #e0e7ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+    
+    .formula {
+      background: #f1f5f9;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      display: inline-block;
+    }
+    
+    .example-box {
+      background: #f0f9ff;
+      border-left: 3px solid #0ea5e9;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .formula-card {
+      background: #f8fafc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .info-box {
+      background: #f0fdf4;
+      border-left: 3px solid #22c55e;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    p {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .steps ul {
+      padding-left: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .steps ul ul {
+      padding-left: 2.5rem;
+    }
+
+    .steps ul ul ul {
+      padding-left: 3rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.5rem;
+    }
+
+    .steps ul li {
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">Academic Decathlon Math Trainer</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Trainer</a>
+          <a href="learn.html">Learn</a>
+          <a href="about.html" class="active">About the Creator/FAQ</a>
+          <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>About the Creator</h1>
+        <p>Hi guys! I'm Kedar V. I am currently a senior in high school and I created this website to help students like you prepare for the Academic Decathlon math section!</p>
+        <p>Throughout the past 3 years of me participating in Academic Decathlon, I noticed that this is the subject that most people tend to struggle with. In all the Academic Decathlon competitions I've been a part of, math has consistently seen some of the lowest scores.</p>
+        <p>Even in my school, where the Academic Decathlon class is filled with high-achieving students, math remains a challenging subject for them.</p>
+        <p>That is the reason I have created this website - to provide resources, practice problems, and guidance to help students improve their math skills and succeed in the competition.</p>
+        <h1>What makes me qualified to make this website?</h1>
+        <p>As mentioned before, I have been actively participating in Academic Decathlon for the past three years, and I have gained valuable insights into the challenges students face in the math section.</p>
+        <p>Additionally, here are some of my achievements that demonstrate my proficiency in math:</p>
+        <ul class="steps">
+          <li>Scored 900+ on the Academic Decathlon Math section at nationals, earning me 4th place.</li>
+          <li>Qualified for the American Invitational Mathematics Examination (AIME) four times in a row.</li>
+          <li>Placed 8th in the UIL Number Sense State Competition out of the 830 UIL District competitors (top 0.96% in the state).</li>
+        </ul>
+        <p>All these accomplishments I have listed require a need to do math problems both quickly and accurately, and I hope to convey what I have learned through gaining accomplishments like those listed above.</p>
+        <h1>What is the goal of this website?</h1>
+        <p>From my experiences, I found out that the goal to getting such a high score (aside from learning the content thoroughly) is to <strong>practice consistently</strong>.</p>
+        <p>Practicing these problems consistently is the only way to gain the intuition needed to solve them quickly and accurately, which is the name of the game for Academic Decathlon Math.</p>
+        <p>Therefore, the goal of this website is to provide you with a platform to practice these problems consistently and effectively to help you gain the intuition you need to do well.</p>
+        <p>This website provides you with virtually unlimited amounts of practice problems (which are AI-generated), as well as the ability to practice by topic and to test yourself using the test feature.</p>
+    </div>
+</body>
+</html>

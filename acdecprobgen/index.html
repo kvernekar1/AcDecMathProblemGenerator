@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Decathlon Math Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #333;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .navbar {
+      position: sticky;
+      display: flex;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset;
+      color: white;
+      padding: 12px 24px;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      z-index: 1000;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .navbar .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo a:hover {
+      transform: translateY(-1px);
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .navbar .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .nav-links a.active {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+      background: #f8f9fa;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    #test-options select {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      min-width: 80px;
+    }
+
+    #test-options input[type="number"] {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      width: 80px;
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+      background: #f8f9fa;
+      cursor: text;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    #test-options input[type="number"]:hover {
+      border-color: #667eea;
+      background: white;
+    }
+
+    #test-options input[type="number"]:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    select:hover {
+      border-color: #667eea;
+      background: white;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .generate-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+
+    .question-box {
+      margin-bottom: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      color: #333;
+    }
+
+    .options button:hover {
+      background: #e9ecef;
+      border-color: #667eea;
+    }
+
+    .options button.selected {
+      background: #667eea;
+      border-color: #667eea;
+      color: white;
+    }
+
+    .answer-field {
+      margin-bottom: 1rem;
+    }
+
+    #answer {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      background: white;
+      color: #333;
+      outline: none;
+    }
+
+    #answer:focus {
+      border-color: #667eea;
+    }
+
+    #answer::placeholder {
+      color: #6c757d;
+    }
+
+    .explanation {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .explanation h4 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .test-container {
+      display: none;
+    }
+
+    .timer {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .timer.warning {
+      background: #fff3cd;
+      border-color: #ffeaa7;
+      color: #856404;
+    }
+
+    .timer.danger {
+      background: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+    }
+
+    .test-question {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .test-question h3 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .test-question .test-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .test-question .test-option {
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .test-question .test-option:hover {
+      background: #e9ecef;
+      border-color: #667eea;
+    }
+
+    .test-question .test-option.selected {
+      background: #667eea;
+      border-color: #667eea;
+      color: white;
+    }
+
+    .test-question .test-option.correct {
+      background: #28a745;
+      border-color: #28a745;
+      color: white;
+    }
+
+    .test-question .test-option.incorrect {
+      background: #dc3545;
+      border-color: #dc3545;
+      color: white;
+    }
+
+    .test-question .test-option.not-selected {
+      background: #f8f9fa;
+      border-color: #e9ecef;
+      color: #6c757d;
+    }
+
+    .submit-test-btn {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .submit-test-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+    }
+
+    .topic-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1.5rem 0;
+      justify-content: center;
+    }
+
+    .topic-chip {
+      padding: 12px 20px;
+      border-radius: 25px;
+      border: 2px solid rgba(79, 70, 229, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      color: #4f46e5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .topic-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+      border-color: rgba(79, 70, 229, 0.5);
+    }
+
+    .topic-chip.selected {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(79, 70, 229, 0.4);
+    }
+
+    .topic-chip.selected:hover {
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.5);
+    }
+
+    .topic-chip span {
+      font-size: 1.1em;
+    }
+
+    .topic-selector-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .topic-selector-title {
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+        <a href="#">Academic Decathlon Math Trainer</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Trainer</a>
+      <a href="learn.html">Learn</a>
+      <a href="about.html">About the Creator/FAQ</a>
+      <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h1>Academic Decathlon Math Trainer</h1>
+    <div class="controls">
+      <select id="mode">
+        <option value="practice">Practice Mode</option>
+        <option value="test">Test Mode</option>
+      </select>
+      <div id="test-options" style="display: none; gap: 1rem; align-items: center;">
+        <div>
+          <label for="question-count" style="margin-right: 0.5rem; font-weight: 500;">Questions:</label>
+          <input type="number" id="question-count" min="1" max="50" value="45" style="width: 80px; padding: 0.4rem 0.8rem; font-size: 0.9rem; border-radius: 8px; border: 2px solid #e9ecef; background: #f8f9fa;">
+        </div>
+        <div>
+          <label for="time-limit" style="margin-right: 0.5rem; font-weight: 500;">Time (min):</label>
+          <input type="number" id="time-limit" min="1" max="60" value="30" style="width: 80px; padding: 0.4rem 0.8rem; font-size: 0.9rem; border-radius: 8px; border: 2px solid #e9ecef; background: #f8f9fa;">
+        </div>
+      </div>
+      <button class="generate-btn" id="generate-btn">Generate Question</button>
+    </div>
+
+    <div class="topic-selector-container">
+      <div class="topic-selector-title">Choose Topics to Practice</div>
+      <div class="topic-selector">
+        <div class="topic-chip selected" data-topic="equations">Equations & Inequalities</div>
+        <div class="topic-chip selected" data-topic="functions">Functions & Polynomials</div>
+        <div class="topic-chip selected" data-topic="geometry">Coordinate Geometry</div>
+        <div class="topic-chip selected" data-topic="trigonometry">Trigonometry</div>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="question-text" id="question">Select a mode and generate a question.</div>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="test-container" id="test-container">
+      <div class="timer" id="timer">Time Remaining: --:--</div>
+      <div id="test-questions"></div>
+      <button class="submit-test-btn" id="submit-test">Submit Test</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { generateEquationProblem, generateFunctionProblem, generateTrigonometryProblem, generateCoordinateGeometryProblem} from './src/generator.js';
+
+    let selectedTopics = ['equations', 'functions', 'geometry', 'trigonometry'];
+    
+    document.querySelectorAll('.topic-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+        
+        selectedTopics = Array.from(document.querySelectorAll('.topic-chip.selected'))
+          .map(chip => chip.dataset.topic);
+        
+        if (selectedTopics.length === 0) {
+          document.getElementById("question").textContent = "Please select at least one topic to practice.";
+          document.getElementById("options").innerHTML = "";
+        }
+      });
+    });
+
+    function getRandomSelectedTopic() {
+      if (selectedTopics.length === 0) return null;
+      return selectedTopics[Math.floor(Math.random() * selectedTopics.length)];
+    }
+
+    document.getElementById("mode").addEventListener("change", () => {
+      const mode = document.getElementById("mode").value;
+      const btn = document.getElementById("generate-btn");
+      const testOptions = document.getElementById("test-options");
+      const txt = document.getElementById("question");
+      
+      if (mode === "test") {
+        btn.textContent = "Generate Test";
+        testOptions.style.display = "flex";
+        txt.textContent = "";
+        document.getElementById("options").innerHTML = "";
+        updateTestDescription();
+      } else {
+        btn.textContent = "Generate Question";
+        testOptions.style.display = "none";
+        txt.textContent = "Select a mode and generate a question.";
+        document.getElementById("options").innerHTML = "";
+      }
+    });
+
+    function updateTestDescription() {
+      const questionCount = document.getElementById("question-count").value;
+      const timeLimit = document.getElementById("time-limit").value;
+      const txt = document.getElementById("question");
+      
+      const numQuestions = parseInt(questionCount);
+      const numMinutes = parseInt(timeLimit);
+      
+      if (isNaN(numQuestions) || numQuestions < 1 || numQuestions > 50) {
+        txt.textContent = "Please enter a valid number of questions (1-50).";
+        return;
+      }
+      
+      if (isNaN(numMinutes) || numMinutes < 1 || numMinutes > 60) {
+        txt.textContent = "Please enter a valid time limit (1-60 minutes).";
+        return;
+      }
+      
+      txt.textContent = `Generate a ${questionCount}-question, ${timeLimit}-minute test.`;
+    }
+
+    document.getElementById("question-count").addEventListener("input", updateTestDescription);
+    document.getElementById("time-limit").addEventListener("input", updateTestDescription);
+
+    let testTimer = null;
+    let testQuestions = [];
+    let testAnswers = {};
+  
+    document.getElementById("generate-btn").addEventListener("click", async () => {
+      const mode = document.getElementById("mode").value;
+      
+      if (mode === "test") {
+        await generateTest();
+      } else {
+        const availableGenerators = getAvailableGenerators();
+        
+        if (availableGenerators.length === 0) {
+          document.getElementById("question").textContent = "Please select at least one topic to practice.";
+          document.getElementById("options").innerHTML = "";
+          return;
+        }
+        
+        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+        const result = await generator();
+        const { question, answer, A, B, C, D, E, explanation } = result;
+        const options = A ? { A, B, C, D, E } : null;
+        renderQuestion(question, answer, options, explanation);
+      }
+    });
+
+    async function generateTest() {
+      const questionCount = parseInt(document.getElementById("question-count").value);
+      const timeLimit = parseInt(document.getElementById("time-limit").value);
+      
+      if (isNaN(questionCount) || questionCount < 1 || questionCount > 50) {
+        alert("Please enter a valid number of questions (1-50).");
+        return;
+      }
+      
+      if (isNaN(timeLimit) || timeLimit < 1 || timeLimit > 60) {
+        alert("Please enter a valid time limit (1-60 minutes).");
+        return;
+      }
+
+      const availableGenerators = getAvailableGenerators();
+      
+      if (availableGenerators.length === 0) {
+        alert("Please select at least one topic to generate a test.");
+        return;
+      }
+
+      document.querySelector('.question-box').style.display = 'none';
+      document.getElementById('test-container').style.display = 'block';
+      
+      testQuestions = [];
+      testAnswers = {};
+      const testQuestionsContainer = document.getElementById('test-questions');
+      testQuestionsContainer.innerHTML = '<p>Generating questions...</p>';
+      
+      for (let i = 0; i < questionCount; i++) {
+        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+        const result = await generator();
+        testQuestions.push(result);
+      }
+      
+      renderTestQuestions();
+      
+      startTimer(timeLimit);
+      
+      document.getElementById('submit-test').addEventListener('click', submitTest);
+    }
+
+    function renderTestQuestions() {
+      const container = document.getElementById('test-questions');
+      container.innerHTML = '';
+      
+      testQuestions.forEach((q, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'test-question';
+        
+        const questionText = document.createElement('h3');
+        questionText.textContent = `Question ${index + 1}: ${q.question}`;
+        
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'test-options';
+        
+        ['A', 'B', 'C', 'D', 'E'].forEach(choice => {
+          const optionDiv = document.createElement('div');
+          optionDiv.className = 'test-option';
+          optionDiv.textContent = `${choice}) ${q[choice]}`;
+          optionDiv.onclick = () => selectTestAnswer(index, choice);
+          optionsDiv.appendChild(optionDiv);
+        });
+        
+        questionDiv.appendChild(questionText);
+        questionDiv.appendChild(optionsDiv);
+        container.appendChild(questionDiv);
+      });
+    }
+
+    function selectTestAnswer(questionIndex, choice) {
+      const questionDiv = document.querySelectorAll('.test-question')[questionIndex];
+      questionDiv.querySelectorAll('.test-option').forEach(opt => opt.classList.remove('selected'));
+      
+      event.target.classList.add('selected');
+      testAnswers[questionIndex] = choice;
+    }
+
+    function startTimer(minutes) {
+      let timeLeft = minutes * 60;
+      const timerElement = document.getElementById('timer');
+      
+      testTimer = setInterval(() => {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timerElement.textContent = `Time Remaining: ${mins}:${secs.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 60) {
+          timerElement.className = 'timer danger';
+        } else if (timeLeft <= 300) {
+          timerElement.className = 'timer warning';
+        } else {
+          timerElement.className = 'timer';
+        }
+        
+        if (timeLeft <= 0) {
+          clearInterval(testTimer);
+          submitTest();
+        }
+        
+        timeLeft--;
+      }, 1000);
+    }
+
+    function submitTest() {
+      if (testTimer) {
+        clearInterval(testTimer);
+      }
+      
+      document.querySelector('.controls').style.display = 'none';
+      document.querySelector('.question-box').style.display = 'none';
+      document.getElementById('timer').style.display = 'none';
+      
+      let correct = 0;
+      let total = testQuestions.length;
+      
+      testQuestions.forEach((q, index) => {
+        const questionDiv = document.querySelectorAll('.test-question')[index];
+        const userAnswer = testAnswers[index];
+        const correctAnswer = q.answer;
+        
+        if (userAnswer === correctAnswer) {
+          correct++;
+        }
+        
+        ['A', 'B', 'C', 'D', 'E'].forEach((choice, choiceIndex) => {
+          const optionDiv = questionDiv.querySelectorAll('.test-option')[choiceIndex];
+          
+          if (choice === correctAnswer) {
+            optionDiv.classList.add('correct');
+            optionDiv.classList.remove('selected');
+          } else if (choice === userAnswer && userAnswer !== correctAnswer) {
+            optionDiv.classList.add('incorrect');
+            optionDiv.classList.remove('selected');
+          } else {
+            optionDiv.classList.add('not-selected');
+            optionDiv.classList.remove('selected');
+          }
+          
+          optionDiv.onclick = null;
+          optionDiv.style.cursor = 'default';
+        });
+      });
+      
+      const percentage = ((correct / total) * 100).toFixed(3);
+      
+      const submitButton = document.getElementById('submit-test');
+      submitButton.textContent = 'Return to Practice Mode';
+      submitButton.removeEventListener('click', submitTest);
+      submitButton.addEventListener('click', returnToPractice);
+      
+      const resultsDiv = document.createElement('div');
+      resultsDiv.id = 'test-results';
+      resultsDiv.innerHTML = `
+        <div style="background: #e7f3ff; border: 2px solid #0066cc; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center;">
+          <h3 style="color: #0066cc; margin-bottom: 0.5rem;">Test Results</h3>
+          <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Score: ${correct}/${total} (${percentage}%)</p>
+          <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Academic Decathlon Score: ${(percentage * 10).toFixed(1)}</p>
+          <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">You answered ${correct} out of ${total} questions correctly.</p>
+          <p style="color: #666; font-size: 0.9rem;">
+            <span style="color: #28a745;">■</span> Correct Answer 
+            <span style="color: #dc3545; margin-left: 1rem;">■</span> Your Wrong Answer 
+            <span style="color: #6c757d; margin-left: 1rem;">■</span> Not Selected
+          </p>
+        </div>
+      `;
+      
+      const testContainer = document.getElementById('test-container');
+      testContainer.appendChild(resultsDiv);
+    }
+
+    function returnToPractice() {
+      document.querySelector('.controls').style.display = 'flex';
+      document.querySelector('.question-box').style.display = 'block';
+      document.getElementById('timer').style.display = 'block';
+      
+      document.getElementById('test-container').style.display = 'none';
+      document.getElementById('timer').className = 'timer';
+      document.getElementById('timer').textContent = 'Time Remaining: --:--';
+      
+      const submitButton = document.getElementById('submit-test');
+      submitButton.textContent = 'Submit Test';
+      submitButton.removeEventListener('click', returnToPractice);
+      submitButton.addEventListener('click', submitTest);
+      
+      const existingResults = document.getElementById('test-results');
+      if (existingResults) {
+        existingResults.remove();
+      }
+    }
+  
+    const generators = [
+      generateEquationProblem,
+      generateFunctionProblem,
+      generateTrigonometryProblem,
+      generateCoordinateGeometryProblem
+    ];
+
+    function getAvailableGenerators() {
+      const topicGeneratorMap = {
+        'equations': generateEquationProblem,
+        'functions': generateFunctionProblem,
+        'trigonometry': generateTrigonometryProblem,
+        'geometry': generateCoordinateGeometryProblem
+      };
+      
+      return selectedTopics.map(topic => topicGeneratorMap[topic]).filter(gen => gen);
+    }
+  
+    function renderQuestion(q, a, options = null, explanation = null) {
+      document.getElementById("question").textContent = q;
+      const optionsBox = document.getElementById("options");
+      
+      if (options && options.A) {
+        optionsBox.innerHTML = `
+          <div class="multiple-choice">
+            <button class="option-btn" data-choice="A">A) ${options.A}</button>
+            <button class="option-btn" data-choice="B">B) ${options.B}</button>
+            <button class="option-btn" data-choice="C">C) ${options.C}</button>
+            <button class="option-btn" data-choice="D">D) ${options.D}</button>
+            <button class="option-btn" data-choice="E">E) ${options.E}</button>
+          </div>
+          <button class='generate-btn' id='check-answer'>Check Answer</button>
+          <button class='generate-btn' id='next-question'>Next Question</button>
+          <div id='feedback'></div>
+        `;
+        
+        let selectedChoice = null;
+        
+        document.querySelectorAll('.option-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedChoice = this.dataset.choice;
+          });
+        });
+        
+        document.getElementById('check-answer').addEventListener('click', function () {
+          const feedback = document.getElementById('feedback');
+          if (!selectedChoice) {
+            feedback.textContent = "Please select an answer.";
+            feedback.style.color = "orange";
+            return;
+          }
+          
+          if (selectedChoice === a) {
+            feedback.innerHTML = `<div style="color: green; margin-bottom: 1rem;">Correct!</div>`;
+          } else {
+            feedback.innerHTML = `<div style="color: red; margin-bottom: 1rem;">Incorrect. The correct answer is ${a}) ${options[a]}.</div>`;
+          }
+          
+          if (explanation) {
+            feedback.innerHTML += `<div class="explanation"><h4>Explanation:</h4>${explanation}</div>`;
+          }
+        });
+        
+      } 
+      else 
+      {
+        optionsBox.innerHTML = `
+          <div class="answer-field">
+            <input type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
+          </div>
+          <button class='generate-btn' id='check-answer'>Check Answer</button>
+          <button class='generate-btn' id='next-question'>Next Question</button>
+          <div id='feedback'></div>
+        `;
+
+        document.getElementById('check-answer').addEventListener('click', function () {
+          const userAnswer = document.getElementById('answer').value.trim();
+          const feedback = document.getElementById('feedback');
+          if (userAnswer == a) {
+            feedback.innerHTML = `<div style="color: green; margin-bottom: 1rem;">Correct!</div>`;
+          } else {
+            feedback.innerHTML = `<div style="color: red; margin-bottom: 1rem;">Incorrect. The correct answer is ${a}.</div>`;
+          }
+          
+          if (explanation) {
+            feedback.innerHTML += `<div class="explanation"><h4>Explanation:</h4>${explanation}</div>`;
+          }
+        });
+      }
+
+      document.getElementById('next-question').addEventListener('click', async function () {
+        const availableGenerators = getAvailableGenerators();
+        
+        if (availableGenerators.length === 0) {
+          document.getElementById("question").textContent = "Please select at least one topic to practice.";
+          document.getElementById("options").innerHTML = "";
+          return;
+        }
+        
+        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+        const result = await generator();
+        const { question, answer, A, B, C, D, E, explanation } = result;
+        const options = A ? { A, B, C, D, E } : null;
+        renderQuestion(question, answer, options, explanation);
+      });
+    }
+  </script>  
+</body>
+</html>
