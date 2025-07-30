@@ -1,6 +1,7 @@
 export async function generateEquationProblem() {
   try {
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_PORT}/generate-problem1`, {
+    // Use relative URL that works in both development and production
+    const response = await fetch('/generate-problem1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });
@@ -31,7 +32,7 @@ export async function generateEquationProblem() {
 export async function generateCoordinateGeometryProblem()
 {
     try {
-    const response = await fetch(`http://localhost:${import.meta.env.VITE_PORT}/generate-problem2`, {
+    const response = await fetch('/generate-problem2', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });
@@ -62,7 +63,7 @@ export async function generateCoordinateGeometryProblem()
 export async function generateTrigonometryProblem()
 {
     try {
-        const response = await fetch(`http://localhost:${import.meta.env.VITE_PORT}/generate-problem3`, {
+        const response = await fetch('/generate-problem3', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -93,7 +94,7 @@ export async function generateTrigonometryProblem()
 export async function generateFunctionProblem()
 {
     try {
-        const response = await fetch(`http://localhost:${import.meta.env.VITE_PORT}/generate-problem4`, {
+        const response = await fetch('/generate-problem4', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });
