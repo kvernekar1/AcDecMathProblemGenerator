@@ -17758,5 +17758,1505 @@
     "E": "[ -2, infinity)",
     "answer": "A",
     "explanation": "The absolute value |x + 2| always yields a non-negative value, with a minimum of 0. Thus, the minimum value of |x + 2| - 1 is 0 - 1 = -1. The function can take any value greater than or equal to -1."
+  },
+  {
+    "question": "Simplify: (4x^3 - 2x^2 + 5x - 1) + (-x^3 + 3x^2 - 2x + 7)",
+    "A": "3x^3 + x^2 + 3x + 6",
+    "B": "5x^3 + x^2 + 7x + 6",
+    "C": "3x^3 + 5x^2 + 3x + 6",
+    "D": "3x^3 - x^2 + 3x - 8",
+    "E": "3x^3 + x^2 + 7x + 6",
+    "answer": "A",
+    "explanation": "Combine like terms by adding coefficients for each power of x: (4-1)x^3 + (-2+3)x^2 + (5-2)x + (-1+7) = 3x^3 + x^2 + 3x + 6."
+  },
+  {
+    "question": "Find the range of f(x) = 2(x + 1)^2 - 3.",
+    "A": "y >= -3",
+    "B": "y <= -3",
+    "C": "y >= 1",
+    "D": "y >= 0",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "This is a parabola opening upwards (due to the positive leading coefficient) with its vertex at (-1, -3). The minimum y-value is the y-coordinate of the vertex, so the range is y >= -3."
+  },
+  {
+    "question": "Simplify: (3 + 4i)(2 - i)",
+    "A": "10 + 5i",
+    "B": "2 + 5i",
+    "C": "10 + 11i",
+    "D": "6 - 4i",
+    "E": "2 - 11i",
+    "answer": "A",
+    "explanation": "Multiply using FOIL: (3)(2) + (3)(-i) + (4i)(2) + (4i)(-i) = 6 - 3i + 8i - 4i^2. Since i^2 = -1, this simplifies to 6 + 5i + 4 = 10 + 5i."
+  },
+  {
+    "question": "Completely factor the polynomial P(x) = x^4 - 13x^2 + 36.",
+    "A": "(x - 2)(x + 2)(x - 3)(x + 3)",
+    "B": "(x^2 - 4)(x^2 + 9)",
+    "C": "(x - 2)^2 (x - 3)^2",
+    "D": "(x - 6)(x + 6)(x - 1)(x + 1)",
+    "E": "(x^2 - 6)(x^2 + 6)",
+    "answer": "A",
+    "explanation": "Let y = x^2. The expression becomes y^2 - 13y + 36, which factors as (y - 4)(y - 9). Substitute x^2 back for y: (x^2 - 4)(x^2 - 9). Both are differences of squares: (x - 2)(x + 2)(x - 3)(x + 3)."
+  },
+  {
+    "question": "The graph of f(x) is transformed to g(x) = -f(x - 3) + 2. Describe the transformations.",
+    "A": "Shift right 3 units, reflect over x-axis, shift up 2 units.",
+    "B": "Shift left 3 units, reflect over x-axis, shift up 2 units.",
+    "C": "Shift right 3 units, reflect over y-axis, shift up 2 units.",
+    "D": "Shift right 3 units, reflect over x-axis, shift down 2 units.",
+    "E": "Shift left 3 units, reflect over y-axis, shift down 2 units.",
+    "answer": "A",
+    "explanation": "The (x - 3) indicates a horizontal shift right by 3 units. The negative sign before f(x) indicates a reflection over the x-axis. The + 2 indicates a vertical shift up by 2 units."
+  },
+  {
+    "question": "Find the inverse function of f(x) = 5x + 2.",
+    "A": "f^(-1)(x) = (x - 2) / 5",
+    "B": "f^(-1)(x) = (x + 2) / 5",
+    "C": "f^(-1)(x) = 5x - 2",
+    "D": "f^(-1)(x) = 2x + 5",
+    "E": "f^(-1)(x) = x/5 + 2",
+    "answer": "A",
+    "explanation": "Let y = 5x + 2. Swap x and y to get x = 5y + 2. Solve for y: x - 2 = 5y, so y = (x - 2) / 5. Thus, f^(-1)(x) = (x - 2) / 5."
+  },
+  {
+    "question": "Simplify: (8 - i) - (3 + 5i)",
+    "A": "5 - 6i",
+    "B": "11 + 4i",
+    "C": "5 + 4i",
+    "D": "11 - 6i",
+    "E": "5 - 4i",
+    "answer": "A",
+    "explanation": "Distribute the negative sign to the second complex number, then combine real parts and imaginary parts separately: (8 - 3) + (-1 - 5)i = 5 - 6i."
+  },
+  {
+    "question": "Divide (x^3 + 2x^2 - 5x - 6) by (x - 2).",
+    "A": "x^2 + 4x + 3",
+    "B": "x^2 + 4x - 3",
+    "C": "x^2 - 4x - 3",
+    "D": "x^2 - 4x + 3",
+    "E": "x^2 + 3x + 4",
+    "answer": "A",
+    "explanation": "Using synthetic division with 2 as the divisor: Coefficients are 1, 2, -5, -6. Bring down 1. 2*1=2, 2+2=4. 2*4=8, -5+8=3. 2*3=6, -6+6=0. The resulting coefficients are 1, 4, 3, 0. So the quotient is x^2 + 4x + 3."
+  },
+  {
+    "question": "The graph of f(x) is transformed to g(x) = f(2x + 4). Describe the transformations.",
+    "A": "Horizontal shrink by factor of 0.5, shift left 2 units.",
+    "B": "Horizontal stretch by factor of 2, shift left 4 units.",
+    "C": "Horizontal shrink by factor of 2, shift left 4 units.",
+    "D": "Horizontal shrink by factor of 0.5, shift left 4 units.",
+    "E": "Horizontal shrink by factor of 0.5, shift right 2 units.",
+    "answer": "A",
+    "explanation": "First, factor out the coefficient of x from inside the function: g(x) = f(2(x + 2)). The '2' inside indicates a horizontal shrink by a factor of 1/2 (or 0.5). The '+2' indicates a horizontal shift left by 2 units."
+  },
+  {
+    "question": "Find all real roots of P(x) = x^3 - 6x^2 + 11x - 6.",
+    "A": "x = 1, x = 2, x = 3",
+    "B": "x = -1, x = 2, x = 3",
+    "C": "x = 1, x = -2, x = 3",
+    "D": "x = 1, x = 2, x = -3",
+    "E": "x = 1, x = -1, x = 6",
+    "answer": "A",
+    "explanation": "By the Rational Root Theorem, possible rational roots are divisors of 6: +-1, +-2, +-3, +-6. Test P(1) = 1 - 6 + 11 - 6 = 0, so x=1 is a root. Divide P(x) by (x-1) using synthetic division to get x^2 - 5x + 6. Factor x^2 - 5x + 6 = (x - 2)(x - 3). Thus, the roots are 1, 2, and 3."
+  },
+  {
+    "question": "Find the domain of f(x) = sqrt(5 - x).",
+    "A": "x <= 5",
+    "B": "x >= 5",
+    "C": "x < 5",
+    "D": "x > 5",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "For a real-valued square root function, the expression under the radical must be non-negative. So, 5 - x >= 0, which implies 5 >= x or x <= 5."
+  },
+  {
+    "question": "Simplify: (5 - 2i)^2",
+    "A": "21 - 20i",
+    "B": "29 - 20i",
+    "C": "21 + 20i",
+    "D": "29 + 20i",
+    "E": "25 - 4i",
+    "answer": "A",
+    "explanation": "Expand as (5 - 2i)(5 - 2i) = 25 - 10i - 10i + 4i^2. Substitute i^2 = -1: 25 - 20i - 4 = 21 - 20i."
+  },
+  {
+    "question": "Expand and simplify: (x + 1)(x - 3)(x + 2)",
+    "A": "x^3 - 7x - 6",
+    "B": "x^3 - 4x^2 - x - 6",
+    "C": "x^3 - 2x^2 - 5x + 6",
+    "D": "x^3 + 0x^2 - 7x - 6",
+    "E": "x^3 - 2x^2 - 7x - 6",
+    "answer": "A",
+    "explanation": "First multiply (x + 1)(x - 3) = x^2 - 3x + x - 3 = x^2 - 2x - 3. Then multiply (x^2 - 2x - 3)(x + 2) = x^3 + 2x^2 - 2x^2 - 4x - 3x - 6 = x^3 - 7x - 6."
+  },
+  {
+    "question": "Find the range of f(x) = -|x - 2| + 4.",
+    "A": "y <= 4",
+    "B": "y >= 4",
+    "C": "y <= -2",
+    "D": "y >= -2",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "This is an absolute value function opening downwards (due to the negative sign) with its vertex at (2, 4). The maximum y-value is the y-coordinate of the vertex, so the range is y <= 4."
+  },
+  {
+    "question": "If (x - 2) is a factor of P(x) = x^3 + ax^2 - 7x - 4, what is the value of 'a'?",
+    "A": "2.500",
+    "B": "-2.500",
+    "C": "1.500",
+    "D": "-1.500",
+    "E": "3.500",
+    "answer": "A",
+    "explanation": "By the Factor Theorem, if (x - 2) is a factor, then P(2) = 0. Substitute x=2 into the polynomial: (2)^3 + a(2)^2 - 7(2) - 4 = 0. This simplifies to 8 + 4a - 14 - 4 = 0, which means 4a - 10 = 0. Solving for 'a' gives 4a = 10, so a = 2.5."
+  },
+  {
+    "question": "The graph of f(x) is transformed to g(x) = 3f(x) - 1. Describe the transformations.",
+    "A": "Vertical stretch by factor of 3, shift down 1 unit.",
+    "B": "Vertical shrink by factor of 3, shift down 1 unit.",
+    "C": "Vertical stretch by factor of 3, shift up 1 unit.",
+    "D": "Horizontal stretch by factor of 3, shift down 1 unit.",
+    "E": "Horizontal shrink by factor of 3, shift down 1 unit.",
+    "answer": "A",
+    "explanation": "The '3' multiplying f(x) indicates a vertical stretch by a factor of 3. The '-1' indicates a vertical shift down by 1 unit."
+  },
+  {
+    "question": "Simplify: (5 + 3i) + (2 - 7i)",
+    "A": "7 - 4i",
+    "B": "3 - 4i",
+    "C": "7 + 10i",
+    "D": "7 + 4i",
+    "E": "3 + 10i",
+    "answer": "A",
+    "explanation": "Add the real parts and the imaginary parts separately: (5 + 2) + (3 - 7)i = 7 - 4i."
+  },
+  {
+    "question": "Find the remainder when (2x^4 - 5x^3 + 3x^2 - x + 1) is divided by (x + 1).",
+    "A": "12",
+    "B": "-10",
+    "C": "4",
+    "D": "-4",
+    "E": "0",
+    "answer": "A",
+    "explanation": "By the Remainder Theorem, the remainder is P(-1). Substitute x = -1 into the polynomial: 2(-1)^4 - 5(-1)^3 + 3(-1)^2 - (-1) + 1 = 2(1) - 5(-1) + 3(1) + 1 + 1 = 2 + 5 + 3 + 1 + 1 = 12."
+  },
+  {
+    "question": "Find the domain of f(x) = 1 / (x^2 - 9).",
+    "A": "x != 3, x != -3",
+    "B": "x != 9",
+    "C": "x > 3",
+    "D": "All real numbers",
+    "E": "x != 0",
+    "answer": "A",
+    "explanation": "For a rational function, the denominator cannot be zero. So, x^2 - 9 != 0, which means (x - 3)(x + 3) != 0. Therefore, x != 3 and x != -3."
+  },
+  {
+    "question": "Which of the following is a factor of P(x) = x^3 - 7x + 6?",
+    "A": "(x - 2)",
+    "B": "(x + 1)",
+    "C": "(x - 3)",
+    "D": "(x + 3)",
+    "E": "(x - 1)",
+    "answer": "A",
+    "explanation": "Use the Factor Theorem. Test P(2) = (2)^3 - 7(2) + 6 = 8 - 14 + 6 = 0. Since P(2) = 0, (x - 2) is a factor."
+  },
+  {
+    "question": "Find the inverse function of f(x) = (3x - 1) / (x + 2).",
+    "A": "f^(-1)(x) = (-2x - 1) / (x - 3)",
+    "B": "f^(-1)(x) = (2x + 1) / (3 - x)",
+    "C": "f^(-1)(x) = (x + 2) / (3x - 1)",
+    "D": "f^(-1)(x) = (x - 2) / (3x + 1)",
+    "E": "f^(-1)(x) = (3x + 1) / (x - 2)",
+    "answer": "A",
+    "explanation": "Let y = (3x - 1) / (x + 2). Swap x and y: x = (3y - 1) / (y + 2). Multiply both sides by (y + 2): x(y + 2) = 3y - 1. Expand: xy + 2x = 3y - 1. Rearrange to group y terms: 2x + 1 = 3y - xy. Factor out y: 2x + 1 = y(3 - x). Solve for y: y = (2x + 1) / (3 - x) which is equivalent to (-2x - 1) / (x - 3)."
+  },
+  {
+    "question": "Describe the transformation from y = x^2 to y = -2(x + 1)^2 + 5.",
+    "A": "Shift left 1, vertical stretch by 2, reflect over x-axis, shift up 5.",
+    "B": "Shift right 1, vertical stretch by 2, reflect over x-axis, shift up 5.",
+    "C": "Shift left 1, vertical shrink by 2, reflect over x-axis, shift up 5.",
+    "D": "Shift left 1, vertical stretch by 2, reflect over y-axis, shift up 5.",
+    "E": "Shift left 1, vertical stretch by 2, reflect over x-axis, shift down 5.",
+    "answer": "A",
+    "explanation": "The (x + 1) indicates a horizontal shift left by 1 unit. The '2' indicates a vertical stretch by a factor of 2. The negative sign before '2' indicates a reflection over the x-axis. The '+5' indicates a vertical shift up by 5 units."
+  },
+  {
+    "question": "Find the real part of (6 - 3i) / (2 - i).",
+    "A": "3.000",
+    "B": "2.000",
+    "C": "1.000",
+    "D": "0.000",
+    "E": "4.000",
+    "answer": "A",
+    "explanation": "Multiply the numerator and denominator by the conjugate of the denominator: ((6 - 3i)(2 + i)) / ((2 - i)(2 + i)). Numerator: 12 + 6i - 6i - 3i^2 = 12 + 3 = 15. Denominator: 2^2 + (-1)^2 = 4 + 1 = 5. The result is 15 / 5 = 3. The real part is 3."
+  },
+  {
+    "question": "Simplify: (7x^4 + 3x^2 - x + 9) - (2x^4 - x^3 + 4x^2 - 5x + 3)",
+    "A": "5x^4 + x^3 - x^2 + 4x + 6",
+    "B": "5x^4 - x^3 - x^2 - 6x + 6",
+    "C": "9x^4 + x^3 + 7x^2 - 6x + 12",
+    "D": "5x^4 - x^3 + x^2 - 6x + 6",
+    "E": "5x^4 + x^3 + 7x^2 + 4x + 6",
+    "answer": "A",
+    "explanation": "Distribute the negative sign to the second polynomial then combine like terms for each power of x: (7-2)x^4 + (0-(-1))x^3 + (3-4)x^2 + (-1-(-5))x + (9-3) = 5x^4 + x^3 + (-1)x^2 + 4x + 6."
+  },
+  {
+    "question": "Find all rational roots of P(x) = 2x^3 - x^2 - 7x + 6.",
+    "A": "x = 1, x = 3/2, x = -2",
+    "B": "x = 1, x = 2/3, x = -2",
+    "C": "x = -1, x = 3/2, x = 2",
+    "D": "x = 1, x = -3/2, x = 2",
+    "E": "x = 1, x = -1, x = 3/2",
+    "answer": "A",
+    "explanation": "Possible rational roots (p/q) are divisors of 6 (p) over divisors of 2 (q). Test P(1) = 2-1-7+6 = 0, so x=1 is a root. Divide P(x) by (x-1) to get 2x^2 + x - 6. Factor 2x^2 + x - 6 as (2x - 3)(x + 2). Setting factors to zero gives x = 3/2 and x = -2. Thus, the roots are 1, 3/2, and -2."
+  },
+  {
+    "question": "Simplify: (10 + 5i) / (1 + 2i)",
+    "A": "4 - 3i",
+    "B": "2 + 5i",
+    "C": "4 + 3i",
+    "D": "6 + 2i",
+    "E": "2 - 5i",
+    "answer": "A",
+    "explanation": "Multiply numerator and denominator by the conjugate of the denominator, (1 - 2i). Numerator: (10 + 5i)(1 - 2i) = 10 - 20i + 5i - 10i^2 = 10 - 15i + 10 = 20 - 15i. Denominator: (1 + 2i)(1 - 2i) = 1^2 - (2i)^2 = 1 - 4i^2 = 1 + 4 = 5. Result: (20 - 15i) / 5 = 4 - 3i."
+  },
+  {
+    "question": "Given that x = -2 is a root of P(x) = x^3 + 2x^2 - x - 2, find the other roots.",
+    "A": "x = 1, x = -1",
+    "B": "x = 1, x = 2",
+    "C": "x = -1, x = -2",
+    "D": "x = 2, x = -2",
+    "E": "x = 0, x = 1",
+    "answer": "A",
+    "explanation": "Since x = -2 is a root, (x + 2) is a factor. Use synthetic division to divide P(x) by (x + 2), yielding the quotient x^2 - 1. Factor x^2 - 1 as (x - 1)(x + 1). Setting these factors to zero gives the other roots as 1 and -1."
+  },
+  {
+    "question": "If the graph of y = |x| is transformed by a horizontal stretch by a factor of 3, a vertical shift up by 2 units, and a reflection across the x-axis, what is the new equation?",
+    "A": "y = -|x/3| + 2",
+    "B": "y = -|3x| + 2",
+    "C": "y = |x/3| + 2",
+    "D": "y = -|x| + 2",
+    "E": "y = -|x/3| - 2",
+    "answer": "A",
+    "explanation": "A horizontal stretch by a factor of 3 means replace x with x/3. A reflection across the x-axis means multiply the entire function by -1. A vertical shift up by 2 units means add 2 to the function. Combining these, the new equation is y = -|x/3| + 2."
+  },
+  {
+    "question": "Describe the transformation from y = sqrt(x) to y = sqrt(-x + 4) - 3.",
+    "A": "Reflect over y-axis, shift right 4, shift down 3.",
+    "B": "Reflect over y-axis, shift left 4, shift down 3.",
+    "C": "Reflect over x-axis, shift right 4, shift down 3.",
+    "D": "Reflect over y-axis, shift right 4, shift up 3.",
+    "E": "Shift right 4, reflect over y-axis, shift down 3.",
+    "answer": "A",
+    "explanation": "Rewrite the expression inside the square root as sqrt(-(x - 4)). The negative sign inside indicates a reflection over the y-axis. The (x - 4) indicates a horizontal shift right by 4 units. The -3 outside indicates a vertical shift down by 3 units."
+  },
+  {
+    "question": "Expand and simplify: (3x - 2)(x^2 + 4x - 5)",
+    "A": "3x^3 + 10x^2 - 23x + 10",
+    "B": "3x^3 + 14x^2 - 23x + 10",
+    "C": "3x^3 + 10x^2 - 7x + 10",
+    "D": "3x^3 + 10x^2 - 23x - 10",
+    "E": "3x^3 - 2x^2 - 8x + 10",
+    "answer": "A",
+    "explanation": "Multiply each term in the first polynomial by each term in the second polynomial: 3x(x^2 + 4x - 5) - 2(x^2 + 4x - 5) = (3x^3 + 12x^2 - 15x) + (-2x^2 - 8x + 10). Combine like terms: 3x^3 + (12-2)x^2 + (-15-8)x + 10 = 3x^3 + 10x^2 - 23x + 10."
+  },
+  {
+    "question": "If f(x) = x^3 - 4x^2 + 5, what is the equation of the function g(x) obtained by reflecting f(x) across the y-axis?",
+    "A": "g(x) = -x^3 + 4x^2 - 5",
+    "B": "g(x) = x^3 + 4x^2 + 5",
+    "C": "g(x) = -x^3 - 4x^2 + 5",
+    "D": "g(x) = -x^3 - 4x^2 - 5",
+    "E": "g(x) = x^3 - 4x^2 - 5",
+    "answer": "C",
+    "explanation": "Reflecting across the y-axis means replacing x with (-x) inside the function: g(x) = f(-x). So, g(x) = (-x)^3 - 4(-x)^2 + 5 = -x^3 - 4x^2 + 5."
+  },
+  {
+    "question": "Simplify (7x^4 + 3x^2 - x + 9) - (2x^4 - x^3 + 5x^2 - 3x - 2).",
+    "A": "5x^4 - x^3 - 2x^2 - 4x + 7",
+    "B": "5x^4 + x^3 - 2x^2 + 2x + 11",
+    "C": "9x^4 + x^3 + 8x^2 + 2x + 7",
+    "D": "5x^4 + x^3 + 8x^2 + 2x + 11",
+    "E": "5x^4 - x^3 + 8x^2 - 4x + 7",
+    "answer": "B",
+    "explanation": "Distribute the negative sign and combine like terms: (7x^4-2x^4) + (0x^3-(-x^3)) + (3x^2-5x^2) + (-x-(-3x)) + (9-(-2)) = 5x^4 + x^3 - 2x^2 + 2x + 11."
+  },
+  {
+    "question": "Find the range of the function f(x) = -|x + 3| + 4.",
+    "A": "[4, infinity)",
+    "B": "[-3, infinity)",
+    "C": "(-infinity, -3]",
+    "D": "(-infinity, 4]",
+    "E": "[3, infinity)",
+    "answer": "D",
+    "explanation": "The function |x+3| has a minimum of 0. So -|x+3| has a maximum of 0. Adding 4 shifts this maximum up to 4. Since the absolute value is negated, the graph opens downwards. Thus, the maximum value is 4, and the range is (-infinity, 4]."
+  },
+  {
+    "question": "Simplify (5 + 3i) + (2 - 7i).",
+    "A": "7 + 10i",
+    "B": "3 - 4i",
+    "C": "7 - 4i",
+    "D": "7 + 4i",
+    "E": "3 + 10i",
+    "answer": "C",
+    "explanation": "Add the real parts and the imaginary parts separately: (5+2) + (3i-7i) = 7 - 4i."
+  },
+  {
+    "question": "Factor the polynomial x^3 + 4x^2 + x - 6 completely.",
+    "A": "(x + 1)(x - 2)(x - 3)",
+    "B": "(x - 1)(x - 2)(x + 3)",
+    "C": "(x - 1)(x + 2)(x + 3)",
+    "D": "(x + 1)(x + 2)(x - 3)",
+    "E": "(x + 1)(x + 2)(x + 3)",
+    "answer": "C",
+    "explanation": "By the Rational Root Theorem, possible rational roots are divisors of -6: +/-1, +/-2, +/-3, +/-6. Test x=1: 1+4+1-6=0, so (x-1) is a factor. Divide x^3+4x^2+x-6 by (x-1) to get x^2+5x+6. Factor the quadratic: (x+2)(x+3). Thus, (x-1)(x+2)(x+3)."
+  },
+  {
+    "question": "If f(x) = x^2, what is the equation of the function g(x) obtained by horizontally compressing f(x) by a factor of 2?",
+    "A": "g(x) = (1/2)x^2",
+    "B": "g(x) = (x/2)^2",
+    "C": "g(x) = 2x^2",
+    "D": "g(x) = (2x)^2",
+    "E": "g(x) = x^2 + 2",
+    "answer": "D",
+    "explanation": "A horizontal compression by a factor of 'a' (where a > 1) means replacing x with (ax) inside the function: g(x) = f(ax). So, g(x) = (2x)^2."
+  },
+  {
+    "question": "Divide (2x^4 + 5x^3 - x^2 - 7x - 4) by (2x + 1).",
+    "A": "x^3 + 2x^2 - x - 3 remainder -1",
+    "B": "x^3 + 2x^2 + x - 3 remainder 1",
+    "C": "x^3 + 2x^2 - x + 3 remainder 2",
+    "D": "x^3 - 2x^2 - x - 3 remainder -1",
+    "E": "x^3 + 3x^2 - x - 3 remainder 0",
+    "answer": "A",
+    "explanation": "Perform polynomial long division. (2x^4+5x^3-x^2-7x-4)/(2x+1) = x^3 + 2x^2 - x - 3 with a remainder of -1."
+  },
+  {
+    "question": "Factor the polynomial x^3 - 2x^2 - 5x + 6 completely.",
+    "A": "(x + 1)(x - 2)(x + 3)",
+    "B": "(x - 1)(x + 2)(x - 3)",
+    "C": "(x - 1)(x - 2)(x + 3)",
+    "D": "(x + 1)(x + 2)(x - 3)",
+    "E": "(x - 1)(x - 2)(x - 3)",
+    "answer": "B",
+    "explanation": "By the Rational Root Theorem, possible rational roots are divisors of 6: +/-1, +/-2, +/-3, +/-6. Test x=1: 1-2-5+6=0, so (x-1) is a factor. Divide x^3-2x^2-5x+6 by (x-1) to get x^2-x-6. Factor the quadratic: (x-3)(x+2). Thus, (x-1)(x+2)(x-3)."
+  },
+  {
+    "question": "If f(x) = sqrt(x), what is the equation of the function g(x) obtained by shifting f(x) 4 units to the left?",
+    "A": "g(x) = sqrt(x - 4)",
+    "B": "g(x) = sqrt(x) + 4",
+    "C": "g(x) = sqrt(x) - 4",
+    "D": "g(x) = sqrt(x + 4)",
+    "E": "g(x) = 4sqrt(x)",
+    "answer": "D",
+    "explanation": "A horizontal shift to the left by k units means replacing x with (x + k) inside the function: g(x) = f(x + k). So, g(x) = sqrt(x + 4)."
+  },
+  {
+    "question": "Simplify (8 - i) - (3 + 5i).",
+    "A": "5 + 4i",
+    "B": "11 + 4i",
+    "C": "5 - 6i",
+    "D": "11 - 6i",
+    "E": "5 + 6i",
+    "answer": "C",
+    "explanation": "Subtract the real parts and the imaginary parts separately: (8-3) + (-i-5i) = 5 - 6i."
+  },
+  {
+    "question": "Find the inverse function f^-1(x) for f(x) = (2x + 1) / (x - 3).",
+    "A": "f^-1(x) = (x + 3) / (2x - 1)",
+    "B": "f^-1(x) = (3x + 1) / (x - 2)",
+    "C": "f^-1(x) = (x - 3) / (2x + 1)",
+    "D": "f^-1(x) = (3x - 1) / (x + 2)",
+    "E": "f^-1(x) = (2x - 1) / (x + 3)",
+    "answer": "B",
+    "explanation": "Replace f(x) with y: y = (2x + 1) / (x - 3). Swap x and y: x = (2y + 1) / (y - 3). Solve for y: x(y - 3) = 2y + 1 => xy - 3x = 2y + 1 => xy - 2y = 3x + 1 => y(x - 2) = 3x + 1 => y = (3x + 1) / (x - 2)."
+  },
+  {
+    "question": "Find the solutions for the equation x^2 - 4x + 13 = 0.",
+    "A": "-2 +/- 3i",
+    "B": "2 +/- 2i",
+    "C": "2 +/- 3i",
+    "D": "-2 +/- 2i",
+    "E": "3 +/- 2i",
+    "answer": "C",
+    "explanation": "Use the quadratic formula x = [-b +/- sqrt(b^2 - 4ac)] / 2a. Here a=1, b=-4, c=13. x = [4 +/- sqrt((-4)^2 - 4*1*13)] / 2*1 = [4 +/- sqrt(16 - 52)] / 2 = [4 +/- sqrt(-36)] / 2 = [4 +/- 6i] / 2 = 2 +/- 3i."
+  },
+  {
+    "question": "If f(x) = |x|, what is the equation of the function g(x) obtained by vertically stretching f(x) by a factor of 3?",
+    "A": "g(x) = |3x|",
+    "B": "g(x) = |x + 3|",
+    "C": "g(x) = 3|x|",
+    "D": "g(x) = (1/3)|x|",
+    "E": "g(x) = |x| + 3",
+    "answer": "C",
+    "explanation": "A vertical stretch by a factor of 'a' means multiplying the entire function by 'a': g(x) = a * f(x). So, g(x) = 3|x|."
+  },
+  {
+    "question": "Simplify i^47.",
+    "A": "1",
+    "B": "-1",
+    "C": "i",
+    "D": "-i",
+    "E": "0",
+    "answer": "D",
+    "explanation": "The powers of i cycle every 4 terms: i^1=i, i^2=-1, i^3=-i, i^4=1. Divide 47 by 4: 47 = 4 * 11 + 3. So i^47 is equivalent to i^3, which is -i."
+  },
+  {
+    "question": "Factor the polynomial x^4 - 13x^2 + 36 completely.",
+    "A": "(x^2 - 4)(x^2 - 9)",
+    "B": "(x - 2)(x + 2)(x - 3)(x + 3)",
+    "C": "(x - 6)(x + 6)",
+    "D": "(x^2 - 6)(x^2 - 6)",
+    "E": "(x - 3)(x + 3)(x - 6)",
+    "answer": "B",
+    "explanation": "Let y = x^2. Then y^2 - 13y + 36 = (y - 4)(y - 9). Substitute back x^2: (x^2 - 4)(x^2 - 9). Factor difference of squares: (x - 2)(x + 2)(x - 3)(x + 3)."
+  },
+  {
+    "question": "Find the domain of the function f(x) = sqrt(5 - 2x).",
+    "A": "[2.5, infinity)",
+    "B": "(-infinity, 5]",
+    "C": "[5, infinity)",
+    "D": "(-infinity, 2.5]",
+    "E": "(2.5, infinity)",
+    "answer": "D",
+    "explanation": "For the square root to be defined in real numbers, the expression under the radical must be non-negative: 5 - 2x >= 0. Subtract 5: -2x >= -5. Divide by -2 and reverse the inequality sign: x <= 2.5. So the domain is (-infinity, 2.5]."
+  },
+  {
+    "question": "Expand and simplify (3x - 2)(x^2 - 4x + 5).",
+    "A": "3x^3 - 10x^2 + 7x - 10",
+    "B": "3x^3 + 10x^2 - 7x - 10",
+    "C": "3x^3 - 14x^2 + 23x - 10",
+    "D": "3x^3 - 14x^2 + 7x - 10",
+    "E": "3x^3 - 14x^2 - 23x - 10",
+    "answer": "C",
+    "explanation": "Use distributive property: 3x(x^2 - 4x + 5) - 2(x^2 - 4x + 5) = 3x^3 - 12x^2 + 15x - 2x^2 + 8x - 10 = 3x^3 - 14x^2 + 23x - 10."
+  },
+  {
+    "question": "Factor the polynomial x^3 - 3x^2 - 4x + 12 completely.",
+    "A": "(x + 3)(x - 2)(x + 2)",
+    "B": "(x - 3)(x - 2)(x - 2)",
+    "C": "(x - 3)(x - 2)(x + 2)",
+    "D": "(x + 3)(x + 2)(x + 2)",
+    "E": "(x - 3)(x + 2)(x + 2)",
+    "answer": "C",
+    "explanation": "Factor by grouping: x^2(x - 3) - 4(x - 3) = (x^2 - 4)(x - 3) = (x - 2)(x + 2)(x - 3)."
+  },
+  {
+    "question": "Simplify (4 + 2i)(1 - 3i).",
+    "A": "4 - 6i",
+    "B": "4 - 10i - 6i^2",
+    "C": "10 - 10i",
+    "D": "-2 - 10i",
+    "E": "10 + 10i",
+    "answer": "C",
+    "explanation": "Use FOIL method: (4)(1) + (4)(-3i) + (2i)(1) + (2i)(-3i) = 4 - 12i + 2i - 6i^2 = 4 - 10i - 6(-1) = 4 - 10i + 6 = 10 - 10i."
+  },
+  {
+    "question": "Find the inverse function f^-1(x) for f(x) = 5x - 7.",
+    "A": "f^-1(x) = 7x - 5",
+    "B": "f^-1(x) = (x - 7) / 5",
+    "C": "f^-1(x) = (x + 7) / 5",
+    "D": "f^-1(x) = 5x + 7",
+    "E": "f^-1(x) = 1/(5x - 7)",
+    "answer": "C",
+    "explanation": "Replace f(x) with y: y = 5x - 7. Swap x and y: x = 5y - 7. Solve for y: x + 7 = 5y => y = (x + 7) / 5. So f^-1(x) = (x + 7) / 5."
+  },
+  {
+    "question": "If f(x) = x^3, what is the equation of the function g(x) obtained by shifting f(x) 5 units upward?",
+    "A": "g(x) = (x + 5)^3",
+    "B": "g(x) = x^3 - 5",
+    "C": "g(x) = x^3 + 5",
+    "D": "g(x) = (x - 5)^3",
+    "E": "g(x) = 5x^3",
+    "answer": "C",
+    "explanation": "A vertical shift upwards by k units means adding k to the function: g(x) = f(x) + k. So, g(x) = x^3 + 5."
+  },
+  {
+    "question": "Expand and simplify (x - 1)(x + 3)(x - 2).",
+    "A": "x^3 + 7x - 6",
+    "B": "x^3 - 7x + 6",
+    "C": "x^3 + 2x^2 - 5x + 6",
+    "D": "x^3 - 2x^2 - 5x + 6",
+    "E": "x^3 - 7x - 6",
+    "answer": "B",
+    "explanation": "First multiply (x-1)(x+3) = x^2 + 3x - x - 3 = x^2 + 2x - 3. Then multiply (x^2 + 2x - 3)(x - 2) = x(x^2 + 2x - 3) - 2(x^2 + 2x - 3) = x^3 + 2x^2 - 3x - 2x^2 - 4x + 6 = x^3 - 7x + 6."
+  },
+  {
+    "question": "Simplify (3x^3 - 2x^2 + 5x - 1) + (x^3 + 4x^2 - 2x + 7).",
+    "A": "4x^3 + 2x^2 + 3x + 6",
+    "B": "2x^3 - 6x^2 + 7x - 8",
+    "C": "4x^3 - 6x^2 + 7x + 6",
+    "D": "4x^3 + 2x^2 + 7x + 6",
+    "E": "2x^3 + 2x^2 + 3x - 8",
+    "answer": "A",
+    "explanation": "Combine like terms: (3x^3+x^3) + (-2x^2+4x^2) + (5x-2x) + (-1+7) = 4x^3 + 2x^2 + 3x + 6."
+  },
+  {
+    "question": "Factor the polynomial 2x^3 - x^2 - 13x - 6 completely.",
+    "A": "(x - 2)(x + 3)(2x + 1)",
+    "B": "(x + 2)(x - 3)(2x + 1)",
+    "C": "(x + 2)(x + 3)(2x - 1)",
+    "D": "(x - 2)(x - 3)(2x - 1)",
+    "E": "(x + 2)(x - 3)(x + 1)",
+    "answer": "B",
+    "explanation": "Possible rational roots are +/-1, +/-2, +/-3, +/-6, +/-1/2, +/-3/2. Test x=-2: 2(-8)-4-13(-2)-6 = -16-4+26-6=0. So (x+2) is a factor. Divide 2x^3-x^2-13x-6 by (x+2) to get 2x^2-5x-3. Factor 2x^2-5x-3 = (2x+1)(x-3). So the complete factorization is (x+2)(x-3)(2x+1)."
+  },
+  {
+    "question": "Find the domain of the function f(x) = (3x + 1) / (x^2 - 9).",
+    "A": "x is not equal to 9",
+    "B": "x is not equal to 3",
+    "C": "(-infinity, -3) U (-3, 3) U (3, infinity)",
+    "D": "(-infinity, infinity)",
+    "E": "x is not equal to -3",
+    "answer": "C",
+    "explanation": "The denominator cannot be zero. x^2 - 9 = 0 implies (x - 3)(x + 3) = 0, so x = 3 or x = -3. Therefore, the domain is all real numbers except -3 and 3."
+  },
+  {
+    "question": "Divide (x^3 - 2x^2 - 5x + 6) by (x - 3).",
+    "A": "x^2 + 5x + 10 remainder 36",
+    "B": "x^2 + x - 2",
+    "C": "x^2 - 5x + 10",
+    "D": "x^2 - x - 2",
+    "E": "x^2 + x + 2",
+    "answer": "B",
+    "explanation": "Using synthetic division with root 3: Coefficients 1, -2, -5, 6. Bring down 1. 3*1=3, -2+3=1. 3*1=3, -5+3=-2. 3*(-2)=-6, 6-6=0. The quotient is x^2 + x - 2."
+  },
+  {
+    "question": "Find the range of the function f(x) = -2x^2 + 8x - 5.",
+    "A": "[3, infinity)",
+    "B": "(-infinity, -5]",
+    "C": "[-5, infinity)",
+    "D": "(-infinity, 3]",
+    "E": "[infinity, 3)",
+    "answer": "D",
+    "explanation": "This is a parabola opening downwards (due to -2x^2). The maximum value is at the vertex. x-coordinate of vertex = -b/(2a) = -8/(2*-2) = -8/-4 = 2. y-coordinate of vertex = f(2) = -2(2)^2 + 8(2) - 5 = -8 + 16 - 5 = 3. Since it opens downwards, the maximum value is 3. So the range is (-infinity, 3]."
+  },
+  {
+    "question": "Factor the polynomial x^3 + 6x^2 + 11x + 6 completely.",
+    "A": "(x - 1)(x - 2)(x - 3)",
+    "B": "(x + 1)(x + 2)(x + 3)",
+    "C": "(x + 1)(x - 2)(x + 3)",
+    "D": "(x - 1)(x + 2)(x - 3)",
+    "E": "(x + 1)(x + 2)(x - 3)",
+    "answer": "B",
+    "explanation": "By the Rational Root Theorem, possible rational roots are divisors of 6: +/-1, +/-2, +/-3, +/-6. Test x=-1: -1+6-11+6=0, so (x+1) is a factor. Divide x^3+6x^2+11x+6 by (x+1) to get x^2+5x+6. Factor the quadratic: (x+2)(x+3). Thus, (x+1)(x+2)(x+3)."
+  },
+  {
+    "question": "Simplify (5 + 2i) / (1 - i).",
+    "A": "3.5 - 1.5i",
+    "B": "1.5 + 3.5i",
+    "C": "-1.5 - 3.5i",
+    "D": "3.5 + 1.5i",
+    "E": "1.5 - 3.5i",
+    "answer": "B",
+    "explanation": "Multiply the numerator and denominator by the conjugate of the denominator (1+i): [(5+2i)(1+i)] / [(1-i)(1+i)] = [5 + 5i + 2i + 2i^2] / [1^2 - i^2] = [5 + 7i - 2] / [1 + 1] = [3 + 7i] / 2 = 1.5 + 3.5i."
+  },
+  {
+    "question": "If f(x) = 2x^2 - 3x + 1, what is the equation of the function g(x) obtained by reflecting f(x) across the x-axis?",
+    "A": "g(x) = 2x^2 + 3x + 1",
+    "B": "g(x) = -2x^2 - 3x + 1",
+    "C": "g(x) = 2(-x)^2 - 3(-x) + 1",
+    "D": "g(x) = -2x^2 + 3x - 1",
+    "E": "g(x) = 2x^2 - 3x - 1",
+    "answer": "D",
+    "explanation": "Reflecting across the x-axis means negating the entire function: g(x) = -f(x). So, g(x) = -(2x^2 - 3x + 1) = -2x^2 + 3x - 1."
+  },
+  {
+    "question": "The graph of f(x) = 1/x is transformed to g(x) = -2/(x - 1) + 3. Describe the transformations.",
+    "A": "Shift right 1, vertical stretch by factor of 2, reflection across x-axis, shift up 3.",
+    "B": "Shift left 1, vertical stretch by factor of 2, reflection across x-axis, shift up 3",
+    "C": "Shift right 1, vertical compression by factor of 2, reflection across x-axis, shift up 3",
+    "D": "Shift right 1, vertical stretch by factor of 2, reflection across y-axis, shift up 3",
+    "E": "Shift right 1, vertical stretch by factor of 2, shift up 3",
+    "answer": "A",
+    "explanation": "The (x-1) in the denominator causes a shift right 1. The factor of 2 in the numerator causes a vertical stretch by a factor of 2. The negative sign outside means reflection across the x-axis. The +3 outside causes a shift up 3."
+  },
+  {
+    "question": "Simplify: (7 + 3i) + (2 - 5i)",
+    "A": "9 - 2i",
+    "B": "9 + 8i",
+    "C": "5 - 2i",
+    "D": "9 + 2i",
+    "E": "5 + 8i",
+    "answer": "A",
+    "explanation": "Combine real parts and imaginary parts: (7+2) + (3-5)i = 9 - 2i."
+  },
+  {
+    "question": "Find all rational roots of 2x^3 - 3x^2 - 11x + 6 = 0.",
+    "A": "x = -2, x = 0.5, x = 3",
+    "B": "x = 2, x = -0.5, x = -3",
+    "C": "x = -2, x = 1, x = 3",
+    "D": "x = 2, x = 0.5, x = -3",
+    "E": "x = -1, x = 0.5, x = 3",
+    "answer": "A",
+    "explanation": "By Rational Root Theorem, possible rational roots are p/q. Test P(-2)=0, so x=-2 is a root. Divide by (x+2) to get 2x^2-7x+3, which factors to (2x-1)(x-3). Roots are -2, 1/2, 3."
+  },
+  {
+    "question": "Expand and simplify: (x^2 + 2)(x - 3)(x + 1)",
+    "A": "x^4 - 2x^3 - x^2 - 4x - 6",
+    "B": "x^4 - 2x^3 - x^2 - 2x + 6",
+    "C": "x^4 - 2x^3 + x^2 - 2x - 6",
+    "D": "x^4 - 2x^3 + x^2 + 2x - 6",
+    "E": "x^4 - 2x^3 - x^2 + 2x - 6",
+    "answer": "A",
+    "explanation": "First multiply (x-3)(x+1) to get x^2 - 2x - 3. Then multiply (x^2 + 2)(x^2 - 2x - 3) = x^4 - 2x^3 - 3x^2 + 2x^2 - 4x - 6 = x^4 - 2x^3 - x^2 - 4x - 6."
+  },
+  {
+    "question": "Find the domain of the function f(x) = (x - 2) / (x^2 - 9).",
+    "A": "x != 3, x != -3",
+    "B": "x != 2",
+    "C": "x != 3",
+    "D": "x != -3",
+    "E": "x is all real numbers",
+    "answer": "A",
+    "explanation": "The denominator cannot be zero. x^2 - 9 = 0 implies (x-3)(x+3)=0, so x=3 or x=-3 must be excluded from the domain."
+  },
+  {
+    "question": "Which of the following is a factor of P(x) = x^3 + 6x^2 + 11x + 6?",
+    "A": "(x + 1)",
+    "B": "(x - 1)",
+    "C": "(x + 3)",
+    "D": "(x - 2)",
+    "E": "(x + 4)",
+    "answer": "A",
+    "explanation": "By the Factor Theorem, if (x+1) is a factor, P(-1) must be 0. P(-1) = -1 + 6 - 11 + 6 = 0."
+  },
+  {
+    "question": "Simplify: (5 + 10i) / (1 - 2i)",
+    "A": "-3 + 4i",
+    "B": "3 + 4i",
+    "C": "-3 - 4i",
+    "D": "5 + 10i",
+    "E": "5 - 10i",
+    "answer": "A",
+    "explanation": "Multiply numerator and denominator by (1+2i): [ (5+10i)(1+2i) ] / [ (1-2i)(1+2i) ] = [ 5 + 10i + 10i + 20i^2 ] / [ 1 - 4i^2 ] = [ 5 + 20i - 20 ] / [ 1 + 4 ] = [ -15 + 20i ] / 5 = -3 + 4i."
+  },
+  {
+    "question": "If f(x) = |x|, which function represents a vertical stretch by a factor of 3 and a reflection across the x-axis?",
+    "A": "g(x) = -3|x|",
+    "B": "g(x) = 3|-x|",
+    "C": "g(x) = |-3x|",
+    "D": "g(x) = -|3x|",
+    "E": "g(x) = 3|x|",
+    "answer": "A",
+    "explanation": "A vertical stretch by 3 means multiplying the function by 3. A reflection across the x-axis means multiplying the entire function by -1. So, g(x) = -3f(x) = -3|x|."
+  },
+  {
+    "question": "Find the domain of the function f(x) = sqrt(x - 5).",
+    "A": "x >= 5",
+    "B": "x > 5",
+    "C": "x <= 5",
+    "D": "x is all real numbers",
+    "E": "x < 5",
+    "answer": "A",
+    "explanation": "The expression inside the square root must be non-negative, so x - 5 >= 0, which means x >= 5."
+  },
+  {
+    "question": "Simplify: (3x^2 - 5x + 2) + (x^2 + 7x - 4)",
+    "A": "4x^2 + 2x - 2",
+    "B": "4x^2 + 12x - 6",
+    "C": "3x^2 + 2x - 2",
+    "D": "4x^2 - 2x + 2",
+    "E": "4x^2 + 2x + 2",
+    "answer": "A",
+    "explanation": "Combine like terms: (3x^2 + x^2) + (-5x + 7x) + (2 - 4) = 4x^2 + 2x - 2."
+  },
+  {
+    "question": "Find the inverse function of f(x) = 3x - 7.",
+    "A": "f^(-1)(x) = (x + 7) / 3",
+    "B": "f^(-1)(x) = 3x + 7",
+    "C": "f^(-1)(x) = x/3 + 7",
+    "D": "f^(-1)(x) = (x - 7) / 3",
+    "E": "f^(-1)(x) = 7x - 3",
+    "answer": "A",
+    "explanation": "Let y = 3x - 7. Swap x and y: x = 3y - 7. Solve for y: x + 7 = 3y, so y = (x + 7) / 3."
+  },
+  {
+    "question": "Perform the division using synthetic division: (x^3 - 5x^2 + 3x + 9) / (x - 3)",
+    "A": "x^2 - 2x - 3",
+    "B": "x^2 - 2x + 3",
+    "C": "x^2 + 2x - 3",
+    "D": "x^2 - 8x + 27",
+    "E": "x^2 - 2x",
+    "answer": "A",
+    "explanation": "Using synthetic division with divisor 3, the coefficients are (1 -5 3 9). The result is (1 -2 -3 0), so the quotient is x^2 - 2x - 3 with a remainder of 0."
+  },
+  {
+    "question": "Simplify: (6 - 4i) - (1 + 2i)",
+    "A": "5 - 6i",
+    "B": "5 + 2i",
+    "C": "7 - 2i",
+    "D": "5 - 2i",
+    "E": "7 - 6i",
+    "answer": "A",
+    "explanation": "Distribute the negative sign then combine real and imaginary parts: (6 - 1) + (-4 - 2)i = 5 - 6i."
+  },
+  {
+    "question": "Factor the polynomial completely: x^4 - 5x^3 + 5x^2 + 5x - 6",
+    "A": "(x - 1)(x + 1)(x - 2)(x - 3)",
+    "B": "(x + 1)(x + 1)(x + 2)(x + 3)",
+    "C": "(x - 1)(x + 1)(x + 2)(x + 3)",
+    "D": "(x - 1)(x - 1)(x - 2)(x - 3)",
+    "E": "(x - 1)(x + 1)(x - 2)(x + 3)",
+    "answer": "A",
+    "explanation": "Using Rational Root Theorem, test divisors of -6. P(1)=0, P(-1)=0, P(2)=0, P(3)=0. So (x-1), (x+1), (x-2), (x-3) are factors."
+  },
+  {
+    "question": "The function g(x) is obtained from f(x) = sin(x) by a vertical compression by a factor of 0.5, a shift right by pi/2, and a reflection across the x-axis. What is g(x)?",
+    "A": "g(x) = -0.5sin(x - pi/2)",
+    "B": "g(x) = 0.5sin(x + pi/2)",
+    "C": "g(x) = -2sin(x - pi/2)",
+    "D": "g(x) = -0.5sin(x + pi/2)",
+    "E": "g(x) = 0.5sin(-x - pi/2)",
+    "answer": "A",
+    "explanation": "Vertical compression by 0.5: 0.5sin(x). Shift right by pi/2: 0.5sin(x - pi/2). Reflection across x-axis: -0.5sin(x - pi/2)."
+  },
+  {
+    "question": "Simplify: (2 - 4i) / (1 + i)",
+    "A": "-1 - 3i",
+    "B": "1 + 3i",
+    "C": "1 - 3i",
+    "D": "-1 + 3i",
+    "E": "2 - 4i",
+    "answer": "A",
+    "explanation": "Multiply numerator and denominator by (1-i): [ (2-4i)(1-i) ] / [ (1+i)(1-i) ] = [ 2 - 2i - 4i + 4i^2 ] / [ 1 - i^2 ] = [ 2 - 6i - 4 ] / [ 1 + 1 ] = [ -2 - 6i ] / 2 = -1 - 3i."
+  },
+  {
+    "question": "If x = 3 is a root of x^3 - 7x - 6 = 0, find the other roots.",
+    "A": "x = -1, x = -2",
+    "B": "x = 1, x = 2",
+    "C": "x = -1, x = 2",
+    "D": "x = 1, x = -2",
+    "E": "x = 3, x = -1",
+    "answer": "A",
+    "explanation": "Since x=3 is a root, (x-3) is a factor. Divide x^3-7x-6 by (x-3) to get x^2+3x+2, which factors to (x+1)(x+2). Other roots are -1, -2."
+  },
+  {
+    "question": "Perform the division using synthetic division: (2x^4 + 5x^3 - x - 7) / (x + 2)",
+    "A": "2x^3 + x^2 - 2x + 3 remainder -13",
+    "B": "2x^3 + x^2 - 2x + 3 remainder 13",
+    "C": "2x^3 - x^2 + 2x - 5 remainder 3",
+    "D": "2x^3 + x^2 - 2x + 3",
+    "E": "2x^3 + x^2 + 2x + 3 remainder -13",
+    "answer": "A",
+    "explanation": "Using synthetic division with divisor -2 on (2 5 0 -1 -7), the result is (2 1 -2 3 -13). The quotient is 2x^3 + x^2 - 2x + 3 with a remainder of -13."
+  },
+  {
+    "question": "Find the range of the function f(x) = -x^2 + 3.",
+    "A": "y <= 3",
+    "B": "y >= 3",
+    "C": "y is all real numbers",
+    "D": "y < 3",
+    "E": "y > 3",
+    "answer": "A",
+    "explanation": "The parabola y = -x^2 opens downwards with a vertex at (0,0). Adding 3 shifts it up, so the vertex is (0,3). Thus, the maximum y-value is 3, and the range is y <= 3."
+  },
+  {
+    "question": "Expand and simplify: (2x - 1)(x^2 + 3x - 4)",
+    "A": "2x^3 + 5x^2 - 11x + 4",
+    "B": "2x^3 + 7x^2 - 8x + 4",
+    "C": "2x^3 - 7x^2 - 8x + 4",
+    "D": "2x^3 + 5x^2 - 5x + 4",
+    "E": "2x^3 + 5x^2 - 11x - 4",
+    "answer": "A",
+    "explanation": "Use the distributive property: 2x(x^2 + 3x - 4) - 1(x^2 + 3x - 4) = 2x^3 + 6x^2 - 8x - x^2 - 3x + 4 = 2x^3 + 5x^2 - 11x + 4."
+  },
+  {
+    "question": "The graph of f(x) = sqrt(x) is transformed to g(x) = sqrt(-x) + 2. Describe the transformations.",
+    "A": "Reflection across the y-axis, shift up 2 units.",
+    "B": "Reflection across the x-axis, shift up 2 units",
+    "C": "Reflection across the y-axis, shift down 2 units",
+    "D": "Reflection across the x-axis, shift down 2 units",
+    "E": "Shift left 2 units, reflection across the y-axis",
+    "answer": "A",
+    "explanation": "The -x inside the square root indicates a reflection across the y-axis. The +2 outside the function indicates a vertical shift up by 2 units."
+  },
+  {
+    "question": "Which of the following is NOT a root of x^3 + 2x^2 - x - 2 = 0?",
+    "A": "x = 2",
+    "B": "x = -1",
+    "C": "x = 1",
+    "D": "x = -2",
+    "E": "x = 0.5",
+    "answer": "A",
+    "explanation": "Check each option by substituting into P(x). P(-1)=0, P(1)=0, P(-2)=0. P(2) = 2^3 + 2(2^2) - 2 - 2 = 8 + 8 - 2 - 2 = 12, which is not 0."
+  },
+  {
+    "question": "Find the inverse function of f(x) = (x + 3) / (x - 1).",
+    "A": "f^(-1)(x) = (x + 3) / (x - 1)",
+    "B": "f^(-1)(x) = (x - 3) / (x + 1)",
+    "C": "f^(-1)(x) = (x - 1) / (x + 3)",
+    "D": "f^(-1)(x) = (3x + 1) / (x - 1)",
+    "E": "f^(-1)(x) = (x - 3) / (x - 1)",
+    "answer": "A",
+    "explanation": "Let y = (x + 3) / (x - 1). Swap x and y: x = (y + 3) / (y - 1). Solve for y: x(y - 1) = y + 3 -> xy - x = y + 3 -> xy - y = x + 3 -> y(x - 1) = x + 3 -> y = (x + 3) / (x - 1)."
+  },
+  {
+    "question": "Simplify: (5x^3 + 2x - 1) - (2x^3 - 3x^2 + 4)",
+    "A": "3x^3 + 3x^2 + 2x - 5",
+    "B": "3x^3 - 3x^2 + 2x + 3",
+    "C": "7x^3 - 3x^2 + 2x + 3",
+    "D": "3x^3 + 3x^2 - 2x + 3",
+    "E": "3x^3 + 3x^2 + 2x + 3",
+    "answer": "A",
+    "explanation": "Distribute the negative sign then combine like terms: 5x^3 + 2x - 1 - 2x^3 + 3x^2 - 4 = (5x^3 - 2x^3) + 3x^2 + 2x + (-1 - 4) = 3x^3 + 3x^2 + 2x - 5."
+  },
+  {
+    "question": "Describe the transformation from f(x) = x^3 to g(x) = (x + 2)^3 - 1.",
+    "A": "Shift left 2 units, down 1 unit.",
+    "B": "Shift right 2 units, down 1 unit",
+    "C": "Shift left 2 units, up 1 unit",
+    "D": "Shift right 2 units, up 1 unit",
+    "E": "Shift up 2 units, left 1 unit",
+    "answer": "A",
+    "explanation": "The (x+2) indicates a horizontal shift left by 2 units. The -1 outside the parenthesis indicates a vertical shift down by 1 unit."
+  },
+  {
+    "question": "Find all real roots of the polynomial equation: x^3 - 2x^2 - 5x + 6 = 0",
+    "A": "x = 1, x = -2, x = 3",
+    "B": "x = -1, x = 2, x = -3",
+    "C": "x = 1, x = 2, x = 3",
+    "D": "x = -1, x = -2, x = 3",
+    "E": "x = 1, x = -2, x = -3",
+    "answer": "A",
+    "explanation": "By Rational Root Theorem, test divisors of 6. P(1)=0, so (x-1) is a factor. Divide to get x^2-x-6, which factors to (x-3)(x+2). Roots are 1, 3, -2."
+  },
+  {
+    "question": "Simplify: (3 + 2i)(4 - i)",
+    "A": "14 + 5i",
+    "B": "12 - 2i",
+    "C": "10 + 5i",
+    "D": "12 + 5i",
+    "E": "14 + 11i",
+    "answer": "A",
+    "explanation": "Use FOIL: 12 - 3i + 8i - 2i^2 = 12 + 5i + 2 = 14 + 5i."
+  },
+  {
+    "question": "If f(x) = x^2, which function represents a horizontal compression by a factor of 1/2, a shift right 3 units, and a shift down 4 units?",
+    "A": "g(x) = (2(x - 3))^2 - 4",
+    "B": "g(x) = (0.5(x + 3))^2 - 4",
+    "C": "g(x) = (2x - 3)^2 - 4",
+    "D": "g(x) = (0.5x - 3)^2 - 4",
+    "E": "g(x) = (2(x + 3))^2 - 4",
+    "answer": "A",
+    "explanation": "Horizontal compression by 1/2 means replace x with 2x: (2x)^2. Shift right 3 means replace x with (x-3): (2(x-3))^2. Shift down 4 means subtract 4: (2(x-3))^2 - 4."
+  },
+  {
+    "question": "Simplify: (-2 + 5i)(3 + i)",
+    "A": "-11 + 13i",
+    "B": "-6 + 5i",
+    "C": "-6 + 15i",
+    "D": "-11 + 17i",
+    "E": "-11 + 13i",
+    "answer": "A",
+    "explanation": "Use FOIL: -6 - 2i + 15i + 5i^2 = -6 + 13i - 5 = -11 + 13i."
+  },
+  {
+    "question": "Find the domain of the function f(x) = 1 / sqrt(4 - x).",
+    "A": "x < 4",
+    "B": "x <= 4",
+    "C": "x > 4",
+    "D": "x >= 4",
+    "E": "x is all real numbers",
+    "answer": "A",
+    "explanation": "The expression under the square root must be positive and not zero because it is in the denominator. So, 4 - x > 0, which implies 4 > x or x < 4."
+  },
+  {
+    "question": "Simplify (3x^2 + 2x - 1) + (x^2 - 5x + 3).",
+    "A": "4x^2 - 3x + 2",
+    "B": "2x^2 - 3x + 2",
+    "C": "4x^2 + 7x + 2",
+    "D": "4x^2 - 3x - 4",
+    "E": "4x^2 + 3x - 2",
+    "answer": "A",
+    "explanation": "Combine like terms: (3x^2 + x^2) + (2x - 5x) + (-1 + 3) = 4x^2 - 3x + 2."
+  },
+  {
+    "question": "Find the range of the function f(x) = (x - 1)^2 + 2.",
+    "A": "(-infinity, infinity)",
+    "B": "[1, infinity)",
+    "C": "[2, infinity)",
+    "D": "(-infinity, 2]",
+    "E": "(-infinity, 1]",
+    "answer": "C",
+    "explanation": "The term (x - 1)^2 is always greater than or equal to 0. Therefore, (x - 1)^2 + 2 will always be greater than or equal to 0 + 2 = 2. The minimum value of the function is 2, and it extends to positive infinity. So the range is [2, infinity)."
+  },
+  {
+    "question": "Simplify (5 - i) - (2 + 3i).",
+    "A": "3 + 2i",
+    "B": "3 - 4i",
+    "C": "7 + 2i",
+    "D": "7 - 4i",
+    "E": "3 - 2i",
+    "answer": "B",
+    "explanation": "Distribute the negative sign: 5 - i - 2 - 3i. Combine the real parts (5 - 2 = 3) and the imaginary parts (-i - 3i = -4i) to get 3 - 4i."
+  },
+  {
+    "question": "If the graph of f(x) = x^2 is transformed to g(x) = (x + 3)^2 - 1, describe the transformations.",
+    "A": "Shift left 3 units, down 1 unit.",
+    "B": "Shift right 3 units, down 1 unit.",
+    "C": "Shift left 3 units, up 1 unit.",
+    "D": "Shift right 3 units, up 1 unit.",
+    "E": "Shift left 1 unit, down 3 units.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = (x + 3)^2 - 1 from f(x) = x^2 indicates a horizontal shift of 3 units to the left (due to x + 3 inside the function) and a vertical shift of 1 unit down (due to -1 outside the function)."
+  },
+  {
+    "question": "Find all real roots of P(x) = x^3 + 2x^2 - 5x - 6.",
+    "A": "-1, 2, 3",
+    "B": "-1, -2, 3",
+    "C": "-1, -3, 2",
+    "D": "1, 2, -3",
+    "E": "1, -2, -3",
+    "answer": "C",
+    "explanation": "By the Rational Root Theorem, test integer factors of -6. P(-1) = (-1)^3 + 2(-1)^2 - 5(-1) - 6 = -1 + 2 + 5 - 6 = 0. So x = -1 is a root. Divide P(x) by (x+1) to get x^2 + x - 6. Factoring the quadratic gives (x+3)(x-2). So the roots are -1, -3, and 2."
+  },
+  {
+    "question": "Find the inverse function of f(x) = 3x - 5.",
+    "A": "(x - 5) / 3",
+    "B": "(x + 5) / 3",
+    "C": "5x - 3",
+    "D": "1/(3x - 5)",
+    "E": "3x + 5",
+    "answer": "B",
+    "explanation": "Let y = 3x - 5. To find the inverse, swap x and y: x = 3y - 5. Then solve for y: x + 5 = 3y, so y = (x + 5) / 3. Thus, f^-1(x) = (x + 5) / 3."
+  },
+  {
+    "question": "Simplify (2 + i)(3 - 2i).",
+    "A": "4 - i",
+    "B": "8 - i",
+    "C": "6 - 2i",
+    "D": "8 + i",
+    "E": "4 + i",
+    "answer": "B",
+    "explanation": "Use FOIL method: (2)(3) + (2)(-2i) + (i)(3) + (i)(-2i) = 6 - 4i + 3i - 2i^2. Since i^2 = -1, this becomes 6 - i - 2(-1) = 6 - i + 2 = 8 - i."
+  },
+  {
+    "question": "If the graph of f(x) = |x| is transformed to g(x) = 2|x - 1| + 3, describe the transformations.",
+    "A": "Vertical stretch by 2, shift right 1, up 3.",
+    "B": "Vertical stretch by 2, shift left 1, up 3.",
+    "C": "Horizontal stretch by 2, shift right 1, up 3.",
+    "D": "Vertical compression by 2, shift right 1, up 3.",
+    "E": "Vertical stretch by 2, shift right 3, up 1.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = 2|x - 1| + 3 from f(x) = |x| indicates a vertical stretch by a factor of 2 (due to the coefficient 2), a horizontal shift of 1 unit to the right (due to x - 1), and a vertical shift of 3 units up (due to +3)."
+  },
+  {
+    "question": "Which of the following is a factor of P(x) = x^3 - 7x + 6?",
+    "A": "(x - 1)",
+    "B": "(x + 1)",
+    "C": "(x - 2)",
+    "D": "(x + 3)",
+    "E": "(x - 6)",
+    "answer": "A",
+    "explanation": "Using the Factor Theorem, test integer factors of the constant term 6. P(1) = (1)^3 - 7(1) + 6 = 1 - 7 + 6 = 0. Since P(1) = 0, (x - 1) is a factor."
+  },
+  {
+    "question": "Find the domain of the function f(x) = 1 / (x^2 - 4).",
+    "A": "All real numbers",
+    "B": "x != 4",
+    "C": "x != 2",
+    "D": "x != 2 and x != -2",
+    "E": "(-infinity, -2) U (2, infinity)",
+    "answer": "D",
+    "explanation": "For a rational function, the denominator cannot be zero. So, x^2 - 4 != 0. Factoring gives (x - 2)(x + 2) != 0, which means x != 2 and x != -2."
+  },
+  {
+    "question": "Expand and simplify (x - 2)(x^2 + 3x - 1).",
+    "A": "x^3 + x^2 - 7x + 2",
+    "B": "x^3 - 5x^2 - 7x + 2",
+    "C": "x^3 + 5x^2 - x - 2",
+    "D": "x^3 + x^2 + 5x - 2",
+    "E": "x^3 - x^2 + 7x - 2",
+    "answer": "A",
+    "explanation": "Use the distributive property: x(x^2 + 3x - 1) - 2(x^2 + 3x - 1) = x^3 + 3x^2 - x - 2x^2 - 6x + 2 = x^3 + x^2 - 7x + 2."
+  },
+  {
+    "question": "Simplify (4 - 3i)^2.",
+    "A": "25",
+    "B": "7 + 24i",
+    "C": "7 - 24i",
+    "D": "16 - 9i",
+    "E": "25 - 24i",
+    "answer": "C",
+    "explanation": "Expand the square: (4 - 3i)^2 = 4^2 - 2(4)(3i) + (3i)^2 = 16 - 24i + 9i^2. Since i^2 = -1, this simplifies to 16 - 24i - 9 = 7 - 24i."
+  },
+  {
+    "question": "If the graph of f(x) = sqrt(x) is transformed to g(x) = -sqrt(x), describe the transformation.",
+    "A": "Reflection over the x-axis.",
+    "B": "Reflection over the y-axis.",
+    "C": "Reflection over the origin.",
+    "D": "Vertical stretch by -1.",
+    "E": "Horizontal stretch by -1.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = -sqrt(x) from f(x) = sqrt(x) indicates a reflection over the x-axis because the negative sign is applied to the entire function output."
+  },
+  {
+    "question": "If (x - 2) is a factor of x^3 + kx^2 - 4x + 12, find the value of k.",
+    "A": "-3",
+    "B": "3",
+    "C": "-6",
+    "D": "6",
+    "E": "-4",
+    "answer": "A",
+    "explanation": "By the Factor Theorem, if (x - 2) is a factor, then P(2) must be 0. Substitute x = 2 into the polynomial: (2)^3 + k(2)^2 - 4(2) + 12 = 0. This simplifies to 8 + 4k - 8 + 12 = 0, so 4k + 12 = 0, which means 4k = -12, and k = -3."
+  },
+  {
+    "question": "Find the range of the function f(x) = -sqrt(x + 1).",
+    "A": "[0, infinity)",
+    "B": "(-infinity, 0]",
+    "C": "(-infinity, infinity)",
+    "D": "[-1, infinity)",
+    "E": "(-infinity, -1]",
+    "answer": "B",
+    "explanation": "The term sqrt(x + 1) is always greater than or equal to 0. Multiplying by -1 reverses the inequality, so -sqrt(x + 1) is always less than or equal to 0. Thus, the maximum value of the function is 0, and it extends to negative infinity. The range is (-infinity, 0]."
+  },
+  {
+    "question": "Find the quotient when (2x^4 - 5x^3 + 3x^2 - x + 4) is divided by (x + 1).",
+    "A": "2x^3 - 7x^2 + 10x - 11",
+    "B": "2x^3 - 3x^2 + 6x - 7",
+    "C": "2x^3 - 7x^2 + 10x - 11 + 15/(x+1)",
+    "D": "2x^3 - 7x^2 + 10x - 11 with remainder 15",
+    "E": "2x^3 - 7x^2 + 10x - 11 with remainder 19",
+    "answer": "A",
+    "explanation": "Use synthetic division with -1: coefficients are 2, -5, 3, -1, 4. The quotient is 2x^3 - 7x^2 + 10x - 11 with a remainder of 15. The question asks for the quotient only."
+  },
+  {
+    "question": "Simplify (5 + i) / (1 - i).",
+    "A": "2 - 3i",
+    "B": "3 + 2i",
+    "C": "2 + 3i",
+    "D": "4 + 6i",
+    "E": "5 - i",
+    "answer": "C",
+    "explanation": "Multiply the numerator and denominator by the conjugate of the denominator, which is (1 + i). This gives [(5 + i)(1 + i)] / [(1 - i)(1 + i)] = (5 + 5i + i + i^2) / (1^2 - i^2) = (5 + 6i - 1) / (1 - (-1)) = (4 + 6i) / 2 = 2 + 3i."
+  },
+  {
+    "question": "If the graph of f(x) = x^3 is transformed to g(x) = (-x)^3 + 2, describe the transformations.",
+    "A": "Reflection over y-axis, shift up 2.",
+    "B": "Reflection over x-axis, shift up 2.",
+    "C": "Reflection over origin, shift up 2.",
+    "D": "Shift left 2, reflection over y-axis.",
+    "E": "Shift up 2, reflection over x-axis.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = (-x)^3 + 2 from f(x) = x^3 indicates a reflection over the y-axis (due to -x inside the function) and a vertical shift of 2 units up (due to +2 outside the function)."
+  },
+  {
+    "question": "Factor P(x) = 2x^3 - 3x^2 - 11x + 6 completely.",
+    "A": "(x - 3)(2x - 1)(x + 2)",
+    "B": "(x + 3)(2x + 1)(x - 2)",
+    "C": "(x - 3)(2x + 1)(x - 2)",
+    "D": "(x + 3)(2x - 1)(x + 2)",
+    "E": "(x - 3)(x - 1)(2x + 2)",
+    "answer": "A",
+    "explanation": "Using the Rational Root Theorem, test P(3) = 2(3)^3 - 3(3)^2 - 11(3) + 6 = 54 - 27 - 33 + 6 = 0. So (x - 3) is a factor. Divide P(x) by (x - 3) using synthetic division to get 2x^2 + 3x - 2. Factor the quadratic: (2x - 1)(x + 2). Thus, P(x) = (x - 3)(2x - 1)(x + 2)."
+  },
+  {
+    "question": "Find the domain of the function f(x) = sqrt(x - 3).",
+    "A": "(-infinity, infinity)",
+    "B": "x != 3",
+    "C": "[3, infinity)",
+    "D": "(-infinity, 3]",
+    "E": "(3, infinity)",
+    "answer": "C",
+    "explanation": "For the square root function to be defined in real numbers, the expression under the square root must be non-negative. So, x - 3 >= 0, which implies x >= 3. In interval notation, this is [3, infinity)."
+  },
+  {
+    "question": "Expand and simplify (2x + 1)(x - 3)(x + 2).",
+    "A": "2x^3 - x^2 - 13x - 6",
+    "B": "2x^3 + 5x^2 - 13x - 6",
+    "C": "2x^3 - 7x^2 - 7x + 6",
+    "D": "2x^3 + x^2 - 13x - 6",
+    "E": "2x^3 - x^2 + 13x + 6",
+    "answer": "A",
+    "explanation": "First multiply (2x+1)(x-3) to get 2x^2-5x-3. Then multiply (2x^2-5x-3)(x+2) to get 2x^3+4x^2-5x^2-10x-3x-6, which simplifies to 2x^3-x^2-13x-6."
+  },
+  {
+    "question": "Simplify (2 - 3i) / (1 + 2i).",
+    "A": "-0.8 - 1.4i",
+    "B": "0.8 + 1.4i",
+    "C": "-4/5 + 7/5i",
+    "D": "-4 - 7i",
+    "E": "2/5 - 3/5i",
+    "answer": "A",
+    "explanation": "Multiply the numerator and denominator by the conjugate of the denominator, which is (1 - 2i). This gives [(2 - 3i)(1 - 2i)] / [(1 + 2i)(1 - 2i)] = (2 - 4i - 3i + 6i^2) / (1^2 - (2i)^2) = (2 - 7i - 6) / (1 - 4(-1)) = (-4 - 7i) / 5 = -0.8 - 1.4i."
+  },
+  {
+    "question": "Which of the following is NOT a possible rational root of P(x) = 4x^3 - 3x^2 + 5x - 6?",
+    "A": "1/2",
+    "B": "3/4",
+    "C": "2",
+    "D": "5/2",
+    "E": "3",
+    "answer": "D",
+    "explanation": "According to the Rational Root Theorem, any rational root p/q must have p as a factor of the constant term (-6) and q as a factor of the leading coefficient (4). For the choice 5/2, 5 is not a factor of -6, therefore 5/2 cannot be a rational root."
+  },
+  {
+    "question": "If the graph of f(x) = x^2 is transformed to g(x) = -2(x - 1)^2 + 3, describe the transformations.",
+    "A": "Reflect over x-axis, vertical stretch by 2, shift right 1, up 3.",
+    "B": "Reflect over y-axis, vertical stretch by 2, shift right 1, up 3.",
+    "C": "Reflect over x-axis, vertical compression by 2, shift right 1, up 3.",
+    "D": "Reflect over x-axis, horizontal stretch by 2, shift right 1, up 3.",
+    "E": "Reflect over y-axis, vertical stretch by 2, shift left 1, up 3.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = -2(x - 1)^2 + 3 from f(x) = x^2 indicates a reflection over the x-axis (due to the leading negative sign), a vertical stretch by a factor of 2 (due to the coefficient 2), a horizontal shift of 1 unit to the right (due to x - 1), and a vertical shift of 3 units up (due to +3)."
+  },
+  {
+    "question": "Simplify (3 + 2i) + (1 - 4i).",
+    "A": "4 - 2i",
+    "B": "2 + 6i",
+    "C": "4 + 6i",
+    "D": "4 + 2i",
+    "E": "-2i",
+    "answer": "A",
+    "explanation": "Combine the real parts (3 + 1 = 4) and the imaginary parts (2i - 4i = -2i) to get 4 - 2i."
+  },
+  {
+    "question": "Find the sum of the roots of the polynomial P(x) = x^3 - 4x^2 - 7x + 10.",
+    "A": "4",
+    "B": "-4",
+    "C": "7",
+    "D": "-10",
+    "E": "10",
+    "answer": "A",
+    "explanation": "For a polynomial of the form ax^n + ... + cx^2 + bx + d = 0, the sum of the roots is given by -b/a. In this case, a = 1 and b = -4, so the sum of the roots is -(-4)/1 = 4."
+  },
+  {
+    "question": "Divide (x^3 - 6x^2 + 11x - 6) by (x - 1).",
+    "A": "x^2 - 5x + 6",
+    "B": "x^2 - 7x + 12",
+    "C": "x^2 - 5x + 6 with remainder -12",
+    "D": "x^2 + 5x + 6",
+    "E": "x^2 - 6x + 11",
+    "answer": "A",
+    "explanation": "Use synthetic division with 1: coefficients are 1, -6, 11, -6. Drop 1, multiply by 1 (1), add to -6 (-5), multiply by 1 (-5), add to 11 (6), multiply by 1 (6), add to -6 (0). The quotient is x^2 - 5x + 6 with a remainder of 0."
+  },
+  {
+    "question": "Find the inverse function of f(x) = (x + 2) / (x - 1).",
+    "A": "(x - 2) / (x + 1)",
+    "B": "(x + 2) / (x - 1)",
+    "C": "(x - 1) / (x + 2)",
+    "D": "(x + 1) / (x - 2)",
+    "E": "(-x + 2) / (x - 1)",
+    "answer": "B",
+    "explanation": "Let y = (x + 2) / (x - 1). Swap x and y: x = (y + 2) / (y - 1). Multiply both sides by (y - 1): x(y - 1) = y + 2. Distribute x: xy - x = y + 2. Group terms with y on one side: xy - y = x + 2. Factor out y: y(x - 1) = x + 2. Divide by (x - 1): y = (x + 2) / (x - 1). Thus, f^-1(x) = (x + 2) / (x - 1)."
+  },
+  {
+    "question": "If the graph of f(x) = 1/x is transformed to g(x) = 1/(x + 4) - 2, describe the transformations.",
+    "A": "Shift left 4 units, down 2 units.",
+    "B": "Shift right 4 units, down 2 units.",
+    "C": "Shift left 4 units, up 2 units.",
+    "D": "Shift right 4 units, up 2 units.",
+    "E": "Shift down 4 units, left 2 units.",
+    "answer": "A",
+    "explanation": "The transformation g(x) = 1/(x + 4) - 2 from f(x) = 1/x indicates a horizontal shift of 4 units to the left (due to x + 4 in the denominator) and a vertical shift of 2 units down (due to -2 outside the function)."
+  },
+  {
+    "question": "Simplify (4x^3 - x + 7) - (2x^3 + 3x^2 - 5).",
+    "A": "2x^3 + 3x^2 - x + 2",
+    "B": "2x^3 - 3x^2 - x + 12",
+    "C": "6x^3 + 3x^2 - x + 2",
+    "D": "2x^3 - 3x^2 + 4x + 12",
+    "E": "2x^3 + 3x^2 - x + 12",
+    "answer": "B",
+    "explanation": "Distribute the negative sign to the second polynomial, then combine like terms: 4x^3 - x + 7 - 2x^3 - 3x^2 + 5 = 2x^3 - 3x^2 - x + 12."
+  },
+  {
+    "question": "Simplify: (5 + 3i) + (2 - 7i)",
+    "A": "7 - 4i",
+    "B": "7 + 4i",
+    "C": "3 - 10i",
+    "D": "7 - 10i",
+    "E": "7 + 10i",
+    "answer": "A",
+    "explanation": "Combine real parts and imaginary parts: (5 + 2) + (3 - 7)i = 7 - 4i."
+  },
+  {
+    "question": "Find the domain of f(x) = (x + 1) / (x^2 - 4x + 3).",
+    "A": "x != 1, x != 3",
+    "B": "x != 3",
+    "C": "x != -1",
+    "D": "x != 1",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "For a rational function, the denominator cannot be zero. Set the denominator to zero: x^2 - 4x + 3 = 0. Factor the quadratic: (x - 1)(x - 3) = 0. So, x = 1 or x = 3. Therefore, the domain is all real numbers except x = 1 and x = 3."
+  },
+  {
+    "question": "Expand and simplify: (2x - 3)(x^2 + 4x - 1)",
+    "A": "2x^3 + 5x^2 - 14x + 3",
+    "B": "2x^3 - 5x^2 - 14x + 3",
+    "C": "2x^3 + 11x^2 - 14x + 3",
+    "D": "2x^3 + 5x^2 - 10x + 3",
+    "E": "2x^3 + 5x^2 - 14x - 3",
+    "answer": "A",
+    "explanation": "Multiply each term in the first polynomial by each term in the second: 2x(x^2) + 2x(4x) + 2x(-1) - 3(x^2) - 3(4x) - 3(-1) = 2x^3 + 8x^2 - 2x - 3x^2 - 12x + 3. Combine like terms: 2x^3 + (8x^2 - 3x^2) + (-2x - 12x) + 3 = 2x^3 + 5x^2 - 14x + 3."
+  },
+  {
+    "question": "Describe the transformation of f(x) = x^2 to g(x) = (x - 3)^2 + 2.",
+    "A": "Shifted 3 units right, 2 units up.",
+    "B": "Shifted 3 units left, 2 units up.",
+    "C": "Shifted 3 units right, 2 units down.",
+    "D": "Shifted 2 units right, 3 units up.",
+    "E": "Shifted 2 units left, 3 units up.",
+    "answer": "A",
+    "explanation": "A term (x - h) shifts horizontally, and a term +k shifts vertically. (x - 3) indicates a shift of 3 units right. +2 indicates a shift of 2 units up."
+  },
+  {
+    "question": "Find all rational roots of P(x) = 2x^3 - 5x^2 - 4x + 3.",
+    "A": "-1, 1/2, 3",
+    "B": "1, 3/2, -1/2",
+    "C": "-1, 1/2, 3/2",
+    "D": "1, -1/2, 3",
+    "E": "-1, -1/2, 3",
+    "answer": "A",
+    "explanation": "By the Rational Root Theorem, possible rational roots are p/q where p divides 3 and q divides 2. Testing values: P(-1) = 2(-1)^3 - 5(-1)^2 - 4(-1) + 3 = -2 - 5 + 4 + 3 = 0. So -1 is a root. Divide P(x) by (x + 1) to get 2x^2 - 7x + 3. Factor the quadratic: (2x - 1)(x - 3) = 0, which gives x = 1/2 and x = 3. Thus, the rational roots are -1, 1/2, and 3."
+  },
+  {
+    "question": "Simplify: (10 + 5i) / (2 - i)",
+    "A": "3 + 4i",
+    "B": "2 + 3i",
+    "C": "3 - 4i",
+    "D": "4 + 3i",
+    "E": "4 - 3i",
+    "answer": "A",
+    "explanation": "Multiply numerator and denominator by the conjugate of the denominator (2 + i): [(10 + 5i)(2 + i)] / [(2 - i)(2 + i)] = [20 + 10i + 10i + 5i^2] / [2^2 - i^2] = [20 + 20i - 5] / [4 - (-1)] = [15 + 20i] / 5 = 3 + 4i."
+  },
+  {
+    "question": "Simplify: (3x^3 - 2x + 5) + (x^3 + 4x^2 - 7)",
+    "A": "4x^3 + 4x^2 - 2x - 2",
+    "B": "4x^3 - 4x^2 - 2x - 2",
+    "C": "4x^3 + 4x^2 + 2x - 2",
+    "D": "3x^3 + 4x^2 - 2x - 2",
+    "E": "4x^3 + 2x^2 - 2x - 2",
+    "answer": "A",
+    "explanation": "Combine like terms: (3x^3 + x^3) + 4x^2 + (-2x) + (5 - 7) = 4x^3 + 4x^2 - 2x - 2."
+  },
+  {
+    "question": "Find the inverse of f(x) = (2x + 1) / (x - 3).",
+    "A": "f^-1(x) = (3x + 1) / (x - 2)",
+    "B": "f^-1(x) = (x + 3) / (2x - 1)",
+    "C": "f^-1(x) = (3x - 1) / (x + 2)",
+    "D": "f^-1(x) = (3x + 1) / (x + 2)",
+    "E": "f^-1(x) = (2x - 1) / (x + 3)",
+    "answer": "A",
+    "explanation": "Let y = (2x + 1) / (x - 3). Swap x and y: x = (2y + 1) / (y - 3). Multiply both sides by (y - 3): x(y - 3) = 2y + 1. Distribute x: xy - 3x = 2y + 1. Move all terms with y to one side and others to the other side: xy - 2y = 3x + 1. Factor out y: y(x - 2) = 3x + 1. Solve for y: y = (3x + 1) / (x - 2). So, f^-1(x) = (3x + 1) / (x - 2)."
+  },
+  {
+    "question": "If f(x) is shifted 2 units left, 3 units down, and reflected across the x-axis, write the new function h(x) in terms of f(x).",
+    "A": "h(x) = -f(x + 2) - 3",
+    "B": "h(x) = f(x - 2) - 3",
+    "C": "h(x) = -f(x - 2) + 3",
+    "D": "h(x) = -f(x + 2) + 3",
+    "E": "h(x) = f(x + 2) - 3",
+    "answer": "A",
+    "explanation": "Applying transformations in order: 1. Shift 2 units left: f(x) -> f(x + 2). 2. Reflect across x-axis: f(x + 2) -> -f(x + 2). 3. Shift 3 units down: -f(x + 2) -> -f(x + 2) - 3. Thus, h(x) = -f(x + 2) - 3."
+  },
+  {
+    "question": "Factor completely: x^3 - 7x - 6",
+    "A": "(x + 1)(x + 2)(x - 3)",
+    "B": "(x - 1)(x + 2)(x - 3)",
+    "C": "(x + 1)(x - 2)(x + 3)",
+    "D": "(x - 1)(x - 2)(x - 3)",
+    "E": "(x + 1)(x + 2)(x + 3)",
+    "answer": "A",
+    "explanation": "Let P(x) = x^3 - 7x - 6. By Rational Root Theorem, possible rational roots are +/-1, +/-2, +/-3, +/-6. P(-1) = (-1)^3 - 7(-1) - 6 = -1 + 7 - 6 = 0, so (x + 1) is a factor. Divide P(x) by (x + 1) using synthetic division: (-1 | 1 0 -7 -6) gives quotient x^2 - x - 6. Factor x^2 - x - 6 = (x - 3)(x + 2). So, x^3 - 7x - 6 = (x + 1)(x + 2)(x - 3)."
+  },
+  {
+    "question": "Divide (x^3 - 6x^2 + 11x - 6) by (x - 1).",
+    "A": "x^2 - 5x + 6",
+    "B": "x^2 + 5x + 6",
+    "C": "x^2 - 7x + 18",
+    "D": "x^2 - 5x - 6",
+    "E": "x^2 + 6x - 5",
+    "answer": "A",
+    "explanation": "Using synthetic division with root 1: (1 | 1 -6 11 -6) -> (1 | 1 -5 6 0). The quotient is x^2 - 5x + 6 with a remainder of 0."
+  },
+  {
+    "question": "Simplify: (-4 + 6i) - (1 - 2i)",
+    "A": "-5 + 8i",
+    "B": "-5 + 4i",
+    "C": "-3 + 8i",
+    "D": "-5 - 8i",
+    "E": "-3 + 4i",
+    "answer": "A",
+    "explanation": "Distribute the negative sign and combine like terms: -4 + 6i - 1 + 2i = (-4 - 1) + (6 + 2)i = -5 + 8i."
+  },
+  {
+    "question": "Find the domain of f(x) = sqrt(4 - x^2).",
+    "A": "[-2, 2]",
+    "B": "(-infinity, -2] U [2, infinity)",
+    "C": "[-4, 4]",
+    "D": "(0, infinity)",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "For the square root to be defined, the expression under the radical must be non-negative: 4 - x^2 >= 0. This implies x^2 <= 4, which means -2 <= x <= 2. In interval notation, the domain is [-2, 2]."
+  },
+  {
+    "question": "Describe the transformation of f(x) = e^x to g(x) = e^(-x) - 4.",
+    "A": "Reflected across y-axis, shifted 4 units down.",
+    "B": "Reflected across x-axis, shifted 4 units down.",
+    "C": "Reflected across y-axis, shifted 4 units up.",
+    "D": "Reflected across x-axis, shifted 4 units up.",
+    "E": "Reflected across y-axis, shifted 4 units left.",
+    "answer": "A",
+    "explanation": "The change from x to -x in the exponent indicates a reflection across the y-axis. The -4 outside the function indicates a vertical shift of 4 units down."
+  },
+  {
+    "question": "Find the value of 'k' such that (x - 2) is a factor of P(x) = x^4 - kx^3 + 2x - 4.",
+    "A": "2",
+    "B": "1",
+    "C": "-1",
+    "D": "-2",
+    "E": "0",
+    "answer": "A",
+    "explanation": "If (x - 2) is a factor, then P(2) = 0. So, (2)^4 - k(2)^3 + 2(2) - 4 = 0. 16 - 8k + 4 - 4 = 0. 16 - 8k = 0. 8k = 16. k = 2."
+  },
+  {
+    "question": "Simplify: (2 - 5i)^2",
+    "A": "-21 - 20i",
+    "B": "4 - 25i",
+    "C": "29 - 20i",
+    "D": "-21 + 20i",
+    "E": "4 + 25i",
+    "answer": "A",
+    "explanation": "Expand as a perfect square: (2 - 5i)(2 - 5i) = 2^2 - 2(2)(5i) + (5i)^2 = 4 - 20i + 25i^2. Since i^2 = -1, this is 4 - 20i + 25(-1) = 4 - 20i - 25 = -21 - 20i."
+  },
+  {
+    "question": "Simplify: (5x^4 + 2x^2 - 3x) - (x^4 - 3x^3 + x^2 - 2x)",
+    "A": "4x^4 + 3x^3 + x^2 - x",
+    "B": "4x^4 - 3x^3 + x^2 - x",
+    "C": "4x^4 + 3x^3 + 3x^2 - 5x",
+    "D": "6x^4 - 3x^3 + x^2 - x",
+    "E": "4x^4 + 3x^3 - x^2 - x",
+    "answer": "A",
+    "explanation": "Distribute the negative sign: 5x^4 + 2x^2 - 3x - x^4 + 3x^3 - x^2 + 2x. Combine like terms: (5x^4 - x^4) + 3x^3 + (2x^2 - x^2) + (-3x + 2x) = 4x^4 + 3x^3 + x^2 - x."
+  },
+  {
+    "question": "Find the inverse of f(x) = 3x - 5.",
+    "A": "f^-1(x) = (x + 5) / 3",
+    "B": "f^-1(x) = (x - 5) / 3",
+    "C": "f^-1(x) = 3x + 5",
+    "D": "f^-1(x) = 5 - 3x",
+    "E": "f^-1(x) = 3 / (x - 5)",
+    "answer": "A",
+    "explanation": "Let y = 3x - 5. To find the inverse, swap x and y: x = 3y - 5. Solve for y: x + 5 = 3y. y = (x + 5) / 3. So, f^-1(x) = (x + 5) / 3."
+  },
+  {
+    "question": "Describe the transformation of f(x) = |x| to g(x) = -2|x + 1|.",
+    "A": "Reflected across x-axis, vertically stretched by factor of 2, shifted 1 unit left.",
+    "B": "Reflected across x-axis, vertically compressed by factor of 2, shifted 1 unit left.",
+    "C": "Reflected across y-axis, vertically stretched by factor of 2, shifted 1 unit right.",
+    "D": "Vertically stretched by factor of 2, shifted 1 unit left, shifted 2 units down.",
+    "E": "Reflected across x-axis, vertically stretched by factor of 2, shifted 1 unit right.",
+    "answer": "A",
+    "explanation": "The negative sign in front reflects the graph across the x-axis. The coefficient 2 indicates a vertical stretch by a factor of 2. The (x + 1) indicates a horizontal shift of 1 unit to the left."
+  },
+  {
+    "question": "Factor completely: x^3 + 2x^2 - 5x - 6",
+    "A": "(x + 1)(x - 2)(x + 3)",
+    "B": "(x - 1)(x + 2)(x + 3)",
+    "C": "(x + 1)(x + 2)(x - 3)",
+    "D": "(x - 1)(x - 2)(x - 3)",
+    "E": "(x + 1)(x + 2)(x + 3)",
+    "answer": "A",
+    "explanation": "Let P(x) = x^3 + 2x^2 - 5x - 6. P(-1) = (-1)^3 + 2(-1)^2 - 5(-1) - 6 = -1 + 2 + 5 - 6 = 0, so (x + 1) is a factor. Divide P(x) by (x + 1) using synthetic division: (-1 | 1 2 -5 -6) gives quotient x^2 + x - 6. Factor x^2 + x - 6 = (x - 2)(x + 3). So, x^3 + 2x^2 - 5x - 6 = (x + 1)(x - 2)(x + 3)."
+  },
+  {
+    "question": "Simplify: (3 - 2i) / (1 + i)",
+    "A": "0.5 - 2.5i",
+    "B": "2.5 - 0.5i",
+    "C": "-0.5 + 2.5i",
+    "D": "-2.5 + 0.5i",
+    "E": "0.5 + 2.5i",
+    "answer": "A",
+    "explanation": "Multiply numerator and denominator by the conjugate of the denominator (1 - i): [(3 - 2i)(1 - i)] / [(1 + i)(1 - i)] = [3 - 3i - 2i + 2i^2] / [1^2 - i^2] = [3 - 5i - 2] / [1 - (-1)] = [1 - 5i] / 2 = 1/2 - 5/2i = 0.5 - 2.5i."
+  },
+  {
+    "question": "Expand and simplify: (x^2 + 2x - 1)(x^2 - x + 3)",
+    "A": "x^4 + x^3 + 7x - 3",
+    "B": "x^4 + x^3 + 4x^2 + 7x - 3",
+    "C": "x^4 - x^3 + 4x^2 + 7x - 3",
+    "D": "x^4 + x^3 + 4x^2 + 5x - 3",
+    "E": "x^4 + 2x^3 + 4x^2 + 7x - 3",
+    "answer": "A",
+    "explanation": "Multiply each term: x^2(x^2-x+3) + 2x(x^2-x+3) - 1(x^2-x+3) = x^4 - x^3 + 3x^2 + 2x^3 - 2x^2 + 6x - x^2 + x - 3. Combine like terms: x^4 + (-x^3 + 2x^3) + (3x^2 - 2x^2 - x^2) + (6x + x) - 3 = x^4 + x^3 + 0x^2 + 7x - 3 = x^4 + x^3 + 7x - 3."
+  },
+  {
+    "question": "Find the range of f(x) = x^2 - 4x + 7.",
+    "A": "[3, infinity)",
+    "B": "[-3, infinity)",
+    "C": "[7, infinity)",
+    "D": "(-infinity, 3]",
+    "E": "All real numbers",
+    "answer": "A",
+    "explanation": "This is a parabola opening upwards. The minimum value occurs at the vertex. The x-coordinate of the vertex is -b/(2a) = -(-4)/(2*1) = 2. Substitute x = 2 into the function to find the minimum y-value: f(2) = (2)^2 - 4(2) + 7 = 4 - 8 + 7 = 3. Since the parabola opens upwards, the range is [3, infinity)."
+  },
+  {
+    "question": "Given f(x) = sqrt(x), write the equation for a function g(x) that is vertically stretched by a factor of 3, shifted 1 unit right, and 5 units up.",
+    "A": "g(x) = 3sqrt(x - 1) + 5",
+    "B": "g(x) = 3sqrt(x + 1) + 5",
+    "C": "g(x) = (1/3)sqrt(x - 1) + 5",
+    "D": "g(x) = 3sqrt(x - 1) - 5",
+    "E": "g(x) = 3sqrt(x + 1) - 5",
+    "answer": "A",
+    "explanation": "Applying the transformations: Vertical stretch by 3 makes it 3f(x). Shift 1 unit right changes x to (x-1), so 3f(x-1). Shift 5 units up adds 5, so 3f(x-1)+5. Substituting f(x)=sqrt(x) gives g(x) = 3sqrt(x - 1) + 5."
+  },
+  {
+    "question": "Given x = 3 is a root of P(x) = x^3 - 4x^2 + ax + 6, find the value of 'a'.",
+    "A": "1",
+    "B": "-1",
+    "C": "0",
+    "D": "2",
+    "E": "-2",
+    "answer": "A",
+    "explanation": "If x = 3 is a root, then P(3) = 0. So, (3)^3 - 4(3)^2 + a(3) + 6 = 0. 27 - 36 + 3a + 6 = 0. -9 + 3a + 6 = 0. -3 + 3a = 0. 3a = 3. a = 1."
+  },
+  {
+    "question": "Simplify: (3 + 2i)(1 - 4i)",
+    "A": "11 - 10i",
+    "B": "3 - 8i",
+    "C": "11 + 10i",
+    "D": "3 - 10i",
+    "E": "3 + 10i",
+    "answer": "A",
+    "explanation": "Use FOIL: 3(1) + 3(-4i) + 2i(1) + 2i(-4i) = 3 - 12i + 2i - 8i^2. Since i^2 = -1, this becomes 3 - 10i - 8(-1) = 3 - 10i + 8 = 11 - 10i."
+  },
+  {
+    "question": "Find the remainder when (2x^4 + 3x^3 - 5x + 1) is divided by (x + 2).",
+    "A": "19",
+    "B": "-19",
+    "C": "1",
+    "D": "-1",
+    "E": "5",
+    "answer": "A",
+    "explanation": "By the Remainder Theorem, the remainder is P(-2). P(-2) = 2(-2)^4 + 3(-2)^3 - 5(-2) + 1 = 2(16) + 3(-8) + 10 + 1 = 32 - 24 + 10 + 1 = 8 + 10 + 1 = 19."
+  },
+  {
+    "question": "Find the domain of f(x) = log(x^2 - 9).",
+    "A": "(-infinity, -3) U (3, infinity)",
+    "B": "(-infinity, -3] U [3, infinity)",
+    "C": "(-3, 3)",
+    "D": "(3, infinity)",
+    "E": "All real numbers except x = 3 and x = -3",
+    "answer": "A",
+    "explanation": "For a logarithm to be defined, its argument must be strictly positive: x^2 - 9 > 0. Factor the inequality: (x - 3)(x + 3) > 0. This inequality holds when both factors are positive (x > 3) or both factors are negative (x < -3). So, the domain is (-infinity, -3) U (3, infinity)."
+  },
+  {
+    "question": "Describe the transformation of f(x) = 1/x to g(x) = 1/(x + 2) + 1.",
+    "A": "Shifted 2 units left, 1 unit up.",
+    "B": "Shifted 2 units right, 1 unit up.",
+    "C": "Shifted 2 units left, 1 unit down.",
+    "D": "Shifted 1 unit left, 2 units up.",
+    "E": "Shifted 2 units right, 1 unit down.",
+    "answer": "A",
+    "explanation": "The (x + 2) in the denominator indicates a horizontal shift of 2 units to the left. The +1 outside the function indicates a vertical shift of 1 unit up."
+  },
+  {
+    "question": "Factor completely: 3x^3 + 7x^2 - 4",
+    "A": "(x + 1)(x + 2)(3x - 2)",
+    "B": "(x - 1)(x + 2)(3x - 2)",
+    "C": "(x + 1)(x - 2)(3x + 2)",
+    "D": "(x + 1)(x + 2)(3x + 2)",
+    "E": "(x - 1)(x - 2)(3x + 2)",
+    "answer": "A",
+    "explanation": "Let P(x) = 3x^3 + 7x^2 - 4. P(-1) = 3(-1)^3 + 7(-1)^2 - 4 = -3 + 7 - 4 = 0, so (x + 1) is a factor. Divide P(x) by (x + 1): (-1 | 3 7 0 -4) gives quotient 3x^2 + 4x - 4. Factor 3x^2 + 4x - 4: (3x - 2)(x + 2). So, 3x^3 + 7x^2 - 4 = (x + 1)(x + 2)(3x - 2)."
   }
 ]

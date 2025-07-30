@@ -13248,5 +13248,1505 @@
     "E": "6*cos(28x)",
     "answer": "A",
     "explanation": "Using the product-to-sum formula cos(A) cos(B) = (1/2) [cos(A+B) + cos(A-B)]. So, 6 cos(7x) cos(4x) = 6 * (1/2) [cos(7x+4x) + cos(7x-4x)] = 3 * [cos(11x) + cos(3x)]."
+  },
+  {
+    "question": "If sin(A) = 3/5 with A in Q2 and cos(B) = 12/13 with B in Q4, find cos(A+B).",
+    "A": "-0.508",
+    "B": "0.508",
+    "C": "-0.877",
+    "D": "0.877",
+    "E": "0.354",
+    "answer": "A",
+    "explanation": "Given sin(A)=3/5 in Q2, cos(A) = -sqrt(1-(3/5)^2) = -4/5. Given cos(B)=12/13 in Q4, sin(B) = -sqrt(1-(12/13)^2) = -5/13. Using the sum formula for cosine, cos(A+B) = cos(A)cos(B) - sin(A)sin(B) = (-4/5)(12/13) - (3/5)(-5/13) = -48/65 + 15/65 = -33/65 = -0.508."
+  },
+  {
+    "question": "If tan(x) = 1/2 and tan(y) = 1/3, find tan(x+y).",
+    "A": "1.000",
+    "B": "0.000",
+    "C": "0.500",
+    "D": "0.750",
+    "E": "1.250",
+    "answer": "A",
+    "explanation": "Using the tangent sum formula, tan(x+y) = (tan(x) + tan(y)) / (1 - tan(x)tan(y)). Substitute the given values: tan(x+y) = (1/2 + 1/3) / (1 - (1/2)(1/3)) = (5/6) / (1 - 1/6) = (5/6) / (5/6) = 1."
+  },
+  {
+    "question": "In triangle ABC, a = 10, b = 14, A = 40 degrees. How many distinct triangles can be formed?",
+    "A": "2",
+    "B": "0",
+    "C": "1",
+    "D": "3",
+    "E": "Infinitely many",
+    "answer": "A",
+    "explanation": "This is an ambiguous case of the Law of Sines. Calculate the height h = b*sin(A) = 14*sin(40 degrees) = 14*0.64278 = 8.999. Since h < a < b (8.999 < 10 < 14), there are two distinct triangles possible."
+  },
+  {
+    "question": "Simplify cos^2(x) - sin^2(x).",
+    "A": "cos(2x)",
+    "B": "sin(2x)",
+    "C": "1",
+    "D": "cos(x)",
+    "E": "sin(x)",
+    "answer": "A",
+    "explanation": "The expression cos^2(x) - sin^2(x) is one of the double angle identities for cosine, specifically cos(2x)."
+  },
+  {
+    "question": "If cos(theta) = -5/13 and theta is in Q3, find tan(2*theta).",
+    "A": "-1.008",
+    "B": "1.008",
+    "C": "0.470",
+    "D": "-0.470",
+    "E": "2.400",
+    "answer": "A",
+    "explanation": "Given cos(theta)=-5/13 in Q3, sin(theta) = -sqrt(1-(-5/13)^2) = -12/13. So, tan(theta) = sin(theta)/cos(theta) = (-12/13)/(-5/13) = 12/5. Use the double angle formula for tangent: tan(2*theta) = (2*tan(theta))/(1 - tan^2(theta)) = (2*(12/5))/(1 - (12/5)^2) = (24/5)/(1 - 144/25) = (24/5)/(-119/25) = (24/5) * (-25/119) = -120/119 = -1.008."
+  },
+  {
+    "question": "In triangle ABC, angle C = 75 degrees, angle A = 45 degrees, and side c = 15. Find side a.",
+    "A": "10.970",
+    "B": "12.247",
+    "C": "17.321",
+    "D": "14.142",
+    "E": "9.875",
+    "answer": "A",
+    "explanation": "Using the Law of Sines, a/sin(A) = c/sin(C). So, a/sin(45 degrees) = 15/sin(75 degrees). This gives a = 15 * sin(45 degrees) / sin(75 degrees) = 15 * 0.7071 / 0.9659 = 10.970."
+  },
+  {
+    "question": "Express sin(6x)cos(2x) as a sum or difference.",
+    "A": "0.5(sin(8x) + sin(4x))",
+    "B": "0.5(cos(8x) + cos(4x))",
+    "C": "0.5(sin(8x) - sin(4x))",
+    "D": "sin(8x) + sin(4x)",
+    "E": "0.5(cos(4x) - cos(8x))",
+    "answer": "A",
+    "explanation": "Using the product-to-sum identity sin(A)cos(B) = (1/2)[sin(A+B) + sin(A-B)], we get sin(6x)cos(2x) = (1/2)[sin(6x+2x) + sin(6x-2x)] = 0.5(sin(8x) + sin(4x))."
+  },
+  {
+    "question": "Find the exact value of arcsin(sin(11pi/6)).",
+    "A": "-0.524",
+    "B": "5.760",
+    "C": "0.524",
+    "D": "2.618",
+    "E": "3.665",
+    "answer": "A",
+    "explanation": "First, evaluate sin(11pi/6) = -1/2. Then, find arcsin(-1/2). The range of arcsin is [-pi/2, pi/2]. The angle in this range whose sine is -1/2 is -pi/6. In decimal, -pi/6 = -0.524."
+  },
+  {
+    "question": "Evaluate cos(arcsin(sqrt(3)/2)).",
+    "A": "0.500",
+    "B": "sqrt(3)/2",
+    "C": "1",
+    "D": "0",
+    "E": "0.866",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(sqrt(3)/2). Since the range of arcsin is [-pi/2, pi/2], theta must be pi/3. Then, evaluate cos(pi/3) = 1/2 = 0.500."
+  },
+  {
+    "question": "Solve 2sin^2(x) + sin(x) - 1 = 0 for 0 <= x < 2pi.",
+    "A": "{0.524, 2.618, 4.712}",
+    "B": "{0.524, 2.618}",
+    "C": "{4.712}",
+    "D": "{0.524, 4.712}",
+    "E": "{0.524, 1.571, 4.712}",
+    "answer": "A",
+    "explanation": "This is a quadratic in sin(x). Factor it as (2sin(x) - 1)(sin(x) + 1) = 0. This gives sin(x) = 1/2 or sin(x) = -1. For sin(x)=1/2, x = pi/6 or 5pi/6. For sin(x)=-1, x = 3pi/2. Converting to decimals: pi/6 = 0.524, 5pi/6 = 2.618, 3pi/2 = 4.712. The solution set is {0.524, 2.618, 4.712}."
+  },
+  {
+    "question": "Find the domain of f(x) = arcsin(3x + 1).",
+    "A": "[-2/3, 0]",
+    "B": "[-1, 1]",
+    "C": "[0, 1]",
+    "D": "[-1/3, 1/3]",
+    "E": "[-inf, inf]",
+    "answer": "A",
+    "explanation": "The domain of arcsin(u) is -1 <= u <= 1. Therefore, for arcsin(3x+1), we must have -1 <= 3x + 1 <= 1. Subtracting 1 from all parts gives -2 <= 3x <= 0. Dividing by 3 gives -2/3 <= x <= 0. So the domain is [-2/3, 0]."
+  },
+  {
+    "question": "In triangle ABC, a = 6, b = 8, c = 10. Find angle C in degrees.",
+    "A": "90.000",
+    "B": "60.000",
+    "C": "30.000",
+    "D": "45.000",
+    "E": "120.000",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines, c^2 = a^2 + b^2 - 2ab*cos(C). Substitute the values: 10^2 = 6^2 + 8^2 - 2(6)(8)cos(C). This simplifies to 100 = 36 + 64 - 96cos(C), which is 100 = 100 - 96cos(C). Thus, 0 = -96cos(C), implying cos(C) = 0. Therefore, angle C = 90 degrees."
+  },
+  {
+    "question": "Find the exact value of sin(105 degrees).",
+    "A": "0.966",
+    "B": "0.259",
+    "C": "0.707",
+    "D": "0.866",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Use the sum formula for sine: sin(105 degrees) = sin(60 degrees + 45 degrees) = sin(60 degrees)cos(45 degrees) + cos(60 degrees)sin(45 degrees) = (sqrt(3)/2)(sqrt(2)/2) + (1/2)(sqrt(2)/2) = (sqrt(6) + sqrt(2))/4. As a decimal, (sqrt(6) + sqrt(2))/4 = (2.449 + 1.414)/4 = 3.863/4 = 0.966."
+  },
+  {
+    "question": "If sin(theta) = -7/25 and theta is in Q3, find sin(theta/2).",
+    "A": "0.990",
+    "B": "-0.990",
+    "C": "0.140",
+    "D": "-0.140",
+    "E": "0.700",
+    "answer": "A",
+    "explanation": "Given sin(theta)=-7/25 in Q3, cos(theta) = -sqrt(1-(-7/25)^2) = -24/25. Since theta is in Q3 (pi < theta < 3pi/2), theta/2 is in Q2 (pi/2 < theta/2 < 3pi/4), so sin(theta/2) is positive. Using the half-angle formula, sin(theta/2) = sqrt((1-cos(theta))/2) = sqrt((1-(-24/25))/2) = sqrt((49/25)/2) = sqrt(49/50) = 7/sqrt(50) = 7sqrt(2)/10 = 0.990."
+  },
+  {
+    "question": "Express sin(5x) - sin(x) as a product.",
+    "A": "2cos(3x)sin(2x)",
+    "B": "2sin(3x)cos(2x)",
+    "C": "-2sin(3x)sin(2x)",
+    "D": "2cos(3x)cos(2x)",
+    "E": "2sin(5x)sin(x)",
+    "answer": "A",
+    "explanation": "Using the sum-to-product identity sin(A) - sin(B) = 2cos((A+B)/2)sin((A-B)/2), we get sin(5x) - sin(x) = 2cos((5x+x)/2)sin((5x-x)/2) = 2cos(3x)sin(2x)."
+  },
+  {
+    "question": "Simplify (1 - tan^2(x)) / (1 + tan^2(x)).",
+    "A": "cos(2x)",
+    "B": "sin(2x)",
+    "C": "sec(2x)",
+    "D": "tan(2x)",
+    "E": "1",
+    "answer": "A",
+    "explanation": "Recall that 1 + tan^2(x) = sec^2(x). So the expression becomes (1 - tan^2(x)) / sec^2(x). Rewrite tan(x) and sec(x) in terms of sin(x) and cos(x): (1 - sin^2(x)/cos^2(x)) / (1/cos^2(x)) = ((cos^2(x) - sin^2(x))/cos^2(x)) / (1/cos^2(x)) = cos^2(x) - sin^2(x). This is the double angle identity for cos(2x)."
+  },
+  {
+    "question": "If sec(x) = -4 and x is in Q3, find cos(x/2).",
+    "A": "-0.612",
+    "B": "0.612",
+    "C": "-0.125",
+    "D": "0.125",
+    "E": "-0.866",
+    "answer": "A",
+    "explanation": "Given sec(x)=-4, cos(x)=-1/4. Since x is in Q3 (pi < x < 3pi/2), then x/2 is in Q2 (pi/2 < x/2 < 3pi/4), which means cos(x/2) will be negative. Using the half-angle formula, cos(x/2) = -sqrt((1+cos(x))/2) = -sqrt((1+(-1/4))/2) = -sqrt((3/4)/2) = -sqrt(3/8) = -sqrt(6)/4 = -0.612."
+  },
+  {
+    "question": "In triangle PQR, p = 7, q = 11, angle R = 50 degrees. Find side r.",
+    "A": "8.427",
+    "B": "9.610",
+    "C": "12.000",
+    "D": "7.000",
+    "E": "10.500",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines, r^2 = p^2 + q^2 - 2pq*cos(R). Substitute the given values: r^2 = 7^2 + 11^2 - 2(7)(11)cos(50 degrees) = 49 + 121 - 154*0.6428 = 170 - 98.981 = 71.019. Taking the square root, r = sqrt(71.019) = 8.427."
+  },
+  {
+    "question": "Solve sqrt(3)sec(x) + 2 = 0 for 0 <= x < 2pi.",
+    "A": "{2.618, 3.665}",
+    "B": "{0.524, 5.760}",
+    "C": "{2.094, 4.189}",
+    "D": "{2.618}",
+    "E": "{3.665}",
+    "answer": "A",
+    "explanation": "Rearrange the equation: sqrt(3)sec(x) = -2, so sec(x) = -2/sqrt(3). This means cos(x) = -sqrt(3)/2. In the interval 0 <= x < 2pi, the angles where cos(x) is -sqrt(3)/2 are x = 5pi/6 and x = 7pi/6. In decimals, 5pi/6 = 2.618 and 7pi/6 = 3.665."
+  },
+  {
+    "question": "In triangle XYZ, angle X = 60 degrees, angle Y = 75 degrees, and side x = 12. Find side y.",
+    "A": "13.385",
+    "B": "10.954",
+    "C": "14.697",
+    "D": "15.000",
+    "E": "9.798",
+    "answer": "A",
+    "explanation": "Using the Law of Sines, y/sin(Y) = x/sin(X). So, y/sin(75 degrees) = 12/sin(60 degrees). This gives y = 12 * sin(75 degrees) / sin(60 degrees) = 12 * 0.9659 / 0.8660 = 13.385."
+  },
+  {
+    "question": "Simplify cos(x + pi/4) + cos(x - pi/4).",
+    "A": "sqrt(2)cos(x)",
+    "B": "sqrt(2)sin(x)",
+    "C": "2cos(x)",
+    "D": "2sin(x)",
+    "E": "cos(x)",
+    "answer": "A",
+    "explanation": "Use the sum and difference formulas for cosine: cos(A+B) = cosAcosB - sinAsinB and cos(A-B) = cosAcosB + sinAsinB. So, cos(x+pi/4) + cos(x-pi/4) = (cosx*cos(pi/4) - sinx*sin(pi/4)) + (cosx*cos(pi/4) + sinx*sin(pi/4)) = 2*cosx*cos(pi/4). Since cos(pi/4) = sqrt(2)/2, the expression simplifies to 2*cosx*(sqrt(2)/2) = sqrt(2)cos(x)."
+  },
+  {
+    "question": "In triangle ABC, a = 5, b = 7, c = 10. Find angle A in degrees.",
+    "A": "27.660",
+    "B": "81.787",
+    "C": "70.534",
+    "D": "53.130",
+    "E": "36.870",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines, a^2 = b^2 + c^2 - 2bc*cos(A). Substitute the values: 5^2 = 7^2 + 10^2 - 2(7)(10)cos(A). This becomes 25 = 49 + 100 - 140cos(A), so 25 = 149 - 140cos(A). Rearranging for cos(A): 140cos(A) = 149 - 25 = 124. Thus, cos(A) = 124/140 = 31/35. Angle A = arccos(31/35) = 27.660 degrees."
+  },
+  {
+    "question": "Solve cos(2x) + sin(x) = 0 for 0 <= x < 2pi.",
+    "A": "{1.571, 3.665, 5.760}",
+    "B": "{1.571, 3.927, 5.498}",
+    "C": "{0.524, 2.618}",
+    "D": "{1.571}",
+    "E": "{3.665, 5.760}",
+    "answer": "A",
+    "explanation": "Use the double angle identity cos(2x) = 1 - 2sin^2(x). Substitute into the equation: 1 - 2sin^2(x) + sin(x) = 0. Rearrange to form a quadratic: 2sin^2(x) - sin(x) - 1 = 0. Factor this as (2sin(x) + 1)(sin(x) - 1) = 0. This yields sin(x) = -1/2 or sin(x) = 1. For sin(x)=-1/2, x = 7pi/6, 11pi/6. For sin(x)=1, x = pi/2. Converting to decimals: pi/2 = 1.571, 7pi/6 = 3.665, 11pi/6 = 5.760."
+  },
+  {
+    "question": "Evaluate tan(arccos(-3/5)).",
+    "A": "-1.333",
+    "B": "1.333",
+    "C": "-0.600",
+    "D": "0.600",
+    "E": "0.800",
+    "answer": "A",
+    "explanation": "Let theta = arccos(-3/5). The range of arccos is [0, pi], so theta must be in Q2. In Q2, cos(theta) = -3/5. Draw a right triangle where adjacent side is 3 and hypotenuse is 5. The opposite side is sqrt(5^2 - 3^2) = 4. Since theta is in Q2, tangent is negative. So, tan(theta) = opposite/adjacent = 4/(-3) = -4/3 = -1.333."
+  },
+  {
+    "question": "Solve tan(3x) = 1 for 0 <= x < pi.",
+    "A": "{0.262, 1.309, 2.356}",
+    "B": "{0.262, 1.309}",
+    "C": "{0.262, 0.785, 1.309, 1.833, 2.356, 2.880}",
+    "D": "{0.785, 1.833, 2.880}",
+    "E": "{0.262}",
+    "answer": "A",
+    "explanation": "For tan(u)=1, u = pi/4 + n*pi. So, 3x = pi/4 + n*pi. Dividing by 3, x = pi/12 + n*pi/3. For n=0, x = pi/12 = 0.262. For n=1, x = pi/12 + pi/3 = 5pi/12 = 1.309. For n=2, x = pi/12 + 2pi/3 = 9pi/12 = 3pi/4 = 2.356. For n=3, x = pi/12 + pi = 13pi/12, which is greater than pi. So, the solutions in the given interval are {0.262, 1.309, 2.356}."
+  },
+  {
+    "question": "Rewrite sin(5x)sin(3x) as a sum or difference.",
+    "A": "0.5(cos(2x) - cos(8x))",
+    "B": "0.5(cos(8x) - cos(2x))",
+    "C": "0.5(sin(8x) + sin(2x))",
+    "D": "0.5(sin(8x) - sin(2x))",
+    "E": "cos(2x) - cos(8x)",
+    "answer": "A",
+    "explanation": "Using the product-to-sum identity sin(A)sin(B) = (1/2)[cos(A-B) - cos(A+B)], we get sin(5x)sin(3x) = (1/2)[cos(5x-3x) - cos(5x+3x)] = 0.5(cos(2x) - cos(8x))."
+  },
+  {
+    "question": "Solve 1 + sin(x) = cos(x) for 0 <= x < 2pi.",
+    "A": "{0.000, 4.712}",
+    "B": "{0.000, 3.142, 4.712}",
+    "C": "{3.142}",
+    "D": "{4.712}",
+    "E": "{0.000}",
+    "answer": "A",
+    "explanation": "Square both sides: (1+sin(x))^2 = cos^2(x). This leads to 1 + 2sin(x) + sin^2(x) = 1 - sin^2(x). Rearranging gives 2sin^2(x) + 2sin(x) = 0. Factor out 2sin(x): 2sin(x)(sin(x)+1) = 0. So, sin(x)=0 or sin(x)=-1. If sin(x)=0, x=0, pi. If sin(x)=-1, x=3pi/2. Since we squared both sides, check for extraneous solutions: For x=0, 1+sin(0)=1, cos(0)=1 (Valid). For x=pi, 1+sin(pi)=1, cos(pi)=-1 (Extraneous). For x=3pi/2, 1+sin(3pi/2)=0, cos(3pi/2)=0 (Valid). The solutions are {0, 3pi/2} = {0.000, 4.712}."
+  },
+  {
+    "question": "Express cos(7x) + cos(3x) as a product.",
+    "A": "2cos(5x)cos(2x)",
+    "B": "2sin(5x)sin(2x)",
+    "C": "2cos(5x)sin(2x)",
+    "D": "-2sin(5x)sin(2x)",
+    "E": "2cos(10x)cos(4x)",
+    "answer": "A",
+    "explanation": "Using the sum-to-product identity cos(A) + cos(B) = 2cos((A+B)/2)cos((A-B)/2), we get cos(7x) + cos(3x) = 2cos((7x+3x)/2)cos((7x-3x)/2) = 2cos(5x)cos(2x)."
+  },
+  {
+    "question": "If cot(theta) = -1 and theta is in Q4, find tan(theta/2).",
+    "A": "-0.414",
+    "B": "0.414",
+    "C": "2.414",
+    "D": "-2.414",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Given cot(theta)=-1 and theta in Q4, this implies tan(theta)=-1. For theta in Q4, cos(theta) = sqrt(2)/2 and sin(theta) = -sqrt(2)/2. Since theta is in Q4 (3pi/2 < theta < 2pi), then theta/2 is in Q2 (3pi/4 < theta/2 < pi), meaning tan(theta/2) will be negative. Using the half-angle formula tan(theta/2) = (1 - cos(theta))/sin(theta) = (1 - sqrt(2)/2) / (-sqrt(2)/2) = ( (2-sqrt(2))/2 ) / (-sqrt(2)/2) = (2-sqrt(2))/(-sqrt(2)) = -(2sqrt(2)-2)/2 = -(sqrt(2)-1) = 1-sqrt(2) = 1-1.414 = -0.414."
+  },
+  {
+    "question": "If csc(x) = 5 and x is in Q1, find cos(2x).",
+    "A": "0.920",
+    "B": "0.080",
+    "C": "-0.920",
+    "D": "-0.080",
+    "E": "0.480",
+    "answer": "A",
+    "explanation": "Given csc(x)=5, sin(x)=1/5. Since x is in Q1, cos(x) = sqrt(1-(1/5)^2) = sqrt(24/25) = 2sqrt(6)/5. Using the double angle formula cos(2x) = 1 - 2sin^2(x) = 1 - 2(1/5)^2 = 1 - 2/25 = 23/25 = 0.920."
+  },
+  {
+    "question": "Simplify cos(x - 3pi/4) - cos(x + 3pi/4).",
+    "A": "sqrt(2)sin(x)",
+    "B": "-sqrt(2)sin(x)",
+    "C": "sqrt(2)cos(x)",
+    "D": "-sqrt(2)cos(x)",
+    "E": "0",
+    "answer": "A",
+    "explanation": "Using the sum and difference formulas, cos(A-B) = cosAcosB + sinAsinB and cos(A+B) = cosAcosB - sinAsinB. So, cos(x - 3pi/4) - cos(x + 3pi/4) = (cosxcos(3pi/4) + sinxsin(3pi/4)) - (cosxcos(3pi/4) - sinxsin(3pi/4)) = 2sinxsin(3pi/4). Since sin(3pi/4) = sqrt(2)/2, the expression simplifies to 2sinx(sqrt(2)/2) = sqrt(2)sin(x)."
+  },
+  {
+    "question": "Evaluate arcsin(sin(5pi/4)).",
+    "A": "-pi/4",
+    "B": "5pi/4",
+    "C": "pi/4",
+    "D": "3pi/4",
+    "E": "-3pi/4",
+    "answer": "A",
+    "explanation": "First, find the value of sin(5pi/4). Since 5pi/4 is in Quadrant III, sin(5pi/4) = -sin(pi/4) = -sqrt(2)/2. Now, evaluate arcsin(-sqrt(2)/2). The range of arcsin(x) is [-pi/2, pi/2]. The angle in this range whose sine is -sqrt(2)/2 is -pi/4."
+  },
+  {
+    "question": "In triangle ABC, angle A = 40 degrees, angle B = 60 degrees, side a = 8. Find side b. Round to three decimal places.",
+    "A": "10.781",
+    "B": "9.539",
+    "C": "12.457",
+    "D": "7.500",
+    "E": "8.000",
+    "answer": "A",
+    "explanation": "Using the Law of Sines: a/sin(A) = b/sin(B). So, 8/sin(40) = b/sin(60). Solving for b, b = 8 * sin(60) / sin(40) = 8 * 0.866025 / 0.642788 = 10.781."
+  },
+  {
+    "question": "If sin(theta) = 4/5 and theta is in Quadrant II, find cos(2*theta).",
+    "A": "-7/25",
+    "B": "7/25",
+    "C": "-24/25",
+    "D": "24/25",
+    "E": "1/25",
+    "answer": "A",
+    "explanation": "Since theta is in Quadrant II and sin(theta) = 4/5, cos(theta) must be negative. Using the Pythagorean identity, cos(theta) = -sqrt(1 - sin^2(theta)) = -sqrt(1 - (4/5)^2) = -sqrt(1 - 16/25) = -sqrt(9/25) = -3/5. Now, use the double angle formula cos(2*theta) = cos^2(theta) - sin^2(theta) = (-3/5)^2 - (4/5)^2 = 9/25 - 16/25 = -7/25."
+  },
+  {
+    "question": "Express 2sin(6x)sin(2x) as a sum or difference.",
+    "A": "cos(4x) - cos(8x)",
+    "B": "cos(8x) - cos(4x)",
+    "C": "sin(4x) + sin(8x)",
+    "D": "sin(8x) - sin(4x)",
+    "E": "cos(12x)",
+    "answer": "A",
+    "explanation": "Using the product-to-sum formula 2sinAsinB = cos(A-B) - cos(A+B). Let A=6x and B=2x. Then 2sin(6x)sin(2x) = cos(6x-2x) - cos(6x+2x) = cos(4x) - cos(8x)."
+  },
+  {
+    "question": "Solve tan(x)sin(x) + sin(x) = 0 for x in [0, 2pi).",
+    "A": "0, pi, 3pi/4, 7pi/4",
+    "B": "0, pi, pi/4, 5pi/4",
+    "C": "pi/2, 3pi/2, 3pi/4, 7pi/4",
+    "D": "pi, 3pi/4, 7pi/4",
+    "E": "0, 3pi/4",
+    "answer": "A",
+    "explanation": "Factor out sin(x): sin(x)(tan(x) + 1) = 0. This gives two cases: sin(x) = 0 or tan(x) + 1 = 0. For sin(x) = 0, the solutions in [0, 2pi) are x = 0 and x = pi. For tan(x) + 1 = 0, tan(x) = -1. The solutions in [0, 2pi) for tan(x) = -1 are x = 3pi/4 (in QII) and x = 7pi/4 (in QIV). Combining all solutions, we get 0, pi, 3pi/4, 7pi/4."
+  },
+  {
+    "question": "In triangle PQR, side p = 5, side q = 8, side r = 10. Find angle P. Round to three decimal places.",
+    "A": "29.697",
+    "B": "48.506",
+    "C": "70.893",
+    "D": "30.000",
+    "E": "60.000",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines: p^2 = q^2 + r^2 - 2qr*cos(P). Substitute the given values: 5^2 = 8^2 + 10^2 - 2(8)(10)cos(P). This gives 25 = 64 + 100 - 160cos(P). So, 25 = 164 - 160cos(P). Rearranging, 160cos(P) = 164 - 25 = 139. Thus, cos(P) = 139/160 = 0.86875. Angle P = arccos(0.86875) = 29.697 degrees."
+  },
+  {
+    "question": "Find all solutions for 2sin(x) - sqrt(3) = 0.",
+    "A": "x = pi/3 + 2n*pi, x = 2pi/3 + 2n*pi",
+    "B": "x = pi/3 + n*pi, x = 2pi/3 + n*pi",
+    "C": "x = pi/6 + 2n*pi, x = 5pi/6 + 2n*pi",
+    "D": "x = pi/3 + 2n*pi",
+    "E": "x = 2pi/3 + 2n*pi",
+    "answer": "A",
+    "explanation": "Rearrange the equation to sin(x) = sqrt(3)/2. The reference angle for which sin(x) = sqrt(3)/2 is pi/3. Since sine is positive, the solutions are in Quadrant I and Quadrant II. In Quadrant I, x = pi/3 + 2n*pi. In Quadrant II, x = (pi - pi/3) + 2n*pi = 2pi/3 + 2n*pi, where n is an integer."
+  },
+  {
+    "question": "Evaluate sin(105 degrees).",
+    "A": "(sqrt(6) + sqrt(2))/4",
+    "B": "(sqrt(6) - sqrt(2))/4",
+    "C": "(sqrt(3) + 1)/2",
+    "D": "(sqrt(2) + 1)/2",
+    "E": "(sqrt(6) + 2)/4",
+    "answer": "A",
+    "explanation": "Using the sum formula sin(A+B) = sin(A)cos(B) + cos(A)sin(B), sin(105) = sin(60+45) = sin(60)cos(45) + cos(60)sin(45) = (sqrt(3)/2)(sqrt(2)/2) + (1/2)(sqrt(2)/2) = (sqrt(6) + sqrt(2))/4."
+  },
+  {
+    "question": "If tan(A) = 2 and tan(B) = 3, find tan(A+B).",
+    "A": "-1",
+    "B": "1",
+    "C": "5",
+    "D": "-5",
+    "E": "1/7",
+    "answer": "A",
+    "explanation": "Using the sum formula for tangent: tan(A+B) = (tan(A) + tan(B)) / (1 - tan(A)tan(B)). Substitute the given values: tan(A+B) = (2 + 3) / (1 - (2)(3)) = 5 / (1 - 6) = 5 / -5 = -1."
+  },
+  {
+    "question": "Evaluate sin(pi/8).",
+    "A": "sqrt(2-sqrt(2))/2",
+    "B": "sqrt(2+sqrt(2))/2",
+    "C": "sqrt(2)/2",
+    "D": "1/2",
+    "E": "sqrt(3)/2",
+    "answer": "A",
+    "explanation": "Use the half-angle formula sin(A/2) = +/- sqrt((1-cosA)/2). Since pi/8 is in Quadrant I, sin(pi/8) is positive. Let A = pi/4. Then sin(pi/8) = sqrt((1-cos(pi/4))/2) = sqrt((1-sqrt(2)/2)/2) = sqrt((2-sqrt(2))/4) = sqrt(2-sqrt(2))/2."
+  },
+  {
+    "question": "Simplify 2sin(3x)cos(3x).",
+    "A": "sin(6x)",
+    "B": "cos(6x)",
+    "C": "sin(9x)",
+    "D": "cos(9x)",
+    "E": "2sin(3x)",
+    "answer": "A",
+    "explanation": "This expression matches the double angle identity for sine: sin(2A) = 2sinAcosA. Here, A = 3x. So, 2sin(3x)cos(3x) = sin(2 * 3x) = sin(6x)."
+  },
+  {
+    "question": "Express sin(7x) + sin(3x) as a product.",
+    "A": "2sin(5x)cos(2x)",
+    "B": "2cos(5x)sin(2x)",
+    "C": "2sin(10x)cos(4x)",
+    "D": "2cos(10x)sin(4x)",
+    "E": "sin(10x)",
+    "answer": "A",
+    "explanation": "Using the sum-to-product formula sinA + sinB = 2sin((A+B)/2)cos((A-B)/2). Let A=7x and B=3x. Then sin(7x) + sin(3x) = 2sin((7x+3x)/2)cos((7x-3x)/2) = 2sin(10x/2)cos(4x/2) = 2sin(5x)cos(2x)."
+  },
+  {
+    "question": "In triangle XYZ, side x = 7, side y = 10, angle Z = 60 degrees. Find side z. Round to three decimal places.",
+    "A": "8.888",
+    "B": "7.000",
+    "C": "12.000",
+    "D": "9.434",
+    "E": "6.000",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines: z^2 = x^2 + y^2 - 2xy*cos(Z). Substitute the given values: z^2 = 7^2 + 10^2 - 2(7)(10)cos(60). This simplifies to z^2 = 49 + 100 - 140(1/2) = 149 - 70 = 79. Therefore, z = sqrt(79) = 8.888."
+  },
+  {
+    "question": "Solve 2cos^2(x) - cos(x) - 1 = 0 for x in [0, 2pi).",
+    "A": "0, 2pi/3, 4pi/3",
+    "B": "pi/3, 5pi/3, 2pi",
+    "C": "0, pi, 2pi/3",
+    "D": "pi/2, 3pi/2",
+    "E": "0, pi/3, 5pi/3",
+    "answer": "A",
+    "explanation": "This is a quadratic equation in terms of cos(x). Let y = cos(x), so 2y^2 - y - 1 = 0. Factor this as (2y+1)(y-1) = 0. This yields y = -1/2 or y = 1. So, cos(x) = -1/2 or cos(x) = 1. For cos(x) = -1/2, the solutions in [0, 2pi) are x = 2pi/3 (QII) and x = 4pi/3 (QIII). For cos(x) = 1, the solution in [0, 2pi) is x = 0. Combining these, the solutions are 0, 2pi/3, 4pi/3."
+  },
+  {
+    "question": "If cos(theta) = -7/25 and theta is in Quadrant III, find sin(theta/2).",
+    "A": "4/5",
+    "B": "-4/5",
+    "C": "3/5",
+    "D": "-3/5",
+    "E": "1/5",
+    "answer": "A",
+    "explanation": "Since theta is in Quadrant III (pi < theta < 3pi/2), theta/2 will be in Quadrant II (pi/2 < theta/2 < 3pi/4), which means sin(theta/2) is positive. Use the half-angle formula sin(theta/2) = sqrt((1-cos(theta))/2). Substitute cos(theta) = -7/25: sin(theta/2) = sqrt((1-(-7/25))/2) = sqrt((1+7/25)/2) = sqrt((32/25)/2) = sqrt(16/25) = 4/5."
+  },
+  {
+    "question": "If tan(x) = -3/4 and x is in Quadrant IV, find tan(x/2).",
+    "A": "-1/3",
+    "B": "1/3",
+    "C": "-3",
+    "D": "3",
+    "E": "-1/2",
+    "answer": "A",
+    "explanation": "In Quadrant IV, if tan(x) = -3/4 (opposite/adjacent), then the hypotenuse is 5. So, sin(x) = -3/5 and cos(x) = 4/5. Use the half-angle formula tan(x/2) = sin(x) / (1 + cos(x)). Substitute the values: tan(x/2) = (-3/5) / (1 + 4/5) = (-3/5) / (9/5) = -3/9 = -1/3."
+  },
+  {
+    "question": "Find all solutions for cot(x) = -1.",
+    "A": "x = 3pi/4 + n*pi",
+    "B": "x = 3pi/4 + 2n*pi, 7pi/4 + 2n*pi",
+    "C": "x = pi/4 + n*pi",
+    "D": "x = pi/4 + 2n*pi, 5pi/4 + 2n*pi",
+    "E": "x = 3pi/4",
+    "answer": "A",
+    "explanation": "The equation cot(x) = -1 is equivalent to tan(x) = -1. The reference angle for which tan(x) = 1 is pi/4. Since tan(x) is negative, solutions are in Quadrant II and Quadrant IV. In Quadrant II, x = pi - pi/4 = 3pi/4. In Quadrant IV, x = 2pi - pi/4 = 7pi/4. Because the period of tangent (and cotangent) is pi, we can express all solutions as x = 3pi/4 + n*pi, where n is an integer."
+  },
+  {
+    "question": "Express cos(8x) - cos(2x) as a product.",
+    "A": "-2sin(5x)sin(3x)",
+    "B": "2sin(5x)sin(3x)",
+    "C": "-2cos(5x)cos(3x)",
+    "D": "2sin(5x)cos(3x)",
+    "E": "-2cos(5x)sin(3x)",
+    "answer": "A",
+    "explanation": "Using the sum-to-product formula cosA - cosB = -2sin((A+B)/2)sin((A-B)/2). Let A=8x and B=2x. Then cos(8x) - cos(2x) = -2sin((8x+2x)/2)sin((8x-2x)/2) = -2sin(10x/2)sin(6x/2) = -2sin(5x)sin(3x)."
+  },
+  {
+    "question": "Express cos(x)cos(3x) as a sum or difference.",
+    "A": "(1/2)(cos(2x) + cos(4x))",
+    "B": "(1/2)(cos(4x) - cos(2x))",
+    "C": "(1/2)(sin(4x) + sin(2x))",
+    "D": "(1/2)(sin(4x) - sin(2x))",
+    "E": "cos(4x)",
+    "answer": "A",
+    "explanation": "Using the product-to-sum formula cosAcosB = (1/2)[cos(A-B) + cos(A+B)]. Let A=x and B=3x. Then cos(x)cos(3x) = (1/2)[cos(x-3x) + cos(x+3x)] = (1/2)[cos(-2x) + cos(4x)]. Since cos(-theta) = cos(theta), this simplifies to (1/2)[cos(2x) + cos(4x)]."
+  },
+  {
+    "question": "Evaluate tan(arcsin(-1/2)).",
+    "A": "-sqrt(3)/3",
+    "B": "sqrt(3)/3",
+    "C": "-1/sqrt(3)",
+    "D": "1/sqrt(3)",
+    "E": "-1",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(-1/2). This means sin(theta) = -1/2. The range of arcsin is [-pi/2, pi/2], so theta must be -pi/6. Now, find tan(theta) = tan(-pi/6). tan(-pi/6) = -tan(pi/6) = -1/sqrt(3) = -sqrt(3)/3."
+  },
+  {
+    "question": "In triangle ABC, side a = 12, side b = 15, side c = 18. Find angle C. Round to three decimal places.",
+    "A": "82.819",
+    "B": "41.409",
+    "C": "53.130",
+    "D": "60.000",
+    "E": "90.000",
+    "answer": "A",
+    "explanation": "Using the Law of Cosines to find angle C: c^2 = a^2 + b^2 - 2ab*cos(C). Substitute the side lengths: 18^2 = 12^2 + 15^2 - 2(12)(15)cos(C). This becomes 324 = 144 + 225 - 360cos(C). So, 324 = 369 - 360cos(C). Rearranging, 360cos(C) = 369 - 324 = 45. Thus, cos(C) = 45/360 = 1/8 = 0.125. Angle C = arccos(0.125) = 82.819 degrees."
+  },
+  {
+    "question": "Evaluate sin(11pi/12)cos(pi/12).",
+    "A": "1/4",
+    "B": "-1/4",
+    "C": "sqrt(3)/4",
+    "D": "1/2",
+    "E": "0",
+    "answer": "A",
+    "explanation": "Using the product-to-sum formula sinAcosB = (1/2)[sin(A+B) + sin(A-B)]. Let A=11pi/12 and B=pi/12. Then sin(11pi/12)cos(pi/12) = (1/2)[sin(11pi/12 + pi/12) + sin(11pi/12 - pi/12)] = (1/2)[sin(12pi/12) + sin(10pi/12)] = (1/2)[sin(pi) + sin(5pi/6)]. Since sin(pi) = 0 and sin(5pi/6) = 1/2, the expression becomes (1/2)[0 + 1/2] = 1/4."
+  },
+  {
+    "question": "In triangle DEF, angle D = 75 degrees, angle E = 45 degrees, side f = 12. Find side e. Round to three decimal places.",
+    "A": "9.798",
+    "B": "8.485",
+    "C": "10.392",
+    "D": "11.201",
+    "E": "12.000",
+    "answer": "A",
+    "explanation": "First find angle F: F = 180 - D - E = 180 - 75 - 45 = 60 degrees. Using the Law of Sines: e/sin(E) = f/sin(F). So, e/sin(45) = 12/sin(60). Solving for e, e = 12 * sin(45) / sin(60) = 12 * (sqrt(2)/2) / (sqrt(3)/2) = 12 * sqrt(2) / sqrt(3) = 12 * sqrt(6) / 3 = 4*sqrt(6). Numerically, 4*sqrt(6) is approximately 9.798."
+  },
+  {
+    "question": "Solve sec(x) = -2 for x in [0, 2pi).",
+    "A": "2pi/3, 4pi/3",
+    "B": "pi/3, 5pi/3",
+    "C": "pi/6, 11pi/6",
+    "D": "7pi/6, 5pi/6",
+    "E": "pi/3, 2pi/3",
+    "answer": "A",
+    "explanation": "The equation sec(x) = -2 is equivalent to cos(x) = 1/sec(x) = 1/(-2) = -1/2. The reference angle for which cos(x) = 1/2 is pi/3. Since cos(x) is negative, the solutions are in Quadrant II and Quadrant III. In Quadrant II, x = pi - pi/3 = 2pi/3. In Quadrant III, x = pi + pi/3 = 4pi/3. The solutions in the interval [0, 2pi) are 2pi/3 and 4pi/3."
+  },
+  {
+    "question": "Evaluate cos(arctan(5/12)).",
+    "A": "12/13",
+    "B": "5/13",
+    "C": "13/12",
+    "D": "12/5",
+    "E": "5/12",
+    "answer": "A",
+    "explanation": "Let theta = arctan(5/12). This means tan(theta) = 5/12. Since the range of arctan is (-pi/2, pi/2), and 5/12 is positive, theta must be in Quadrant I. In a right triangle, if tan(theta) = opposite/adjacent = 5/12, then the opposite side is 5 and the adjacent side is 12. The hypotenuse is found using the Pythagorean theorem: sqrt(5^2 + 12^2) = sqrt(25 + 144) = sqrt(169) = 13. Now, find cos(theta) = adjacent/hypotenuse = 12/13."
+  },
+  {
+    "question": "Solve sin(x) + cos(x) = 1 for x in [0, 2pi).",
+    "A": "0, pi/2",
+    "B": "0, pi/2, pi, 3pi/2",
+    "C": "pi/4, 5pi/4",
+    "D": "pi/2, 3pi/2",
+    "E": "0, pi",
+    "answer": "A",
+    "explanation": "Square both sides of the equation: (sin(x) + cos(x))^2 = 1^2. This expands to sin^2(x) + 2sin(x)cos(x) + cos^2(x) = 1. Using the identity sin^2(x) + cos^2(x) = 1 and 2sin(x)cos(x) = sin(2x), we get 1 + sin(2x) = 1. Subtracting 1 from both sides gives sin(2x) = 0. So, 2x = n*pi for integer n, meaning x = n*pi/2. The possible solutions in [0, 2pi) are 0, pi/2, pi, 3pi/2. We must check for extraneous solutions introduced by squaring. For x=0: sin(0)+cos(0) = 0+1 = 1 (Valid). For x=pi/2: sin(pi/2)+cos(pi/2) = 1+0 = 1 (Valid). For x=pi: sin(pi)+cos(pi) = 0-1 = -1 (Extraneous). For x=3pi/2: sin(3pi/2)+cos(3pi/2) = -1+0 = -1 (Extraneous). Thus, the only valid solutions are 0 and pi/2."
+  },
+  {
+    "question": "If tan(x) = 1/2, find tan(2x).",
+    "A": "4/3",
+    "B": "3/4",
+    "C": "2/3",
+    "D": "1/3",
+    "E": "1",
+    "answer": "A",
+    "explanation": "Using the double angle formula for tangent: tan(2x) = 2tan(x) / (1 - tan^2(x)). Substitute tan(x) = 1/2: tan(2x) = 2(1/2) / (1 - (1/2)^2) = 1 / (1 - 1/4) = 1 / (3/4) = 4/3."
+  },
+  {
+    "question": "In triangle ABC, angle A = 30 degrees, side a = 6, side b = 10. Given that angle B is obtuse, find angle B. Round to three decimal places.",
+    "A": "123.557",
+    "B": "56.443",
+    "C": "90.000",
+    "D": "150.000",
+    "E": "60.000",
+    "answer": "A",
+    "explanation": "Using the Law of Sines: a/sin(A) = b/sin(B). So, 6/sin(30) = 10/sin(B). This gives sin(B) = 10 * sin(30) / 6 = 10 * 0.5 / 6 = 5/6 = 0.83333. The acute angle B is arcsin(5/6) = 56.443 degrees. Since angle B is stated to be obtuse, the other possible angle is 180 - 56.443 = 123.557 degrees."
+  },
+  {
+    "question": "Simplify (sin(5x) - sin(x)) / (cos(5x) + cos(x)).",
+    "A": "tan(2x)",
+    "B": "cot(2x)",
+    "C": "tan(3x)",
+    "D": "cot(3x)",
+    "E": "tan(x)",
+    "answer": "A",
+    "explanation": "Use the sum-to-product formulas. For the numerator: sinA - sinB = 2cos((A+B)/2)sin((A-B)/2). So, sin(5x) - sin(x) = 2cos((5x+x)/2)sin((5x-x)/2) = 2cos(3x)sin(2x). For the denominator: cosA + cosB = 2cos((A+B)/2)cos((A-B)/2). So, cos(5x) + cos(x) = 2cos((5x+x)/2)cos((5x-x)/2) = 2cos(3x)cos(2x). The ratio is (2cos(3x)sin(2x)) / (2cos(3x)cos(2x)). Cancel 2cos(3x) (assuming cos(3x) is not zero) to get sin(2x)/cos(2x) = tan(2x)."
+  },
+  {
+    "question": "Simplify cos^2(15 degrees) - sin^2(15 degrees).",
+    "A": "0.866",
+    "B": "0.500",
+    "C": "0.707",
+    "D": "0.966",
+    "E": "0.250",
+    "answer": "A",
+    "explanation": "Use the double angle identity cos(2x) = cos^2(x) - sin^2(x). Here x = 15 degrees, so the expression equals cos(2 * 15 degrees) = cos(30 degrees) = sqrt(3)/2, which is approximately 0.866."
+  },
+  {
+    "question": "In triangle PQR, angle P = 45 degrees, angle Q = 60 degrees, and p = 10. Find the length of q.",
+    "A": "11.225",
+    "B": "12.247",
+    "C": "13.012",
+    "D": "10.000",
+    "E": "9.283",
+    "answer": "B",
+    "explanation": "Use the Law of Sines: p/sin(P) = q/sin(Q). So, 10/sin(45 degrees) = q/sin(60 degrees). q = (10 * sin(60 degrees)) / sin(45 degrees) = (10 * sqrt(3)/2) / (sqrt(2)/2) = 5 * sqrt(6) approx 12.247."
+  },
+  {
+    "question": "Evaluate sin(arccos(-1/2)).",
+    "A": "0.866",
+    "B": "-0.866",
+    "C": "0.500",
+    "D": "-0.500",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Let y = arccos(-1/2). The range of arccos is [0, pi]. So y = 2pi/3. Then sin(y) = sin(2pi/3) = sqrt(3)/2, which is approximately 0.866."
+  },
+  {
+    "question": "Find all solutions for 3tan(x) + sqrt(3) = 0 in the interval [0, 2pi].",
+    "A": "5.760, 2.618",
+    "B": "0.524, 3.665",
+    "C": "2.094, 5.236",
+    "D": "1.047, 4.189",
+    "E": "0.000, 3.142",
+    "answer": "A",
+    "explanation": "3tan(x) = -sqrt(3), so tan(x) = -sqrt(3)/3. The reference angle is pi/6. Tangent is negative in Quadrants II and IV. Solutions in [0, 2pi] are x = 5pi/6 and x = 11pi/6. Converting to decimals: 5pi/6 approx 2.618, 11pi/6 approx 5.760."
+  },
+  {
+    "question": "Evaluate cos(105 degrees) + cos(15 degrees).",
+    "A": "0.707",
+    "B": "0.866",
+    "C": "0.500",
+    "D": "0.000",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Use the sum-to-product formula: cos(A) + cos(B) = 2cos((A+B)/2)cos((A-B)/2). So, 2cos(60 degrees)cos(45 degrees) = 2 * (1/2) * (sqrt(2)/2) = sqrt(2)/2, which is approximately 0.707."
+  },
+  {
+    "question": "In triangle XYZ, x=7, y=8, z=9. Find the measure of angle Z in degrees.",
+    "A": "73.398",
+    "B": "67.976",
+    "C": "58.740",
+    "D": "48.190",
+    "E": "90.000",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: cos(Z) = (x^2 + y^2 - z^2) / (2xy). Substitute values: cos(Z) = (7^2 + 8^2 - 9^2) / (2 * 7 * 8) = (49 + 64 - 81) / 112 = 32 / 112 = 2/7. Z = arccos(2/7) approx 73.398 degrees."
+  },
+  {
+    "question": "Given cos(theta) = -4/5 and theta is in Quadrant III, find sin(theta/2).",
+    "A": "0.949",
+    "B": "-0.949",
+    "C": "0.316",
+    "D": "-0.316",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "If theta is in QIII (pi < theta < 3pi/2), then theta/2 is in QII (pi/2 < theta/2 < 3pi/4). Therefore sin(theta/2) must be positive. Use the half-angle formula sin(theta/2) = sqrt((1 - cos(theta))/2) = sqrt((1 - (-4/5))/2) = sqrt((9/5)/2) = sqrt(9/10) = 3/sqrt(10) approx 0.949."
+  },
+  {
+    "question": "Express 2sin(5x)cos(3x) as a sum or difference.",
+    "A": "sin(8x) + sin(2x)",
+    "B": "sin(8x) - sin(2x)",
+    "C": "cos(8x) + cos(2x)",
+    "D": "cos(8x) - cos(2x)",
+    "E": "sin(15x)",
+    "answer": "A",
+    "explanation": "Use the product-to-sum formula: 2sin(A)cos(B) = sin(A+B) + sin(A-B). Substitute A=5x and B=3x, which gives sin(5x+3x) + sin(5x-3x) = sin(8x) + sin(2x)."
+  },
+  {
+    "question": "Evaluate tan(195 degrees).",
+    "A": "0.268",
+    "B": "-0.268",
+    "C": "3.732",
+    "D": "-3.732",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Use tan(A-B). tan(195 degrees) = tan(225 degrees - 30 degrees) = (tan(225)-tan(30))/(1+tan(225)tan(30)) = (1 - sqrt(3)/3) / (1 + sqrt(3)/3) = (3 - sqrt(3))/(3 + sqrt(3)) = 2 - sqrt(3) approx 0.268."
+  },
+  {
+    "question": "Solve 2cos^2(x) - cos(x) - 1 = 0 for x in [0, 2pi].",
+    "A": "0.000, 2.094, 4.189",
+    "B": "0.785, 2.356, 3.142",
+    "C": "1.571, 4.712",
+    "D": "0.000, 3.142",
+    "E": "0.524, 2.618, 3.665",
+    "answer": "A",
+    "explanation": "Factor the quadratic equation: (2cos(x) + 1)(cos(x) - 1) = 0. This gives cos(x) = -1/2 or cos(x) = 1. For cos(x) = -1/2, x = 2pi/3 and x = 4pi/3. For cos(x) = 1, x = 0. The solutions in [0, 2pi] are 0, 2pi/3, 4pi/3. Converting to decimals: 0.000, 2.094, 4.189."
+  },
+  {
+    "question": "Given sin(theta) = 3/5 and theta is in Quadrant II, find sin(2*theta).",
+    "A": "-0.480",
+    "B": "0.480",
+    "C": "0.960",
+    "D": "-0.960",
+    "E": "0.000",
+    "answer": "D",
+    "explanation": "If sin(theta) = 3/5 and theta is in QII, then cos(theta) = -sqrt(1 - (3/5)^2) = -4/5. Use the double angle formula sin(2*theta) = 2sin(theta)cos(theta) = 2 * (3/5) * (-4/5) = -24/25 = -0.960."
+  },
+  {
+    "question": "In triangle ABC, a=8, b=10, angle A=40 degrees. Find angle B in degrees.",
+    "A": "53.464",
+    "B": "40.000",
+    "C": "30.000",
+    "D": "60.000",
+    "E": "90.000",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: a/sin(A) = b/sin(B). So, 8/sin(40 degrees) = 10/sin(B). sin(B) = (10 * sin(40 degrees)) / 8 approx 0.80348. B = arcsin(0.80348) approx 53.464 degrees."
+  },
+  {
+    "question": "Simplify the expression sin(arctan(x)).",
+    "A": "x / sqrt(1 + x^2)",
+    "B": "1 / sqrt(1 + x^2)",
+    "C": "x",
+    "D": "1 / x",
+    "E": "sqrt(1 - x^2)",
+    "answer": "A",
+    "explanation": "Let theta = arctan(x). Then tan(theta) = x. Construct a right triangle with opposite side x and adjacent side 1. The hypotenuse is sqrt(x^2 + 1). Then sin(theta) = opposite/hypotenuse = x / sqrt(1 + x^2)."
+  },
+  {
+    "question": "Find all solutions for sin(3x) = 1/2.",
+    "A": "x = pi/18 + 2kpi/3, 5pi/18 + 2kpi/3 for integer k",
+    "B": "x = pi/6 + 2kpi, 5pi/6 + 2kpi for integer k",
+    "C": "x = pi/3 + 2kpi, 2pi/3 + 2kpi for integer k",
+    "D": "x = pi/9 + kpi/3, 2pi/9 + kpi/3 for integer k",
+    "E": "x = pi/12 + kpi, 5pi/12 + kpi for integer k",
+    "answer": "A",
+    "explanation": "Let u = 3x. Then sin(u) = 1/2. The general solutions for u are u = pi/6 + 2kpi and u = 5pi/6 + 2kpi. Substitute back u=3x: 3x = pi/6 + 2kpi => x = pi/18 + 2kpi/3. And 3x = 5pi/6 + 2kpi => x = 5pi/18 + 2kpi/3."
+  },
+  {
+    "question": "Evaluate cos(165 degrees).",
+    "A": "-0.966",
+    "B": "-0.259",
+    "C": "0.259",
+    "D": "0.966",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "Use cos(A+B). cos(165 degrees) = cos(120 degrees + 45 degrees) = cos(120)cos(45) - sin(120)sin(45) = (-1/2)(sqrt(2)/2) - (sqrt(3)/2)(sqrt(2)/2) = (-sqrt(2) - sqrt(6))/4 approx -0.966."
+  },
+  {
+    "question": "Given sin(theta) = 12/13 and theta is in Quadrant II, find cos(theta/2).",
+    "A": "0.555",
+    "B": "-0.555",
+    "C": "0.981",
+    "D": "0.192",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "If sin(theta) = 12/13 and theta is in QII, then cos(theta) = -5/13. If theta is in QII, then theta/2 is in QI (pi/4 < theta/2 < pi/2), so cos(theta/2) is positive. Use cos(theta/2) = sqrt((1 + cos(theta))/2) = sqrt((1 + (-5/13))/2) = sqrt((8/13)/2) = sqrt(4/13) approx 0.555."
+  },
+  {
+    "question": "Solve tan(2x) = -1 for x in [0, 2pi].",
+    "A": "1.178, 2.749, 4.320, 5.890",
+    "B": "0.785, 2.356, 3.927, 5.498",
+    "C": "0.393, 1.963, 3.534, 5.105",
+    "D": "1.571, 3.142, 4.712, 6.283",
+    "E": "0.000, 3.142",
+    "answer": "A",
+    "explanation": "Let u = 2x. Then tan(u) = -1. So, u = 3pi/4 + kpi. Substitute back u=2x: x = 3pi/8 + kpi/2. For k=0,1,2,3, the solutions are 3pi/8, 7pi/8, 11pi/8, 15pi/8. Converting to decimals: 1.178, 2.749, 4.320, 5.890."
+  },
+  {
+    "question": "Express cos(4x)cos(2x) as a sum or difference.",
+    "A": "0.5cos(6x) + 0.5cos(2x)",
+    "B": "0.5cos(6x) - 0.5cos(2x)",
+    "C": "sin(6x) + sin(2x)",
+    "D": "sin(6x) - sin(2x)",
+    "E": "cos(8x)",
+    "answer": "A",
+    "explanation": "Use the product-to-sum formula: cos(A)cos(B) = 0.5[cos(A-B) + cos(A+B)]. Substitute A=4x and B=2x, which gives 0.5[cos(4x-2x) + cos(4x+2x)] = 0.5cos(2x) + 0.5cos(6x)."
+  },
+  {
+    "question": "In triangle JKL, j=15, k=18, angle L=110 degrees. Find the length of l.",
+    "A": "27.087",
+    "B": "22.000",
+    "C": "20.123",
+    "D": "18.500",
+    "E": "24.500",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: l^2 = j^2 + k^2 - 2jk*cos(L). Substitute values: l^2 = 15^2 + 18^2 - 2(15)(18)cos(110 degrees) = 225 + 324 - 540*cos(110 degrees) = 549 - 540*(-0.34202) = 549 + 184.6908 = 733.6908. l = sqrt(733.6908) approx 27.087."
+  },
+  {
+    "question": "Evaluate tan(arcsin(-4/5)).",
+    "A": "-1.333",
+    "B": "1.333",
+    "C": "-0.750",
+    "D": "0.750",
+    "E": "-1.000",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(-4/5). Since sin(theta) = -4/5 and the range of arcsin is [-pi/2, pi/2], theta is in Quadrant IV. In a right triangle with opposite side -4 and hypotenuse 5, the adjacent side is 3. Then tan(theta) = opposite/adjacent = -4/3 approx -1.333."
+  },
+  {
+    "question": "Find all solutions for 2sin^2(x) - cos(x) - 1 = 0 in the interval [0, 2pi].",
+    "A": "1.047, 3.142, 5.236",
+    "B": "0.000, 3.142",
+    "C": "0.524, 2.618, 4.712",
+    "D": "0.785, 2.356, 3.927",
+    "E": "0.000, 1.571, 3.142",
+    "answer": "A",
+    "explanation": "Use sin^2(x) = 1 - cos^2(x). The equation becomes 2(1 - cos^2(x)) - cos(x) - 1 = 0, which simplifies to 2cos^2(x) + cos(x) - 1 = 0. Factor as (2cos(x) - 1)(cos(x) + 1) = 0. So cos(x) = 1/2 or cos(x) = -1. Solutions in [0, 2pi] are pi/3, 5pi/3 (for 1/2) and pi (for -1). Converting to decimals: 1.047, 3.142, 5.236."
+  },
+  {
+    "question": "Given tan(theta) = 2 and theta is in Quadrant I, find tan(2*theta).",
+    "A": "-1.333",
+    "B": "1.333",
+    "C": "-0.750",
+    "D": "0.750",
+    "E": "2.000",
+    "answer": "A",
+    "explanation": "Use the double angle formula tan(2*theta) = 2tan(theta) / (1 - tan^2(theta)). Substitute tan(theta) = 2: 2(2) / (1 - 2^2) = 4 / (1 - 4) = 4 / (-3) approx -1.333."
+  },
+  {
+    "question": "Evaluate sin(75 degrees) - sin(15 degrees).",
+    "A": "0.707",
+    "B": "0.866",
+    "C": "0.500",
+    "D": "0.000",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Use the sum-to-product formula: sin(A) - sin(B) = 2cos((A+B)/2)sin((A-B)/2). So, 2cos(45 degrees)sin(30 degrees) = 2 * (sqrt(2)/2) * (1/2) = sqrt(2)/2, which is approximately 0.707."
+  },
+  {
+    "question": "Solve arccos(x) = pi/4 for x.",
+    "A": "0.707",
+    "B": "0.500",
+    "C": "0.866",
+    "D": "1.000",
+    "E": "0.000",
+    "answer": "A",
+    "explanation": "If arccos(x) = pi/4, then x = cos(pi/4). cos(pi/4) = sqrt(2)/2, which is approximately 0.707."
+  },
+  {
+    "question": "In triangle DEF, angle D = 30 degrees, angle E = 50 degrees, and d = 6. Find the length of e.",
+    "A": "9.193",
+    "B": "7.713",
+    "C": "6.000",
+    "D": "8.500",
+    "E": "10.000",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: d/sin(D) = e/sin(E). So, 6/sin(30 degrees) = e/sin(50 degrees). e = (6 * sin(50 degrees)) / sin(30 degrees) approx 9.193."
+  },
+  {
+    "question": "Express sin(7x)sin(3x) as a sum or difference.",
+    "A": "0.5cos(4x) - 0.5cos(10x)",
+    "B": "0.5cos(10x) - 0.5cos(4x)",
+    "C": "0.5sin(10x) - 0.5sin(4x)",
+    "D": "cos(10x) + cos(4x)",
+    "E": "sin(21x)",
+    "answer": "A",
+    "explanation": "Use the product-to-sum formula: sin(A)sin(B) = 0.5[cos(A-B) - cos(A+B)]. Substitute A=7x and B=3x, which gives 0.5[cos(7x-3x) - cos(7x+3x)] = 0.5cos(4x) - 0.5cos(10x)."
+  },
+  {
+    "question": "In triangle MNP, m=12, n=15, p=10. Find the measure of angle M in degrees.",
+    "A": "52.880",
+    "B": "60.000",
+    "C": "45.000",
+    "D": "70.120",
+    "E": "38.625",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: cos(M) = (n^2 + p^2 - m^2) / (2np). Substitute values: cos(M) = (15^2 + 10^2 - 12^2) / (2 * 15 * 10) = (225 + 100 - 144) / 300 = 181 / 300. M = arccos(181/300) approx 52.880 degrees."
+  },
+  {
+    "question": "Evaluate sin(pi/12).",
+    "A": "0.259",
+    "B": "0.966",
+    "C": "0.707",
+    "D": "0.500",
+    "E": "0.866",
+    "answer": "A",
+    "explanation": "pi/12 radians = 15 degrees. Use sin(A-B). sin(15 degrees) = sin(45 degrees - 30 degrees) = sin(45)cos(30) - cos(45)sin(30) = (sqrt(6) - sqrt(2))/4 approx 0.259."
+  },
+  {
+    "question": "Find all solutions for csc(x) = -2 in the interval [0, 2pi].",
+    "A": "3.665, 5.760",
+    "B": "0.524, 2.618",
+    "C": "1.571, 4.712",
+    "D": "3.142, 6.283",
+    "E": "0.000, 3.142",
+    "answer": "A",
+    "explanation": "csc(x) = -2 implies sin(x) = -1/2. The reference angle is pi/6. Sine is negative in Quadrants III and IV. Solutions in [0, 2pi] are x = 7pi/6 and x = 11pi/6. Converting to decimals: 7pi/6 approx 3.665, 11pi/6 approx 5.760."
+  },
+  {
+    "question": "Given cos(theta) = 3/5 and theta is in Quadrant IV, find tan(theta/2).",
+    "A": "-0.500",
+    "B": "0.500",
+    "C": "-0.250",
+    "D": "0.250",
+    "E": "-1.000",
+    "answer": "A",
+    "explanation": "If theta is in QIV (3pi/2 < theta < 2pi), then theta/2 is in QII (3pi/4 < theta/2 < pi). Therefore tan(theta/2) must be negative. First, find sin(theta). Since theta is in QIV, sin(theta) = -sqrt(1 - (3/5)^2) = -4/5. Use tan(theta/2) = (1 - cos(theta)) / sin(theta) = (1 - 3/5) / (-4/5) = (2/5) / (-4/5) = -2/4 = -0.500."
+  },
+  {
+    "question": "If cos(theta) = 3/5 and 0 < theta < pi/2, what is the value of cos(2*theta)?",
+    "A": "-0.280",
+    "B": "0.280",
+    "C": "-0.960",
+    "D": "0.960",
+    "E": "0.600",
+    "answer": "A",
+    "explanation": "First, find sin(theta) = 4/5 from the Pythagorean identity sin^2(theta) + cos^2(theta) = 1. Then use the double-angle identity cos(2*theta) = cos^2(theta) - sin^2(theta) = (3/5)^2 - (4/5)^2 = 9/25 - 16/25 = -7/25 = -0.280."
+  },
+  {
+    "question": "Find all solutions for 2*sin^2(x) - 3*sin(x) + 1 = 0 in the interval [0, 2*pi).",
+    "A": "0.524, 1.571, 2.618",
+    "B": "1.571, 3.665",
+    "C": "0.524, 2.618",
+    "D": "0.524, 1.571",
+    "E": "0.524, 1.571, 2.618, 5.760",
+    "answer": "A",
+    "explanation": "Treat the equation as a quadratic in sin(x): (2*sin(x) - 1)(sin(x) - 1) = 0. This gives sin(x) = 1/2 or sin(x) = 1. For sin(x) = 1/2, x = pi/6 or x = 5*pi/6. For sin(x) = 1, x = pi/2. Converting to decimals: pi/6 approx 0.524, pi/2 approx 1.571, 5*pi/6 approx 2.618."
+  },
+  {
+    "question": "In triangle ABC, a = 7, b = 10, and C = 60 degrees. Find the length of side c.",
+    "A": "8.888",
+    "B": "8.367",
+    "C": "10.247",
+    "D": "9.327",
+    "E": "11.705",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: c^2 = a^2 + b^2 - 2ab*cos(C). Substitute values: c^2 = 7^2 + 10^2 - 2*7*10*cos(60) = 49 + 100 - 140*(1/2) = 149 - 70 = 79. So c = sqrt(79) approx 8.888."
+  },
+  {
+    "question": "Evaluate sin(arctan(4/3) - arccos(5/13)).",
+    "A": "-0.246",
+    "B": "0.246",
+    "C": "-0.985",
+    "D": "0.985",
+    "E": "0.880",
+    "answer": "A",
+    "explanation": "Let alpha = arctan(4/3) (Q1) and beta = arccos(5/13) (Q1). So, sin(alpha)=4/5, cos(alpha)=3/5 and sin(beta)=12/13, cos(beta)=5/13. Use sin(alpha - beta) = sin(alpha)cos(beta) - cos(alpha)sin(beta) = (4/5)(5/13) - (3/5)(12/13) = 20/65 - 36/65 = -16/65 approx -0.246."
+  },
+  {
+    "question": "If cos(theta) = -7/25 and theta is in the interval (pi, 3*pi/2), what is tan(theta/2)?",
+    "A": "-1.333",
+    "B": "1.333",
+    "C": "-0.750",
+    "D": "0.750",
+    "E": "-3.429",
+    "answer": "A",
+    "explanation": "Since theta is in (pi, 3pi/2), theta/2 is in (pi/2, 3pi/4) (Q2), so tan(theta/2) is negative. First, find sin(theta). In Q3, sin(theta) = -sqrt(1 - (-7/25)^2) = -sqrt(576/625) = -24/25. Use tan(theta/2) = (1 - cos(theta)) / sin(theta) = (1 - (-7/25)) / (-24/25) = (32/25) / (-24/25) = -32/24 = -4/3 approx -1.333."
+  },
+  {
+    "question": "Express sin(7x) - sin(3x) as a product.",
+    "A": "2*cos(5x)*sin(2x)",
+    "B": "2*sin(5x)*cos(2x)",
+    "C": "2*cos(5x)*cos(2x)",
+    "D": "2*sin(5x)*sin(2x)",
+    "E": "-2*cos(5x)*sin(2x)",
+    "answer": "A",
+    "explanation": "Apply the sum-to-product identity: sin A - sin B = 2*cos((A+B)/2)*sin((A-B)/2). Here A=7x and B=3x. So, (A+B)/2 = 5x and (A-B)/2 = 2x. Result: 2*cos(5x)*sin(2x)."
+  },
+  {
+    "question": "In triangle ABC, a = 12, b = 15, and A = 40 degrees. How many distinct triangles can be formed?",
+    "A": "2",
+    "B": "0",
+    "C": "1",
+    "D": "3",
+    "E": "Depends on angle B",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: sin(B)/b = sin(A)/a. So sin(B) = (b*sin(A))/a = (15*sin(40))/12 approx 0.803. Since 0 < sin(B) < 1, there are two possible angles for B: B1 = arcsin(0.803) approx 53.46 degrees and B2 = 180 - B1 approx 126.54 degrees. For B1, A+B1 = 40+53.46 = 93.46 < 180 (valid). For B2, A+B2 = 40+126.54 = 166.54 < 180 (valid). Thus, two distinct triangles can be formed."
+  },
+  {
+    "question": "Solve for x: arccos(2x) = pi/3",
+    "A": "0.250",
+    "B": "0.866",
+    "C": "0.500",
+    "D": "0.707",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Take the cosine of both sides: cos(arccos(2x)) = cos(pi/3). This simplifies to 2x = 1/2. Solving for x gives x = 1/4 = 0.250."
+  },
+  {
+    "question": "Express 6*sin(4x)*cos(2x) as a sum or difference.",
+    "A": "3*sin(6x) + 3*sin(2x)",
+    "B": "3*cos(6x) + 3*cos(2x)",
+    "C": "3*sin(6x) - 3*sin(2x)",
+    "D": "6*sin(6x)*cos(2x)",
+    "E": "sin(6x) + sin(2x)",
+    "answer": "A",
+    "explanation": "Apply the product-to-sum identity: sin A cos B = (1/2)[sin(A+B) + sin(A-B)]. So, 6*sin(4x)*cos(2x) = 6*(1/2)*[sin(4x+2x) + sin(4x-2x)] = 3*[sin(6x) + sin(2x)] = 3*sin(6x) + 3*sin(2x)."
+  },
+  {
+    "question": "Evaluate tan(75 degrees) exactly.",
+    "A": "3.732",
+    "B": "0.268",
+    "C": "1.000",
+    "D": "0.577",
+    "E": "1.732",
+    "answer": "A",
+    "explanation": "Use the tangent sum formula: tan(75) = tan(45+30) = (tan(45)+tan(30))/(1-tan(45)tan(30)) = (1+1/sqrt(3))/(1-1/sqrt(3)) = ((sqrt(3)+1)/sqrt(3))/((sqrt(3)-1)/sqrt(3)) = (sqrt(3)+1)/(sqrt(3)-1). Rationalize by multiplying numerator and denominator by (sqrt(3)+1): ((sqrt(3)+1)^2)/(3-1) = (3+1+2*sqrt(3))/2 = (4+2*sqrt(3))/2 = 2+sqrt(3) approx 3.732."
+  },
+  {
+    "question": "Find all solutions for 2*cos(x) + sqrt(3) = 0 in the interval [0, 2*pi).",
+    "A": "2.618, 3.665",
+    "B": "0.524, 5.760",
+    "C": "1.571, 4.712",
+    "D": "0.524, 2.618",
+    "E": "2.618, 3.665, 8.901, 9.947",
+    "answer": "A",
+    "explanation": "Isolate cos(x) to get cos(x) = -sqrt(3)/2. The reference angle is pi/6. Since cosine is negative in Q2 and Q3, the solutions are x = pi - pi/6 = 5*pi/6 and x = pi + pi/6 = 7*pi/6. Converting to decimals: 5*pi/6 approx 2.618 and 7*pi/6 approx 3.665."
+  },
+  {
+    "question": "In triangle ABC, a = 5, b = 7, c = 10. Find the measure of angle C in degrees.",
+    "A": "111.838",
+    "B": "68.162",
+    "C": "37.755",
+    "D": "30.407",
+    "E": "90.000",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: c^2 = a^2 + b^2 - 2ab*cos(C). Rearrange for cos(C): cos(C) = (a^2 + b^2 - c^2) / (2ab). Substitute values: cos(C) = (5^2 + 7^2 - 10^2) / (2*5*7) = (25 + 49 - 100) / 70 = -26 / 70 = -13/35. C = arccos(-13/35) approx 111.838 degrees."
+  },
+  {
+    "question": "If tan(x) = -5/12 and x is in the interval (pi/2, pi), what is sin(2x)?",
+    "A": "-0.710",
+    "B": "0.710",
+    "C": "-0.962",
+    "D": "0.962",
+    "E": "-0.385",
+    "answer": "A",
+    "explanation": "Since x is in (pi/2, pi) (Q2), sin(x) is positive and cos(x) is negative. From tan(x) = -5/12, a reference triangle has opposite side 5, adjacent side 12, hypotenuse 13. So sin(x) = 5/13 and cos(x) = -12/13. Use sin(2x) = 2*sin(x)*cos(x) = 2*(5/13)*(-12/13) = -120/169 approx -0.710."
+  },
+  {
+    "question": "If sin(alpha) = 8/17 and alpha is in the interval (pi/2, pi), what is cos(alpha/2)?",
+    "A": "0.243",
+    "B": "-0.243",
+    "C": "0.970",
+    "D": "-0.970",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "Since alpha is in (pi/2, pi) (Q2), alpha/2 is in (pi/4, pi/2) (Q1), so cos(alpha/2) is positive. First, find cos(alpha). In Q2, cos(alpha) = -sqrt(1 - (8/17)^2) = -sqrt(225/289) = -15/17. Use cos(alpha/2) = sqrt((1 + cos(alpha))/2) = sqrt((1 + (-15/17))/2) = sqrt((2/17)/2) = sqrt(1/17) = 1/sqrt(17) = sqrt(17)/17 approx 0.243."
+  },
+  {
+    "question": "Solve for x in the interval [0, 2*pi): 2*cos^2(x) - sin(x) - 1 = 0",
+    "A": "0.524, 2.618, 4.712",
+    "B": "0.524, 2.618",
+    "C": "1.571, 4.712",
+    "D": "4.712",
+    "E": "0.524, 1.571, 2.618, 4.712",
+    "answer": "A",
+    "explanation": "Substitute cos^2(x) = 1 - sin^2(x): 2(1 - sin^2(x)) - sin(x) - 1 = 0. This simplifies to 2 - 2sin^2(x) - sin(x) - 1 = 0, or 2sin^2(x) + sin(x) - 1 = 0. Factor as (2sin(x) - 1)(sin(x) + 1) = 0. So sin(x) = 1/2 or sin(x) = -1. For sin(x) = 1/2, x = pi/6 or 5*pi/6. For sin(x) = -1, x = 3*pi/2. Converting to decimals: 0.524, 2.618, 4.712."
+  },
+  {
+    "question": "Evaluate cos(arcsin(-8/17) + arccos(-3/5)).",
+    "A": "-0.153",
+    "B": "0.153",
+    "C": "0.988",
+    "D": "-0.988",
+    "E": "0.400",
+    "answer": "A",
+    "explanation": "Let alpha = arcsin(-8/17) (Q4) and beta = arccos(-3/5) (Q2). For alpha: sin(alpha)=-8/17, cos(alpha)=15/17. For beta: cos(beta)=-3/5, sin(beta)=4/5. Use cos(alpha+beta) = cos(alpha)cos(beta) - sin(alpha)sin(beta) = (15/17)(-3/5) - (-8/17)(4/5) = -45/85 + 32/85 = -13/85 approx -0.153."
+  },
+  {
+    "question": "In triangle ABC, A = 45 degrees, B = 60 degrees, and a = 10. Find the length of side b.",
+    "A": "12.247",
+    "B": "8.165",
+    "C": "11.214",
+    "D": "10.000",
+    "E": "14.142",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: b/sin(B) = a/sin(A). So, b = a*sin(B)/sin(A) = 10*sin(60)/sin(45) = 10*(sqrt(3)/2)/(sqrt(2)/2) = 10*sqrt(3)/sqrt(2) = 10*sqrt(6)/2 = 5*sqrt(6) approx 12.247."
+  },
+  {
+    "question": "Simplify cos(x - 3*pi/2).",
+    "A": "-sin(x)",
+    "B": "sin(x)",
+    "C": "cos(x)",
+    "D": "-cos(x)",
+    "E": "0",
+    "answer": "A",
+    "explanation": "Apply the cosine difference formula: cos(A-B) = cos A cos B + sin A sin B. So cos(x - 3pi/2) = cos(x)cos(3pi/2) + sin(x)sin(3pi/2). Since cos(3pi/2) = 0 and sin(3pi/2) = -1, the expression becomes cos(x)*(0) + sin(x)*(-1) = -sin(x)."
+  },
+  {
+    "question": "If sin(x) = -1/3 and x is in the interval (pi, 3*pi/2), what is cos(2x)?",
+    "A": "0.778",
+    "B": "-0.778",
+    "C": "-0.943",
+    "D": "0.943",
+    "E": "0.111",
+    "answer": "A",
+    "explanation": "Use the double-angle identity cos(2x) = 1 - 2*sin^2(x). Substitute the given value: cos(2x) = 1 - 2*(-1/3)^2 = 1 - 2*(1/9) = 1 - 2/9 = 7/9 approx 0.778."
+  },
+  {
+    "question": "Solve for x in the interval [0, 2*pi): sqrt(3)*tan(x) - 1 = 0",
+    "A": "0.524, 3.665",
+    "B": "1.047, 4.189",
+    "C": "0.524, 2.094",
+    "D": "3.665",
+    "E": "0.524",
+    "answer": "A",
+    "explanation": "Isolate tan(x) to get tan(x) = 1/sqrt(3). The reference angle is pi/6. Tangent is positive in Q1 and Q3. So, x = pi/6 or x = pi + pi/6 = 7*pi/6. Converting to decimals: pi/6 approx 0.524 and 7*pi/6 approx 3.665."
+  },
+  {
+    "question": "Express cos(5x) + cos(x) as a product.",
+    "A": "2*cos(3x)*cos(2x)",
+    "B": "2*sin(3x)*sin(2x)",
+    "C": "2*cos(3x)*sin(2x)",
+    "D": "-2*sin(3x)*sin(2x)",
+    "E": "cos(6x)",
+    "answer": "A",
+    "explanation": "Apply the sum-to-product identity: cos A + cos B = 2*cos((A+B)/2)*cos((A-B)/2). Here A=5x and B=x. So, (A+B)/2 = 3x and (A-B)/2 = 2x. Result: 2*cos(3x)*cos(2x)."
+  },
+  {
+    "question": "In triangle ABC, a = 15, c = 20, and B = 110 degrees. Find the length of side b.",
+    "A": "28.813",
+    "B": "22.094",
+    "C": "20.000",
+    "D": "25.000",
+    "E": "18.028",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: b^2 = a^2 + c^2 - 2ac*cos(B). Substitute values: b^2 = 15^2 + 20^2 - 2*15*20*cos(110) = 225 + 400 - 600*(-0.34202) = 625 + 205.212 = 830.212. So b = sqrt(830.212) approx 28.813."
+  },
+  {
+    "question": "Evaluate arccos(cos(7*pi/6)).",
+    "A": "2.618",
+    "B": "3.665",
+    "C": "0.524",
+    "D": "0.000",
+    "E": "3.142",
+    "answer": "A",
+    "explanation": "The range of arccos(x) is [0, pi]. First, evaluate cos(7*pi/6) = -sqrt(3)/2. Now, find the angle in [0, pi] whose cosine is -sqrt(3)/2. This angle is 5*pi/6. Converting to decimal: 5*pi/6 approx 2.618."
+  },
+  {
+    "question": "Solve for x in the interval [0, 2*pi): tan^2(x) - tan(x) = 0",
+    "A": "0.000, 0.785, 3.142, 3.927",
+    "B": "0.785, 3.927",
+    "C": "0.000, 3.142",
+    "D": "0.000, 0.785",
+    "E": "0.785, 1.571, 3.927, 4.712",
+    "answer": "A",
+    "explanation": "Factor the equation: tan(x)*(tan(x) - 1) = 0. This gives tan(x) = 0 or tan(x) = 1. For tan(x) = 0, x = 0 or x = pi. For tan(x) = 1, x = pi/4 or x = 5*pi/4. Converting to decimals: 0.000, pi/4 approx 0.785, pi approx 3.142, 5*pi/4 approx 3.927."
+  },
+  {
+    "question": "Express 2*cos(3x)*sin(7x) as a sum or difference.",
+    "A": "sin(10x) + sin(4x)",
+    "B": "sin(10x) - sin(4x)",
+    "C": "cos(10x) - cos(4x)",
+    "D": "cos(10x) + cos(4x)",
+    "E": "2*sin(10x)*cos(4x)",
+    "answer": "A",
+    "explanation": "Apply the product-to-sum identity: cos A sin B = (1/2)[sin(A+B) - sin(A-B)]. So, 2*cos(3x)*sin(7x) = 2*(1/2)*[sin(3x+7x) - sin(3x-7x)] = sin(10x) - sin(-4x). Since sin(-theta) = -sin(theta), this simplifies to sin(10x) + sin(4x)."
+  },
+  {
+    "question": "Evaluate cos(pi/12).",
+    "A": "0.966",
+    "B": "0.259",
+    "C": "0.707",
+    "D": "0.866",
+    "E": "0.500",
+    "answer": "A",
+    "explanation": "Rewrite pi/12 as pi/4 - pi/6 (or 45-30 degrees). Use cos(A-B) = cos A cos B + sin A sin B. So cos(pi/4 - pi/6) = cos(pi/4)cos(pi/6) + sin(pi/4)sin(pi/6) = (sqrt(2)/2)*(sqrt(3)/2) + (sqrt(2)/2)*(1/2) = (sqrt(6)+sqrt(2))/4 approx 0.966."
+  },
+  {
+    "question": "In triangle ABC, a = 5, b = 7, A = 30 degrees. Find the possible measure(s) of angle B in degrees.",
+    "A": "44.427, 135.573",
+    "B": "44.427",
+    "C": "135.573",
+    "D": "No triangle possible",
+    "E": "30.000",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: sin(B)/b = sin(A)/a. So sin(B) = (b*sin(A))/a = (7*sin(30))/5 = (7*0.5)/5 = 3.5/5 = 0.7. There are two possible values for B: B1 = arcsin(0.7) approx 44.427 degrees, and B2 = 180 - B1 approx 135.573 degrees. Check both: A+B1 = 30+44.427 = 74.427 < 180 (valid). A+B2 = 30+135.573 = 165.573 < 180 (valid). Both angles are possible."
+  },
+  {
+    "question": "Evaluate sin(2*arcsin(-sqrt(3)/2)).",
+    "A": "-0.866",
+    "B": "0.866",
+    "C": "0.000",
+    "D": "-0.500",
+    "E": "0.500",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(-sqrt(3)/2). The range of arcsin is [-pi/2, pi/2], so theta = -pi/3. We need to evaluate sin(2*theta) = sin(2*(-pi/3)) = sin(-2*pi/3). Since sin(-x) = -sin(x), sin(-2*pi/3) = -sin(2*pi/3). As sin(2*pi/3) = sqrt(3)/2, the result is -sqrt(3)/2 approx -0.866."
+  },
+  {
+    "question": "Solve for x in the interval [0, 2*pi): cos(3x) = 1/2",
+    "A": "0.349, 1.745, 2.443, 3.840, 4.538, 5.934",
+    "B": "0.349, 5.934",
+    "C": "0.349, 1.745, 2.443",
+    "D": "0.524, 2.618",
+    "E": "0.349, 1.745, 3.840",
+    "answer": "A",
+    "explanation": "Let u = 3x. Solve cos(u) = 1/2 for u: u = pi/3 + 2k*pi or u = 5pi/3 + 2k*pi. Then x = u/3. So x = pi/9 + 2k*pi/3 or x = 5pi/9 + 2k*pi/3. For k=0,1,2, the solutions in [0, 2pi) are pi/9, 5pi/9, 7pi/9, 11pi/9, 13pi/9, 17pi/9. Converted to decimals: 0.349, 1.745, 2.443, 3.840, 4.538, 5.934."
+  },
+  {
+    "question": "If cos(theta) = 1/4 and theta is in the interval (3*pi/2, 2*pi), what is sin(theta/2)?",
+    "A": "0.612",
+    "B": "-0.612",
+    "C": "0.968",
+    "D": "0.866",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "Since theta is in (3pi/2, 2pi) (Q4), theta/2 is in (3pi/4, pi) (Q2), so sin(theta/2) is positive. Use sin(theta/2) = sqrt((1 - cos(theta))/2) = sqrt((1 - 1/4)/2) = sqrt((3/4)/2) = sqrt(3/8) = sqrt(6)/4 approx 0.612."
+  },
+  {
+    "question": "In triangle ABC, side a = 12.0, side b = 15.0, and angle C = 60 degrees. Find the length of side c.",
+    "A": "13.748",
+    "B": "19.209",
+    "C": "6.245",
+    "D": "13.000",
+    "E": "14.500",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: c^2 = a^2 + b^2 - 2abcos(C). Substitute the given values: c^2 = 12^2 + 15^2 - 2(12)(15)cos(60). Calculate c^2 = 144 + 225 - 360(0.5) = 369 - 180 = 189. Take the square root: c = sqrt(189) = 13.748."
+  },
+  {
+    "question": "Express sin(7x) - sin(3x) as a product.",
+    "A": "2cos(5x)sin(2x)",
+    "B": "2sin(5x)cos(2x)",
+    "C": "2cos(5x)cos(2x)",
+    "D": "2sin(5x)sin(2x)",
+    "E": "-2cos(5x)sin(2x)",
+    "answer": "A",
+    "explanation": "Apply the sum-to-product formula sin(A) - sin(B) = 2cos((A+B)/2)sin((A-B)/2). Substitute A=7x and B=3x to get 2cos((7x+3x)/2)sin((7x-3x)/2), which simplifies to 2cos(5x)sin(2x)."
+  },
+  {
+    "question": "Evaluate tan(arccos(3/5)).",
+    "A": "1.333",
+    "B": "0.750",
+    "C": "1.667",
+    "D": "1.250",
+    "E": "0.800",
+    "answer": "A",
+    "explanation": "Let theta = arccos(3/5). This implies cos(theta) = 3/5. Construct a right triangle where the adjacent side is 3 and the hypotenuse is 5. Using the Pythagorean theorem, the opposite side is sqrt(5^2 - 3^2) = 4. Therefore, tan(theta) = opposite/adjacent = 4/3 = 1.333."
+  },
+  {
+    "question": "Find all solutions for 2cos^2(x) - 3cos(x) + 1 = 0 in the interval [0, 2pi).",
+    "A": "{0, 1.047, 5.236}",
+    "B": "{0, 0.524, 5.760}",
+    "C": "{1.047, 5.236}",
+    "D": "{0, 2.094, 4.189}",
+    "E": "{0, 0.785, 5.498}",
+    "answer": "A",
+    "explanation": "Factor the quadratic equation in terms of cos(x) to (2cos(x)-1)(cos(x)-1)=0, leading to cos(x)=1 or cos(x)=1/2. For cos(x)=1, x=0. For cos(x)=1/2, x=pi/3 and x=5pi/3 in the interval [0, 2pi). Converting to decimals: 0, 1.047, 5.236."
+  },
+  {
+    "question": "Simplify sin(2x) / (1 - cos(2x)).",
+    "A": "cot(x)",
+    "B": "tan(x)",
+    "C": "sin(x)",
+    "D": "cos(x)",
+    "E": "1",
+    "answer": "A",
+    "explanation": "Replace sin(2x) with 2sin(x)cos(x) and 1 - cos(2x) with 2sin^2(x). The expression becomes (2sin(x)cos(x)) / (2sin^2(x)). Simplify by canceling 2sin(x) from numerator and denominator, resulting in cos(x)/sin(x) = cot(x)."
+  },
+  {
+    "question": "In triangle XYZ, angle X = 45 degrees, angle Y = 60 degrees, and side x = 10.0. Find the length of side y.",
+    "A": "12.247",
+    "B": "8.165",
+    "C": "9.220",
+    "D": "10.000",
+    "E": "15.000",
+    "answer": "A",
+    "explanation": "Use the Law of Sines: y/sin(Y) = x/sin(X). Substitute the given values: y = 10 * sin(60 degrees) / sin(45 degrees). Calculate y = 10 * (sqrt(3)/2) / (sqrt(2)/2) = 10 * sqrt(3)/sqrt(2) = 10 * sqrt(6)/2 = 5 * sqrt(6) = 12.247."
+  },
+  {
+    "question": "Evaluate cos(112.5 degrees) using a half-angle formula.",
+    "A": "-0.383",
+    "B": "0.383",
+    "C": "0.924",
+    "D": "-0.924",
+    "E": "0.500",
+    "answer": "A",
+    "explanation": "Recognize 112.5 degrees as 225/2 degrees. Use the half-angle formula cos(theta/2) = +/-sqrt((1+cos(theta))/2). Since 112.5 degrees is in Quadrant II, cos(112.5) is negative. Substitute theta=225 degrees, so cos(225) = -sqrt(2)/2. Calculate -sqrt((1 - sqrt(2)/2)/2) which simplifies to -sqrt(2 - sqrt(2))/2 = -0.383."
+  },
+  {
+    "question": "Express 6sin(4x)cos(2x) as a sum or difference.",
+    "A": "3[sin(6x) + sin(2x)]",
+    "B": "3[sin(6x) - sin(2x)]",
+    "C": "6[sin(6x) + sin(2x)]",
+    "D": "3[cos(6x) + cos(2x)]",
+    "E": "6[cos(6x) - cos(2x)]",
+    "answer": "A",
+    "explanation": "Use the product-to-sum formula sin(A)cos(B) = (1/2)[sin(A+B) + sin(A-B)]. Substitute A=4x and B=2x, and multiply by 6: 6 * (1/2)[sin(4x+2x) + sin(4x-2x)] which simplifies to 3[sin(6x) + sin(2x)]."
+  },
+  {
+    "question": "Solve cot(x) = -sqrt(3) for x in the interval [0, 2pi).",
+    "A": "{2.618, 5.760}",
+    "B": "{0.524, 3.665}",
+    "C": "{2.094, 5.236}",
+    "D": "{1.047, 4.189}",
+    "E": "{2.618, 3.665}",
+    "answer": "A",
+    "explanation": "Rewrite cot(x) = -sqrt(3) as tan(x) = -1/sqrt(3). The reference angle for tan(x) = 1/sqrt(3) is pi/6. Since tan(x) is negative, x must be in Quadrant II or Quadrant IV. Thus, x = pi - pi/6 = 5pi/6 or x = 2pi - pi/6 = 11pi/6. Converting to decimals: 2.618, 5.760."
+  },
+  {
+    "question": "Evaluate sin(75 degrees) using sum or difference formulas.",
+    "A": "0.966",
+    "B": "0.259",
+    "C": "-0.259",
+    "D": "0.613",
+    "E": "0.125",
+    "answer": "A",
+    "explanation": "Use the sum formula for sine: sin(A+B) = sin(A)cos(B) + cos(A)sin(B). Let A=45 degrees and B=30 degrees. Substitute the values: sin(75) = sin(45)cos(30) + cos(45)sin(30) = (sqrt(2)/2)(sqrt(3)/2) + (sqrt(2)/2)(1/2) = (sqrt(6)+sqrt(2))/4 = 0.966."
+  },
+  {
+    "question": "Simplify tan(arcsin(x)) for -1 <= x <= 1.",
+    "A": "x / sqrt(1-x^2)",
+    "B": "sqrt(1-x^2)/x",
+    "C": "1/x",
+    "D": "x/sqrt(1+x^2)",
+    "E": "sqrt(1+x^2)/x",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(x). This implies sin(theta) = x. Construct a right triangle where the opposite side is x and the hypotenuse is 1. The adjacent side is sqrt(1 - x^2) by the Pythagorean theorem. Therefore, tan(theta) = opposite/adjacent = x / sqrt(1 - x^2)."
+  },
+  {
+    "question": "Find all solutions for sin(2x) = 0.5 in the interval [0, 2pi).",
+    "A": "{0.262, 1.309, 3.403, 4.451}",
+    "B": "{0.262, 1.309}",
+    "C": "{0.524, 2.618}",
+    "D": "{0.262, 3.403}",
+    "E": "{0.524, 2.618, 3.665, 5.760}",
+    "answer": "A",
+    "explanation": "Let u = 2x. Solve sin(u) = 0.5 for u, yielding u = pi/6 + 2n*pi or u = 5pi/6 + 2n*pi. Substitute back 2x for u: 2x = pi/6 + 2n*pi => x = pi/12 + n*pi; and 2x = 5pi/6 + 2n*pi => x = 5pi/12 + n*pi. For n=0, x = pi/12, 5pi/12. For n=1, x = 13pi/12, 17pi/12. These are 0.262, 1.309, 3.403, 4.451."
+  },
+  {
+    "question": "In triangle ABC, side a = 7.0, side b = 9.0, and side c = 12.0. Find angle A in degrees.",
+    "A": "35.432",
+    "B": "45.000",
+    "C": "50.123",
+    "D": "29.876",
+    "E": "60.000",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines to find angle A: cos(A) = (b^2 + c^2 - a^2) / (2bc). Substitute the values: cos(A) = (9^2 + 12^2 - 7^2) / (2 * 9 * 12) = (81 + 144 - 49) / 216 = 176 / 216 = 0.8148. Then A = arccos(0.8148) = 35.432 degrees."
+  },
+  {
+    "question": "Express 2cos(5x)cos(3x) as a sum or difference.",
+    "A": "cos(2x) + cos(8x)",
+    "B": "cos(8x) - cos(2x)",
+    "C": "2[cos(8x) + cos(2x)]",
+    "D": "sin(8x) + sin(2x)",
+    "E": "cos(2x) - cos(8x)",
+    "answer": "A",
+    "explanation": "Apply the product-to-sum formula cos(A)cos(B) = (1/2)[cos(A-B) + cos(A+B)]. Substitute A=5x and B=3x, and multiply by 2: 2 * (1/2)[cos(5x-3x) + cos(5x+3x)] which simplifies to cos(2x) + cos(8x)."
+  },
+  {
+    "question": "If cos(x) = 3/5 and x is in Quadrant IV, find cos(2x).",
+    "A": "-0.280",
+    "B": "0.280",
+    "C": "0.960",
+    "D": "-0.960",
+    "E": "0.040",
+    "answer": "A",
+    "explanation": "Use the double angle formula cos(2x) = 2cos^2(x) - 1. Substitute cos(x) = 3/5: cos(2x) = 2(3/5)^2 - 1 = 2(9/25) - 1 = 18/25 - 25/25 = -7/25 = -0.280. The quadrant of x does not affect cos(2x) if cos(x) is given."
+  },
+  {
+    "question": "Solve sec(x) = -2 for x in the interval [0, 2pi).",
+    "A": "{2.094, 4.189}",
+    "B": "{1.047, 5.236}",
+    "C": "{0.524, 5.760}",
+    "D": "{0.785, 5.498}",
+    "E": "{2.094, 5.236}",
+    "answer": "A",
+    "explanation": "Convert sec(x) = -2 to cos(x) = 1/sec(x) = -1/2. The reference angle for cos(x) = 1/2 is pi/3. Since cos(x) is negative, x must be in Quadrant II or Quadrant III. Thus, x = pi - pi/3 = 2pi/3 or x = pi + pi/3 = 4pi/3. Converting to decimals: 2.094, 4.189."
+  },
+  {
+    "question": "Given tan(theta) = -4/3 and theta is in Quadrant II, find tan(theta/2).",
+    "A": "2.000",
+    "B": "-2.000",
+    "C": "0.500",
+    "D": "-0.500",
+    "E": "0.750",
+    "answer": "A",
+    "explanation": "Since theta is in Quadrant II, tan(theta) = -4/3 implies sin(theta) = 4/5 and cos(theta) = -3/5. Also, theta/2 will be in Quadrant I, so tan(theta/2) is positive. Use the half-angle formula tan(theta/2) = sin(theta) / (1 + cos(theta)). Substitute the values: tan(theta/2) = (4/5) / (1 - 3/5) = (4/5) / (2/5) = 2.000."
+  },
+  {
+    "question": "Evaluate cos(105 degrees) using sum or difference formulas.",
+    "A": "-0.259",
+    "B": "0.966",
+    "C": "0.259",
+    "D": "-0.966",
+    "E": "0.707",
+    "answer": "A",
+    "explanation": "Use the sum formula for cosine: cos(A+B) = cos(A)cos(B) - sin(A)sin(B). Let A=60 degrees and B=45 degrees. Substitute the values: cos(105) = cos(60)cos(45) - sin(60)sin(45) = (1/2)(sqrt(2)/2) - (sqrt(3)/2)(sqrt(2)/2) = (sqrt(2)-sqrt(6))/4 = -0.259."
+  },
+  {
+    "question": "Evaluate sin(arctan(1/2) + arccos(3/5)).",
+    "A": "0.984",
+    "B": "0.447",
+    "C": "0.894",
+    "D": "0.600",
+    "E": "0.800",
+    "answer": "A",
+    "explanation": "Let A=arctan(1/2) and B=arccos(3/5). From A, find sin(A)=1/sqrt(5) and cos(A)=2/sqrt(5). From B, find sin(B)=4/5 and cos(B)=3/5. Use the sum formula sin(A+B)=sin(A)cos(B)+cos(A)sin(B). Substitute values: (1/sqrt(5))(3/5) + (2/sqrt(5))(4/5) = 3/(5sqrt(5)) + 8/(5sqrt(5)) = 11/(5sqrt(5)). Rationalize to 11sqrt(5)/25 = 0.984."
+  },
+  {
+    "question": "Find all solutions for sin(x) + cos(x) = 1 in the interval [0, 2pi).",
+    "A": "{0.000, 1.571}",
+    "B": "{0.000, 1.571, 3.142, 4.712}",
+    "C": "{0.000, 0.785, 2.356}",
+    "D": "{1.571, 3.142}",
+    "E": "{0.785}",
+    "answer": "A",
+    "explanation": "Square both sides of sin(x)+cos(x)=1 to get (sin(x)+cos(x))^2=1, which simplifies to 1+2sin(x)cos(x)=1. This means sin(2x)=0. So 2x = n*pi, or x = n*pi/2. Checking these solutions in the original equation, only x=0 and x=pi/2 satisfy it. Converting to decimals: 0, 1.571."
+  },
+  {
+    "question": "In triangle ABC, side a = 8.0, side b = 10.0, and angle A = 30 degrees. How many distinct triangles can be formed?",
+    "A": "2",
+    "B": "0",
+    "C": "1",
+    "D": "3",
+    "E": "infinite",
+    "answer": "A",
+    "explanation": "Use the Law of Sines to find sin(B): sin(B) = (b*sin(A))/a = (10*sin(30))/8 = 5/8 = 0.625. Since 0 < 0.625 < 1, there are two possible angles for B: B1 = arcsin(0.625) and B2 = 180 - arcsin(0.625). Both angles lead to a valid third angle C (180 - A - B), so two distinct triangles can be formed."
+  },
+  {
+    "question": "Evaluate tan(pi/12) using a sum or difference formula.",
+    "A": "0.268",
+    "B": "3.732",
+    "C": "1.000",
+    "D": "0.500",
+    "E": "1.732",
+    "answer": "A",
+    "explanation": "Use the difference formula for tangent: tan(A-B) = (tan(A)-tan(B))/(1+tan(A)tan(B)). Let A=45 degrees (pi/4) and B=30 degrees (pi/6). Substitute values: tan(15) = tan(45-30) = (tan(45)-tan(30))/(1+tan(45)tan(30)) = (1 - 1/sqrt(3)) / (1 + 1/sqrt(3)). Simplify and rationalize to get 2 - sqrt(3) = 0.268."
+  },
+  {
+    "question": "If tan(x) = -4/3 and x is in Quadrant II, find sin(2x).",
+    "A": "-0.960",
+    "B": "0.960",
+    "C": "0.280",
+    "D": "-0.280",
+    "E": "1.000",
+    "answer": "A",
+    "explanation": "Given tan(x)=-4/3 in Quadrant II, determine sin(x)=4/5 and cos(x)=-3/5. Use the double angle formula sin(2x) = 2sin(x)cos(x). Substitute the values: sin(2x) = 2 * (4/5) * (-3/5) = -24/25 = -0.960."
+  },
+  {
+    "question": "Find all solutions for cot(x) = csc(x) - 1 in the interval [0, 2pi).",
+    "A": "{1.571}",
+    "B": "{0.000, 1.571}",
+    "C": "{0.000}",
+    "D": "{1.571, 4.712}",
+    "E": "{0.785, 2.356}",
+    "answer": "A",
+    "explanation": "Rewrite the equation in terms of sine and cosine: cos(x)/sin(x) = 1/sin(x) - 1. Multiply by sin(x) (note: sin(x) cannot be 0, so x cannot be 0 or pi), resulting in cos(x) = 1 - sin(x), or sin(x) + cos(x) = 1. Square both sides to get 1 + sin(2x) = 1, so sin(2x) = 0. This gives x = n*pi/2. Checking these solutions against the original equation and the restriction sin(x) != 0, only x = pi/2 satisfies the original equation. x=pi/2 = 1.571."
+  },
+  {
+    "question": "Evaluate cos(arcsin(-1/2)).",
+    "A": "0.866",
+    "B": "-0.866",
+    "C": "0.500",
+    "D": "-0.500",
+    "E": "0.000",
+    "answer": "A",
+    "explanation": "Let theta = arcsin(-1/2). By definition, theta is in [-pi/2, pi/2], so theta = -pi/6. Then evaluate cos(theta) = cos(-pi/6). Since cosine is an even function, cos(-pi/6) = cos(pi/6) = sqrt(3)/2 = 0.866."
+  },
+  {
+    "question": "In triangle PQR, side p = 14.0, side q = 10.0, and angle R = 120 degrees. Find the length of side r.",
+    "A": "20.881",
+    "B": "17.205",
+    "C": "12.490",
+    "D": "18.500",
+    "E": "22.000",
+    "answer": "A",
+    "explanation": "Use the Law of Cosines: r^2 = p^2 + q^2 - 2pqcos(R). Substitute the given values: r^2 = 14^2 + 10^2 - 2(14)(10)cos(120). Calculate r^2 = 196 + 100 - 280(-0.5) = 296 + 140 = 436. Take the square root: r = sqrt(436) = 20.881."
+  },
+  {
+    "question": "Express cos(9x) - cos(5x) as a product.",
+    "A": "-2sin(7x)sin(2x)",
+    "B": "2sin(7x)sin(2x)",
+    "C": "2cos(7x)cos(2x)",
+    "D": "-2cos(7x)sin(2x)",
+    "E": "2sin(7x)cos(2x)",
+    "answer": "A",
+    "explanation": "Apply the sum-to-product formula cos(A) - cos(B) = -2sin((A+B)/2)sin((A-B)/2). Substitute A=9x and B=5x to get -2sin((9x+5x)/2)sin((9x-5x)/2), which simplifies to -2sin(7x)sin(2x)."
+  },
+  {
+    "question": "Solve tan^2(x) - tan(x) = 0 for x in the interval [0, 2pi).",
+    "A": "{0.000, 0.785, 3.142, 3.927}",
+    "B": "{0.000, 3.142}",
+    "C": "{0.785, 3.927}",
+    "D": "{0.000, 0.785}",
+    "E": "{0.000, 1.571, 3.142, 4.712}",
+    "answer": "A",
+    "explanation": "Factor the equation: tan(x)(tan(x) - 1) = 0. This implies tan(x) = 0 or tan(x) = 1. For tan(x) = 0, x = 0 or x = pi. For tan(x) = 1, x = pi/4 or x = 5pi/4. The solutions in [0, 2pi) are 0, pi/4, pi, 5pi/4. Converting to decimals: 0, 0.785, 3.142, 3.927."
+  },
+  {
+    "question": "If cos(theta) = -1/3 and pi < theta < 3pi/2, find sin(theta/2).",
+    "A": "0.816",
+    "B": "-0.816",
+    "C": "0.577",
+    "D": "0.333",
+    "E": "0.667",
+    "answer": "A",
+    "explanation": "Given cos(theta)=-1/3 and theta is in Q3. This means theta/2 is in Q2, so sin(theta/2) will be positive. Use the half-angle formula sin(theta/2) = sqrt((1-cos(theta))/2). Substitute cos(theta)=-1/3: sin(theta/2) = sqrt((1 - (-1/3))/2) = sqrt((4/3)/2) = sqrt(2/3). Rationalize to sqrt(6)/3 = 0.816."
+  },
+  {
+    "question": "Express 4sin(7x)sin(3x) as a sum or difference.",
+    "A": "2[cos(4x) - cos(10x)]",
+    "B": "2[cos(10x) - cos(4x)]",
+    "C": "4[cos(4x) - cos(10x)]",
+    "D": "2[sin(10x) - sin(4x)]",
+    "E": "2[cos(4x) + cos(10x)]",
+    "answer": "A",
+    "explanation": "Apply the product-to-sum formula sin(A)sin(B) = (1/2)[cos(A-B) - cos(A+B)]. Substitute A=7x and B=3x, and multiply by 4: 4 * (1/2)[cos(7x-3x) - cos(7x+3x)] which simplifies to 2[cos(4x) - cos(10x)]."
   }
 ]

@@ -4,7 +4,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 dotenv.config();
-const ai = new GoogleGenAI({apiKey: process.env.VITE_API_KEY});
+let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
 async function AIProblem() 
 {
@@ -198,7 +198,7 @@ async function AIProblem4() //Polynomials and Functions
     return response.text.substring(response.text.indexOf('['), response.text.lastIndexOf(']') + 1).trim();
 }
 
-for(let i = 0; i < 2; i++)
+for(let i = 0; i < 5; i++)
 {
     try {
         const problem = await AIProblem();
@@ -228,7 +228,7 @@ for(let i = 0; i < 2; i++)
     }
 }
 
-for(let i = 0; i < 2; i++)
+for(let i = 0; i < 5; i++)
 {
     try {
         const problem = await AIProblem2();
@@ -258,7 +258,9 @@ for(let i = 0; i < 2; i++)
     }
 }
 
-for(let i = 0; i < 2; i++)
+ai = new GoogleGenAI({apiKey: process.env.API_KEY2});
+
+for(let i = 0; i < 5; i++)
 {
     try {
         const problem = await AIProblem3();
@@ -288,7 +290,8 @@ for(let i = 0; i < 2; i++)
     }
 }
 
-for(let i = 0; i < 2; i++)
+
+for(let i = 0; i < 5; i++)
 {
     try {
         const problem = await AIProblem4();
