@@ -1,6 +1,5 @@
 export async function generateEquationProblem() {
   try {
-    // Use relative URL that works in both development and production
     const response = await fetch('/generate-problem1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
