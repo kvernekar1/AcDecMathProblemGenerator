@@ -10,7 +10,8 @@ async function AIProblem()
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: `Reminder: Respond with raw JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
+        temperature: 0.3,
+        contents: `Reminder: Respond with raw valid JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
         You are an expert at creating multiple-choice problems on the topic of linear, quadratic, logarithmic, exponential, radical, and rational functions AND linear and quadratic inequalities
         Generate 30 moderately hard different multiple-choice equations/inequalities consisting of only linear, quadratic, logarithmic, exponential, radical, and rational functions and constants AND linear and quadratic inequalities and constants. List the equation's real solutions(rounded to three decimal places), if it has any.
         3 problems must be about linear equation word problems, 3 problems must be about quadratic equation word problems, 3 problems must be about linear inequalities, 3 problems must be about quadratic inequalities, 3 problems must be about linear functions, 3 problems must be about quadratic functions, 3 problems must be about logarithmic functions, 3 problems must be about exponential functions, 3 problems must be about radical functions, and 3 problems must be about rational functions.
@@ -19,8 +20,19 @@ async function AIProblem()
         Include a thorough explanation of the answer.
         Avoid using latex or any other special characters.
         Keep explanations on a single line without line breaks or special formatting.
+        Do not list problem number next to the problem.
         Additionally, make sure that you respond in a JSON format with the following structure:
         [
+            {
+                "question": "Solve the equation here",
+                "A": "Choice A",
+                "B": "Choice B",
+                "C": "Choice C",
+                "D": "Choice D",
+                "E": "Choice E",
+                "answer": "A, B, C, D, or E",
+                "explanation": "Explanation of the answer"
+            },
             {
                 "question": "Solve the equation here",
                 "A": "Choice A",
@@ -40,7 +52,8 @@ async function AIProblem2() //Coordinate Geometry
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: `Reminder: Respond with raw JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
+        temperature: 0.3,
+        contents: `Reminder: Respond with raw valid JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
         You are an expert at creating multiple-choice problems on the topic of Geometry, especially those of parallelograms, circles, triangles, and lines.
         Generate 30 moderately hard non-word multiple-choice with 4 PLAUSIBLE DISTRACTOR CHOICES about parallelograms, circles, triangles, and lines that have only one definitive answer and must satisfy the following criteria:
         7-8 problems must be about parallelograms, 7-8 about circles, 7-8 about triangles, and 7-8 about lines.
@@ -54,8 +67,20 @@ async function AIProblem2() //Coordinate Geometry
         Make sure that the problems in the json aren't grouped by type, but rather are randomly mixed together.
         Make sure to just provide the answer. Do not begin with "The answer is" or any other phrase.
         Avoid using latex or any other special characters.
+        Keep explanations on a single line without line breaks or special formatting.
+        Do not list problem number next to the problem.
         Additionally, make sure that you respond in a JSON format with the following structure:
         [
+            {
+                "question": "Solve the equation here",
+                "A": "Choice A",
+                "B": "Choice B",
+                "C": "Choice C",
+                "D": "Choice D",
+                "E": "Choice E",
+                "answer": "A, B, C, D, or E",
+                "explanation": "Explanation of the answer"
+            },
             {
                 "question": "Solve the equation here",
                 "A": "Choice A",
@@ -75,7 +100,8 @@ async function AIProblem3() //Trigonometry
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: `Reminder: Respond with raw JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
+        temperature: 0.3,
+        contents: `Reminder: Respond with raw valid JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
         You are an expert at creating multiple-choice problems on the topic of Trigonometry.
         Generate 30 moderately hard non-word multiple-choice problems with 4 PLAUSIBLE DISTRACTOR CHOICES about trigonometry that have only one definitive answer and must satisfy the following criteria:
         Each problem must be about one of the following topics:
@@ -94,8 +120,20 @@ async function AIProblem3() //Trigonometry
         Make sure that the problems in the json aren't grouped by type, but rather are randomly mixed together.
         Make sure to just provide the answer. Do not begin with "The answer is" or any other phrase.
         Avoid using latex or any other special characters.
+        Keep explanations on a single line without line breaks or special formatting.
+        Do not list problem number next to the problem.
         Additionally, make sure that you respond in a JSON format with the following structure:
         [
+            {
+                "question": "Solve the equation here",
+                "A": "Choice A",
+                "B": "Choice B",
+                "C": "Choice C",
+                "D": "Choice D",
+                "E": "Choice E",
+                "answer": "A, B, C, D, or E",
+                "explanation": "Explanation of the answer"
+            },
             {
                 "question": "Solve the equation here",
                 "A": "Choice A",
@@ -115,7 +153,8 @@ async function AIProblem4() //Polynomials and Functions
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: `Reminder: Respond with raw JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
+        temperature: 0.3,
+        contents: `Reminder: Respond with raw valid JSON only. Do not use any markdown formatting like \`\`\`json or \`\`\`.
         You are an expert at creating multiple-choice problems on the topic of Polynomials, Polynomial Factoring, Complex Numbers, Functions, and Transformations of Functions.
         Generate 30 moderately hard non-word multiple-choice problems with 4 PLAUSIBLE DISTRACTOR CHOICES about Polynomials, Polynomial Factoring, Complex Numbers, Functions, and Transformations of Functions that have only one definitive answer and must satisfy the following criteria:
         6 problems must be about polynomials, 6 problems must be about polynomial factoring, 6 problems must be about complex numbers, 6 problems must be about functions, and 6 problems must be about transformations of functions.
@@ -130,8 +169,20 @@ async function AIProblem4() //Polynomials and Functions
         Make sure that the problems in the json aren't grouped by type, but rather are randomly mixed together.
         Make sure to just provide the answer. Do not begin with "The answer is" or any other phrase.
         Avoid using latex or any other special characters.
+        Keep explanations on a single line without line breaks or special formatting.
+        Do not list problem number next to the problem.
         Additionally, make sure that you respond in a JSON format with the following structure:
         [
+            {
+                "question": "Solve the equation here",
+                "A": "Choice A",
+                "B": "Choice B",
+                "C": "Choice C",
+                "D": "Choice D",
+                "E": "Choice E",
+                "answer": "A, B, C, D, or E",
+                "explanation": "Explanation of the answer"
+            },
             {
                 "question": "Solve the equation here",
                 "A": "Choice A",

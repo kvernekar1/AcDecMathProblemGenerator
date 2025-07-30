@@ -367,11 +367,11 @@
     }
 
     .topic-selector {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin: 1.5rem 0;
-      justify-content: center;
+      justify-items: center;
     }
 
     .topic-chip {
@@ -388,6 +388,9 @@
       align-items: center;
       gap: 8px;
       user-select: none;
+      white-space: nowrap;
+      width: 100%;
+      justify-content: center;
     }
 
     .topic-chip:hover {
@@ -439,6 +442,7 @@
       <a href="learn.html">Learn</a>
       <a href="about.html">About the Creator/FAQ</a>
       <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
+      <a href="update.html">Subscribe for Updates!</a>
     </div>
   </div>
   

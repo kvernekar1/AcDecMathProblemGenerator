@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About the Creator</title>
+  <title>Academic Decathlon Math Trainer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -219,6 +219,45 @@
     .steps ul li {
       margin-bottom: 0.3rem;
     }
+
+    .form-input {
+      padding: 12px 16px;
+      border: 2px solid #e0e7ff;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+      transition: border-color 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #4f46e5;
+    }
+
+    .form-button {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -229,31 +268,20 @@
         <div class="nav-links">
           <a href="index.html">Trainer</a>
           <a href="learn.html">Learn</a>
-          <a href="about.html" class="active">About the Creator/FAQ</a>
+          <a href="about.html">About the Creator/FAQ</a>
           <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
-          <a href="update.html">Subscribe for Updates!</a>
+          <a href="update.html" class="active">Subscribe for Updates!</a>
         </div>
     </div>
     <div class="container">
-        <h1>About the Creator</h1>
-        <p>Hi guys! I'm Kedar V. I am currently a senior in high school and I created this website to help students like you prepare for the Academic Decathlon math section!</p>
-        <p>Throughout the past 3 years of me participating in Academic Decathlon, I noticed that this is the subject that most people tend to struggle with. In all the Academic Decathlon competitions I've been a part of, math has consistently seen some of the lowest scores.</p>
-        <p>Even in my school, where the Academic Decathlon class is filled with high-achieving students, math remains a challenging subject for them.</p>
-        <p>That is the reason I have created this website - to provide resources, practice problems, and guidance to help students improve their math skills and succeed in the competition.</p>
-        <h1>What makes me qualified to make this website?</h1>
-        <p>As mentioned before, I have been actively participating in Academic Decathlon for the past three years, and I have gained valuable insights into the challenges students face in the math section.</p>
-        <p>Additionally, here are some of my achievements that demonstrate my proficiency in math:</p>
-        <ul class="steps">
-          <li>Scored 900+ on the Academic Decathlon Math section at nationals, earning me 4th place.</li>
-          <li>Qualified for the American Invitational Mathematics Examination (AIME) four times in a row.</li>
-          <li>Placed 8th in the UIL Number Sense State Competition out of the 830 UIL District competitors (top 0.96% in the state).</li>
-        </ul>
-        <p>All these accomplishments I have listed require a need to do math problems both quickly and accurately, and I hope to convey what I have learned through gaining accomplishments like those listed above.</p>
-        <h1>What is the goal of this website?</h1>
-        <p>From my experiences, I found out that the goal to getting such a high score (aside from learning the content thoroughly) is to <strong>practice consistently</strong>.</p>
-        <p>Practicing these problems consistently is the only way to gain the intuition needed to solve them quickly and accurately, which is the name of the game for Academic Decathlon Math.</p>
-        <p>Therefore, the goal of this website is to provide you with a platform to practice these problems consistently and effectively to help you gain the intuition you need to do well.</p>
-        <p>This website provides you with virtually unlimited amounts of practice problems (which are AI-generated), as well as the ability to practice by topic and to test yourself using the test feature.</p>
+        <h2>Subscribe For Updates</h2>
+        <p>Stay tuned for the latest updates and features!</p>
+        <form action="https://formspree.io/f/mpwlrvyv" method="POST" class="form-container">
+            <input type="email" name="email" placeholder="Enter your email" required class="form-input" />
+            <button type="submit" class="form-button">Subscribe</button>
+        </form>
     </div>
 </body>
 </html>
+
+</button>

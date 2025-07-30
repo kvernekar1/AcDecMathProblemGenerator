@@ -5,14 +5,24 @@ import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
 import cors from 'cors';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.use(express.static(__dirname));
+
+app.get('*', (req, res) => 
+{
+  if (!req.path.startsWith('/generate-problem')) {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  }
+});
+
 
 const problemsPath = path.join(__dirname, 'problems.json');
 const problemsPath2 = path.join(__dirname, 'problems2.json');
@@ -79,7 +89,7 @@ function regenerateProblems() {
 }
 
 app.post('/generate-problem1', async (req, res) => {
-  console.log('Received request to generate problem');
+  console.log('Received request to get problem');
   try {
     let problems = loadProblems();
 
@@ -112,7 +122,7 @@ app.post('/generate-problem1', async (req, res) => {
 
 
 app.post('/generate-problem2', async (req, res) => {
-  console.log('Received request to generate problem');
+  console.log('Received request to get problem');
   try {
     let problems = loadProblems2();
 
@@ -148,7 +158,7 @@ app.listen(PORT, () => {
 });
 
 app.post('/generate-problem3', async (req, res) => {
-  console.log('Received request to generate problem');
+  console.log('Received request to get problem');
   try {
     let problems = loadProblems3();
 
@@ -180,7 +190,7 @@ app.post('/generate-problem3', async (req, res) => {
 });
 
 app.post('/generate-problem4', async (req, res) => {
-  console.log('Received request to generate problem');
+  console.log('Received request to get problem');
   try {
     let problems = loadProblems4();
 
