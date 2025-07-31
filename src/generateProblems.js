@@ -8,7 +8,9 @@ let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 async function insertProblemsIntoDatabase(problems, tableName) {
@@ -17,7 +19,7 @@ async function insertProblemsIntoDatabase(problems, tableName) {
     for (const problem of problems) {
     console.log('answer', problem.answer);
       await client.query(
-        `INSERT INTO acdecprobgen.${tableName} (question, a, b, c, d, e, answer, explanation) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        `INSERT INTO ${tableName} (question, a, b, c, d, e, answer, explanation) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
           problem.question,
           problem.A,
