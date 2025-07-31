@@ -47,7 +47,7 @@ async function getRandomProblem(tableName) {
   const client = await pool.connect();
   try {
     const result = await client.query(
-      `SELECT question, a, b, c, d, e, answer, explanation FROM acdecprobgen.${tableName} ORDER BY RANDOM() LIMIT 1`
+      `SELECT question, a, b, c, d, e, answer, explanation FROM ${tableName} ORDER BY RANDOM() LIMIT 1`
     );
     return result.rows[0];
   } finally {
@@ -58,7 +58,7 @@ async function getRandomProblem(tableName) {
 async function getProblemsCount(tableName) {
   const client = await pool.connect();
   try {
-    const result = await client.query(`SELECT COUNT(*) FROM acdecprobgen.${tableName}`);
+    const result = await client.query(`SELECT COUNT(*) FROM ${tableName}`);
     return parseInt(result.rows[0].count);
   } finally {
     client.release();
