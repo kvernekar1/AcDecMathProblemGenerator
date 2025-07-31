@@ -1,10 +1,43 @@
 import { GoogleGenAI } from "@google/genai"
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { Pool } from 'pg'
 import dotenv from 'dotenv'
+
 dotenv.config();
+
 let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: false
+});
+
+async function insertProblemsIntoDatabase(problems, tableName) {
+  const client = await pool.connect();
+  try {
+    for (const problem of problems) {
+    console.log('answer', problem.answer);
+      await client.query(
+        `INSERT INTO acdecprobgen.${tableName} (question, a, b, c, d, e, answer, explanation) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [
+          problem.question,
+          problem.A,
+          problem.B, 
+          problem.C,
+          problem.D,
+          problem.E,
+          problem.answer,
+          problem.explanation
+        ]
+      );
+    }
+    console.log(`Successfully inserted ${problems.length} problems into ${tableName} table`);
+  } catch (error) {
+    console.error(`Error inserting problems into ${tableName}:`, error);
+    throw error;
+  } finally {
+    client.release();
+  }
+}
 
 async function AIProblem() 
 {
@@ -48,7 +81,7 @@ async function AIProblem()
     return response.text.substring(response.text.indexOf('['), response.text.lastIndexOf(']') + 1).trim();
 }
 
-async function AIProblem2() //Coordinate Geometry
+async function AIProblem2()
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
@@ -96,7 +129,7 @@ async function AIProblem2() //Coordinate Geometry
     return response.text.substring(response.text.indexOf('['), response.text.lastIndexOf(']') + 1).trim();
 }
 
-async function AIProblem3() //Trigonometry
+async function AIProblem3()
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
@@ -149,7 +182,7 @@ async function AIProblem3() //Trigonometry
     return response.text.substring(response.text.indexOf('['), response.text.lastIndexOf(']') + 1).trim();
 }
 
-async function AIProblem4() //Polynomials and Functions
+async function AIProblem4()
 {
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
@@ -203,28 +236,10 @@ for(let i = 0; i < 5; i++)
     try {
         const problem = await AIProblem();
         const questionBank = JSON.parse(problem);
-        const filePath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../problems.json');
-        let existingProblems = [];
-        try {
-            if (fs.existsSync(filePath)) {
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                if (fileContent.trim()) {
-                    existingProblems = JSON.parse(fileContent);
-                }
-            }
-        } catch (error) {
-            console.error('Error reading existing problems file:', error);
-        }
-
-        const combinedProblems = [...existingProblems, ...questionBank];
-
-        fs.writeFileSync(
-            filePath,
-            JSON.stringify(combinedProblems, null, 2),
-        );
-        console.log(`Successfully generated and saved AIProblem batch ${i + 1}`);
+        await insertProblemsIntoDatabase(questionBank, 'equations');
+        console.log(`Successfully generated and saved equations batch ${i + 1}`);
     } catch (error) {
-        console.error(`Failed to generate AIProblem batch ${i + 1}:`, error);
+        console.error(`Failed to generate equations batch ${i + 1}:`, error);
     }
 }
 
@@ -233,28 +248,10 @@ for(let i = 0; i < 5; i++)
     try {
         const problem = await AIProblem2();
         const questionBank = JSON.parse(problem);
-        const filePath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../problems2.json');
-        let existingProblems = [];
-        try {
-            if (fs.existsSync(filePath)) {
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                if (fileContent.trim()) {
-                    existingProblems = JSON.parse(fileContent);
-                }
-            }
-        } catch (error) {
-            console.error('Error reading existing problems file:', error);
-        }
-
-        const combinedProblems = [...existingProblems, ...questionBank];
-
-        fs.writeFileSync(
-            filePath,
-            JSON.stringify(combinedProblems, null, 2),
-        );
-        console.log(`Successfully generated and saved AIProblem2 batch ${i + 1}`);
+        await insertProblemsIntoDatabase(questionBank, 'geometry');
+        console.log(`Successfully generated and saved geometry batch ${i + 1}`);
     } catch (error) {
-        console.error(`Failed to generate AIProblem2 batch ${i + 1}:`, error);
+        console.error(`Failed to generate geometry batch ${i + 1}:`, error);
     }
 }
 
@@ -265,28 +262,10 @@ for(let i = 0; i < 5; i++)
     try {
         const problem = await AIProblem3();
         const questionBank = JSON.parse(problem);
-        const filePath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../problems3.json');
-        let existingProblems = [];
-        try {
-            if (fs.existsSync(filePath)) {
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                if (fileContent.trim()) {
-                    existingProblems = JSON.parse(fileContent);
-                }
-            }
-        } catch (error) {
-            console.error('Error reading existing problems file:', error);
-        }
-
-        const combinedProblems = [...existingProblems, ...questionBank];
-
-        fs.writeFileSync(
-            filePath,
-            JSON.stringify(combinedProblems, null, 2),
-        );
-        console.log(`Successfully generated and saved AIProblem3 batch ${i + 1}`);
+        await insertProblemsIntoDatabase(questionBank, 'trigonometry');
+        console.log(`Successfully generated and saved trigonometry batch ${i + 1}`);
     } catch (error) {
-        console.error(`Failed to generate AIProblem3 batch ${i + 1}:`, error);
+        console.error(`Failed to generate trigonometry batch ${i + 1}:`, error);
     }
 }
 
@@ -296,28 +275,12 @@ for(let i = 0; i < 5; i++)
     try {
         const problem = await AIProblem4();
         const questionBank = JSON.parse(problem);
-        const filePath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../problems4.json');
-        let existingProblems = [];
-        try {
-            if (fs.existsSync(filePath)) {
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                if (fileContent.trim()) {
-                    existingProblems = JSON.parse(fileContent);
-                }
-            }
-        } catch (error) {
-            console.error('Error reading existing problems file:', error);
-        }
-
-        const combinedProblems = [...existingProblems, ...questionBank];
-
-        fs.writeFileSync(
-            filePath,
-            JSON.stringify(combinedProblems, null, 2),
-        );
-        console.log(`Successfully generated and saved AIProblem4 batch ${i + 1}`);
+        await insertProblemsIntoDatabase(questionBank, 'functions');
+        console.log(`Successfully generated and saved functions batch ${i + 1}`);
     } catch (error) {
-        console.error(`Failed to generate AIProblem4 batch ${i + 1}:`, error);
+        console.error(`Failed to generate functions batch ${i + 1}:`, error);
     }
 }
+
+await pool.end();
 console.log("Generation process completed. Check above logs for any failures.");

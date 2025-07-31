@@ -4,12 +4,30 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
 import cors from 'cors';
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: false
+});
+
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error('Error connecting to database:', err);
+  } else {
+    console.log('Connected to PostgreSQL database');
+    release();
+  }
+});
 
 app.use(cors());
 app.use(express.json());
@@ -23,46 +41,26 @@ app.get('*', (req, res) =>
   }
 });
 
-
-const problemsPath = path.join(__dirname, 'problems.json');
-const problemsPath2 = path.join(__dirname, 'problems2.json');
-const problemsPath3 = path.join(__dirname, 'problems3.json');
-const problemsPath4 = path.join(__dirname, 'problems4.json');
-
-function loadProblems() {
-  const data = fs.readFileSync(problemsPath, 'utf8');
-  return JSON.parse(data);
+async function getRandomProblem(tableName) {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      `SELECT question, a, b, c, d, e, answer, explanation FROM acdecprobgen.${tableName} ORDER BY RANDOM() LIMIT 1`
+    );
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
 }
 
-function loadProblems2() {
-  const data = fs.readFileSync(problemsPath2, 'utf8');
-  return JSON.parse(data);
-}
-
-function loadProblems3() {
-  const data = fs.readFileSync(problemsPath3, 'utf8');
-  return JSON.parse(data);
-}
-
-function loadProblems4() {
-  const data = fs.readFileSync(problemsPath4, 'utf8');
-  return JSON.parse(data);
-}
-
-function saveProblems(problems) {
-  fs.writeFileSync(problemsPath, JSON.stringify(problems, null, 2));
-}
-
-function saveProblems2(problems) {
-  fs.writeFileSync(problemsPath2, JSON.stringify(problems, null, 2));
-}
-
-function saveProblems3(problems) {
-  fs.writeFileSync(problemsPath3, JSON.stringify(problems, null, 2));
-}
-
-function saveProblems4(problems) {
-  fs.writeFileSync(problemsPath4, JSON.stringify(problems, null, 2));
+async function getProblemsCount(tableName) {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(`SELECT COUNT(*) FROM acdecprobgen.${tableName}`);
+    return parseInt(result.rows[0].count);
+  } finally {
+    client.release();
+  }
 }
 
 function regenerateProblems() {
@@ -89,66 +87,56 @@ function regenerateProblems() {
 }
 
 app.post('/generate-problem1', async (req, res) => {
-  console.log('Received request to get problem');
   try {
-    let problems = loadProblems();
-
-    if (problems.length === 0) {
+    const count = await getProblemsCount('equations');
+    
+    if (count === 0) {
       await regenerateProblems();
-      problems = loadProblems();
-      if (problems.length === 0) {
+      const newCount = await getProblemsCount('equations');
+      
+      if (newCount === 0) {
         return res.status(500).json({ message: 'No problems available after regeneration.' });
       }
     }
 
-    const problem = problems.shift();
-
-    saveProblems(problems);
-
-    if (problems.length < 100) {
-      console.log('Less than 100 problems left, regenerating...');
-      regenerateProblems().catch(err => {
-        console.error('Failed to regenerate problems:', err);
-      });
+    const problem = await getRandomProblem('equations');
+    
+    if (!problem) {
+      return res.status(500).json({ message: 'No problem found in equations table.' });
     }
 
     res.json(problem);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error generating problem from equations:', error);
     res.status(500).json({ message: 'Server error generating problem.' });
   }
 });
 
 
 app.post('/generate-problem2', async (req, res) => {
-  console.log('Received request to get problem');
   try {
-    let problems = loadProblems2();
-
-    if (problems.length === 0) {
+    const count = await getProblemsCount('functions');
+    
+    if (count === 0) {
       await regenerateProblems();
-      problems = loadProblems2();
-      if (problems.length === 0) {
+      const newCount = await getProblemsCount('functions');
+      
+      if (newCount === 0) {
         return res.status(500).json({ message: 'No problems available after regeneration.' });
       }
     }
 
-    const problem = problems.shift();
-
-    saveProblems2(problems);
-
-    if (problems.length < 100) {
-      console.log('Less than 100 problems left, regenerating...');
-      regenerateProblems().catch(err => {
-        console.error('Failed to regenerate problems:', err);
-      });
+    const problem = await getRandomProblem('functions');
+    
+    if (!problem) {
+      return res.status(500).json({ message: 'No problem found in functions table.' });
     }
 
     res.json(problem);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error generating problem from functions:', error);
     res.status(500).json({ message: 'Server error generating problem.' });
   }
 });
@@ -158,65 +146,55 @@ app.listen(PORT, () => {
 });
 
 app.post('/generate-problem3', async (req, res) => {
-  console.log('Received request to get problem');
   try {
-    let problems = loadProblems3();
-
-    if (problems.length === 0) {
+    const count = await getProblemsCount('geometry');
+    
+    if (count === 0) {
       await regenerateProblems();
-      problems = loadProblems3();
-      if (problems.length === 0) {
+      const newCount = await getProblemsCount('geometry');
+      
+      if (newCount === 0) {
         return res.status(500).json({ message: 'No problems available after regeneration.' });
       }
     }
 
-    const problem = problems.shift();
-
-    saveProblems3(problems);
-
-    if (problems.length < 100) {
-      console.log('Less than 100 problems left, regenerating...');
-      regenerateProblems().catch(err => {
-        console.error('Failed to regenerate problems:', err);
-      });
+    const problem = await getRandomProblem('geometry');
+    
+    if (!problem) {
+      return res.status(500).json({ message: 'No problem found in geometry table.' });
     }
 
     res.json(problem);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error generating problem from geometry:', error);
     res.status(500).json({ message: 'Server error generating problem.' });
   }
 });
 
 app.post('/generate-problem4', async (req, res) => {
-  console.log('Received request to get problem');
   try {
-    let problems = loadProblems4();
-
-    if (problems.length === 0) {
+    const count = await getProblemsCount('trigonometry');
+    
+    if (count === 0) {
       await regenerateProblems();
-      problems = loadProblems4();
-      if (problems.length === 0) {
+      const newCount = await getProblemsCount('trigonometry');
+      
+      if (newCount === 0) {
         return res.status(500).json({ message: 'No problems available after regeneration.' });
       }
     }
 
-    const problem = problems.shift();
-
-    saveProblems4(problems);
-
-    if (problems.length < 100) {
-      console.log('Less than 100 problems left, regenerating...');
-      regenerateProblems().catch(err => {
-        console.error('Failed to regenerate problems:', err);
-      });
+    const problem = await getRandomProblem('trigonometry');
+    
+    if (!problem) {
+      return res.status(500).json({ message: 'No problem found in trigonometry table.' });
     }
 
     res.json(problem);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error generating problem from trigonometry:', error);
     res.status(500).json({ message: 'Server error generating problem.' });
   }
 });
