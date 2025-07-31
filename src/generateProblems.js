@@ -17,7 +17,6 @@ async function insertProblemsIntoDatabase(problems, tableName) {
   const client = await pool.connect();
   try {
     for (const problem of problems) {
-    console.log('answer', problem.answer);
       await client.query(
         `INSERT INTO ${tableName} (question, a, b, c, d, e, answer, explanation) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
