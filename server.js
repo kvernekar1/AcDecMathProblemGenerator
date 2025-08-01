@@ -36,6 +36,14 @@ app.use(express.json());
 
 app.use(express.static(__dirname));
 
+app.get('/sitemap.xml', function (req, res) {
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+app.get('/robots.txt', function (req, res) {
+  res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
 app.get('*', (req, res) => 
 {
   if (!req.path.startsWith('/generate-problem')) {
