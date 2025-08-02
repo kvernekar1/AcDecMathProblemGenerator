@@ -863,6 +863,13 @@
           optionDiv.onclick = null;
           optionDiv.style.cursor = 'default';
         });
+
+        if(q.explanation) {
+          const explanationDiv = document.createElement('div');
+          explanationDiv.className = 'explanation';
+          explanationDiv.innerHTML = `<h4>Explanation:</h4>${q.explanation}`;
+          questionDiv.appendChild(explanationDiv);
+        }
       });
       
       const percentage = ((correct / total) * 100).toFixed(3);
