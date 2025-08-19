@@ -563,7 +563,7 @@
     </div>
     <div class="nav-links">
       <a href="index.html" class="active">Trainer</a>
-      <a href="learn.html">Learn</a>
+      <a href="learn.html">Math Learner</a>
       <a href="about.html">About the Creator/FAQ</a>
       <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
       <a href="update.html">Subscribe for Updates!</a>
@@ -573,6 +573,15 @@
   <div class="container">
     <h1>Academic Decathlon Math Trainer</h1>
     <div class="controls">
+      <select id="subject-select" style="margin-right: 1rem;">
+        <option value="Math">Math</option>
+        <option value="Art">Art</option>
+        <option value="Economics">Economics</option>
+        <option value="Literature">Literature</option>
+        <option value="Music">Music</option>
+        <option value="Science">Science</option>
+        <option value="Social Science">Social Science</option>
+      </select>
       <select id="mode">
         <option value="practice">Practice Mode</option>
         <option value="test">Test Mode</option>
@@ -592,7 +601,7 @@
 
     <div class="topic-selector-container">
       <div class="topic-selector-title">Choose Topics to Practice</div>
-      <div class="topic-selector">
+      <div class="topic-selector" id="topic-selector">
         <div class="topic-chip selected" data-topic="equations">Equations & Inequalities</div>
         <div class="topic-chip selected" data-topic="functions">Functions & Polynomials</div>
         <div class="topic-chip selected" data-topic="geometry">Coordinate Geometry</div>
@@ -631,6 +640,66 @@
     import { generateEquationProblem, generateFunctionProblem, generateTrigonometryProblem, generateCoordinateGeometryProblem} from './src/generator.js';
 
     let selectedTopics = ['equations', 'functions', 'geometry', 'trigonometry'];
+    let selectedSubject = document.getElementById('subject-select').value;
+    
+    const subjectSections = {
+      'Math': ['equations', 'functions', 'geometry', 'trigonometry'],
+      'Art': [1, 2, 3, 4, 5],
+      'Economics': [2, 3, 4],
+      'Literature': [2, 3, 4],
+      'Music': [1, 2, 3, 4],
+      'Science': [1, 2, 3, 4],
+      'Social Science': [1, 2, 3, 4]
+    };
+
+    const subjectSectionNames = {
+      'Math': ['Equations & Inequalities', 'Functions & Polynomials', 'Coordinate Geometry', 'Trigonometry'],
+      'Art': ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5'],
+      'Economics': ['Section 2', 'Section 3', 'Section 4'],
+      'Literature': ['Section 2', 'Section 3', 'Section 4'],
+      'Music': ['Section 1', 'Section 2', 'Section 3', 'Section 4'],
+      'Science': ['Section 1', 'Section 2', 'Section 3', 'Section 4'],
+      'Social Science': ['Section 1', 'Section 2', 'Section 3', 'Section 4']
+    };
+
+    function updateTopicSelector() {
+      const topicSelector = document.getElementById('topic-selector');
+      const sections = subjectSections[selectedSubject];
+      const sectionNames = subjectSectionNames[selectedSubject];
+      
+      topicSelector.innerHTML = '';
+      
+      sections.forEach((section, index) => {
+        const chip = document.createElement('div');
+        chip.className = 'topic-chip selected';
+        chip.setAttribute('data-topic', section);
+        chip.textContent = sectionNames[index];
+        topicSelector.appendChild(chip);
+      });
+      
+      selectedTopics = [...sections];
+      
+      document.querySelectorAll('.topic-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('selected');
+          
+          selectedTopics = Array.from(document.querySelectorAll('.topic-chip.selected'))
+            .map(chip => chip.dataset.topic);
+          
+          if (selectedTopics.length === 0) {
+            document.getElementById("question").textContent = "Please select at least one topic to practice.";
+            document.getElementById("options").innerHTML = "";
+          }
+        });
+      });
+    }
+
+    document.getElementById('subject-select').addEventListener('change', function() {
+      selectedSubject = this.value;
+      updateTopicSelector();
+    });
+
+    updateTopicSelector();
     
     document.querySelectorAll('.topic-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -705,19 +774,53 @@
       if (mode === "test") {
         await generateTest();
       } else {
-        const availableGenerators = getAvailableGenerators();
-        
-        if (availableGenerators.length === 0) {
-          document.getElementById("question").textContent = "Please select at least one topic to practice.";
-          document.getElementById("options").innerHTML = "";
-          return;
+        if (selectedSubject === 'Math') {
+          const availableGenerators = getAvailableGenerators();
+          
+          if (availableGenerators.length === 0) {
+            document.getElementById("question").textContent = "Please select at least one topic to practice.";
+            document.getElementById("options").innerHTML = "";
+            return;
+          }
+          
+          const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+          const result = await generator();
+          const { question, answer, A, B, C, D, E, explanation } = result;
+          const options = A ? { A, B, C, D, E } : null;
+          renderQuestion(question, answer, options, explanation);
+        } 
+        else {
+          try {
+            const response = await fetch('/get-question', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                subject: selectedSubject,
+                sections: selectedTopics
+              })
+            });
+            
+            if (!response.ok) {
+              throw new Error('Failed to fetch question');
+            }
+            
+            const data = await response.json();
+            if (data.success && data.question) {
+              const { question, a, b, c, d, e, answer, explanation } = data.question;
+              const options = { A: a, B: b, C: c, D: d, E: e };
+              renderQuestion(question, answer, options, explanation);
+            } else {
+              document.getElementById("question").textContent = `No ${selectedSubject} questions found for the selected sections.`;
+              document.getElementById("options").innerHTML = "";
+            }
+          } catch (error) {
+            console.error('Error fetching question:', error);
+            document.getElementById("question").textContent = `Error loading ${selectedSubject} questions. Please try again.`;
+            document.getElementById("options").innerHTML = "";
+          }
         }
-        
-        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
-        const result = await generator();
-        const { question, answer, A, B, C, D, E, explanation } = result;
-        const options = A ? { A, B, C, D, E } : null;
-        renderQuestion(question, answer, options, explanation);
       }
     });
 
@@ -735,32 +838,77 @@
         return;
       }
 
-      const availableGenerators = getAvailableGenerators();
-      
-      if (availableGenerators.length === 0) {
-        alert("Please select at least one topic to generate a test.");
-        return;
-      }
+      if (selectedSubject === 'Math') {
+        const availableGenerators = getAvailableGenerators();
+        
+        if (availableGenerators.length === 0) {
+          alert("Please select at least one topic to generate a test.");
+          return;
+        }
 
-      document.querySelector('.question-box').style.display = 'none';
-      document.getElementById('test-container').style.display = 'block';
-      
-      testQuestions = [];
-      testAnswers = {};
-      const testQuestionsContainer = document.getElementById('test-questions');
-      testQuestionsContainer.innerHTML = '<p>Generating questions...</p>';
-      
-      for (let i = 0; i < questionCount; i++) {
-        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
-        const result = await generator();
-        testQuestions.push(result);
+        document.querySelector('.question-box').style.display = 'none';
+        document.getElementById('test-container').style.display = 'block';
+        
+        testQuestions = [];
+        testAnswers = {};
+        const testQuestionsContainer = document.getElementById('test-questions');
+        testQuestionsContainer.innerHTML = '<p>Generating questions...</p>';
+        
+        for (let i = 0; i < questionCount; i++) {
+          const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+          const result = await generator();
+          testQuestions.push(result);
+        }
+        
+        renderTestQuestions();
+        startTimer(timeLimit);
+        document.getElementById('submit-test').addEventListener('click', submitTest);
+      } else {
+        try {
+          const response = await fetch('/get-test-questions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              subject: selectedSubject,
+              sections: selectedTopics,
+              count: questionCount
+            })
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to fetch test questions');
+          }
+          
+          const data = await response.json();
+          if (data.success && data.questions && data.questions.length > 0) {
+            document.querySelector('.question-box').style.display = 'none';
+            document.getElementById('test-container').style.display = 'block';
+            
+            testQuestions = data.questions.map(q => ({
+              question: q.question,
+              A: q.a,
+              B: q.b, 
+              C: q.c,
+              D: q.d,
+              E: q.e,
+              answer: q.answer,
+              explanation: q.explanation
+            }));
+            testAnswers = {};
+            
+            renderTestQuestions();
+            startTimer(timeLimit);
+            document.getElementById('submit-test').addEventListener('click', submitTest);
+          } else {
+            alert(`Not enough ${selectedSubject} questions found for the selected sections.`);
+          }
+        } catch (error) {
+          console.error('Error fetching test questions:', error);
+          alert(`Error loading ${selectedSubject} test questions. Please try again.`);
+        }
       }
-      
-      renderTestQuestions();
-      
-      startTimer(timeLimit);
-      
-      document.getElementById('submit-test').addEventListener('click', submitTest);
     }
 
     function renderTestQuestions() {

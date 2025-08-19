@@ -117,3 +117,35 @@ export async function generateTrigonometryProblem()
     }
 }
 
+export async function generateNonMathProblems(subject, section) 
+{
+    try {
+        const response = await fetch('/generate-problem5', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subject, section })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to get problem: ${response.status}`);
+        }
+
+        const problem = await response.json();
+
+        return {
+            question: problem.question,
+            A: problem.a,
+            B: problem.b,
+            C: problem.c,
+            D: problem.d,
+            E: problem.e,
+            answer: problem.answer,
+            explanation: problem.explanation || "No explanation available."
+        };
+
+    } catch (error) {
+        console.error('Error fetching non-math problem:', error);
+        throw error;
+    }
+}
+

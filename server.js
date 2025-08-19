@@ -1,5 +1,4 @@
 import express from 'express';
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
@@ -51,6 +50,55 @@ app.get('*', (req, res) =>
   }
 });
 
+async function loadPDFContent(filePath) {
+  try {
+    const dataBuffer = fs.readFileSync(filePath);
+    const data = await pdfParse(dataBuffer);
+    return data.text;
+  } catch (error) {
+    console.error('Error loading PDF:', error);
+    throw error;
+  }
+}
+
+async function getMultipleQuestionsBySubjectAndSections(subject, sections, count) {
+  const client = await pool.connect();
+  try {
+    const sectionPlaceholders = sections.map((_, index) => `$${index + 3}`).join(', ');
+    const query = `
+      SELECT question, a, b, c, d, e, answer, explanation, subject, section 
+      FROM questions 
+      WHERE subject = $1 AND section IN (${sectionPlaceholders})
+      ORDER BY RANDOM() 
+      LIMIT $2
+    `;
+    const values = [subject, count, ...sections];
+    const result = await client.query(query, values);
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+
+async function getRandomQuestionBySubjectAndSections(subject, sections) {
+  const client = await pool.connect();
+  try {
+    const sectionPlaceholders = sections.map((_, index) => `$${index + 2}`).join(', ');
+    const query = `
+      SELECT question, a, b, c, d, e, answer, explanation, subject, section 
+      FROM questions 
+      WHERE subject = $1 AND section IN (${sectionPlaceholders})
+      ORDER BY RANDOM() 
+      LIMIT 1
+    `;
+    const values = [subject, ...sections];
+    const result = await client.query(query, values);
+    return result.rows[0];
+  } finally {
+    client.release();
+  }
+}
+
 async function getRandomProblem(tableName) {
   const client = await pool.connect();
   try {
@@ -95,6 +143,106 @@ function regenerateProblems() {
     });
   });
 }
+
+app.post('/get-test-questions', async (req, res) => {
+  try {
+    const { subject, sections, count } = req.body;
+    
+    
+    if (!subject || !sections || !Array.isArray(sections) || sections.length === 0) {
+      return res.status(400).json({ 
+        success: false,
+        message: 'Subject and sections array are required.' 
+      });
+    }
+
+    if (!count || count < 1 || count > 50) {
+      return res.status(400).json({ 
+        success: false,
+        message: 'Count must be between 1 and 50.' 
+      });
+    }
+
+    const questions = await getMultipleQuestionsBySubjectAndSections(subject, sections, count);
+    
+    
+    if (!questions || questions.length === 0) {
+      return res.status(404).json({ 
+        success: false,
+        message: `No questions found for ${subject} in sections: ${sections.join(', ')}` 
+      });
+    }
+
+    const formattedQuestions = questions.map(question => ({
+      question: question.question,
+      a: question.a,
+      b: question.b,
+      c: question.c,
+      d: question.d,
+      e: question.e,
+      answer: question.answer,
+      explanation: question.explanation,
+      subject: question.subject,
+      section: question.section
+    }));
+
+    res.json({ 
+      success: true,
+      questions: formattedQuestions 
+    });
+
+  } catch (error) {
+    console.error('Error fetching test questions:', error);
+    res.status(500).json({ 
+      success: false,
+      message: 'Server error fetching questions.' 
+    });
+  }
+});
+
+app.post('/get-question', async (req, res) => {
+  try {
+    const { subject, sections } = req.body;
+    if (!subject || !sections || !Array.isArray(sections) || sections.length === 0) {
+      return res.status(400).json({ 
+        success: false,
+        message: 'Subject and sections array are required.' 
+      });
+    }
+
+    const question = await getRandomQuestionBySubjectAndSections(subject, sections);
+    
+    console.log('FOUND QUESTION:', question ? 'Yes' : 'No');
+    
+    if (!question) {
+      return res.status(404).json({ 
+        success: false,
+        message: `No questions found for ${subject} in sections: ${sections.join(', ')}` 
+      });
+    }
+
+    res.json({
+      success: true,
+      question: {
+        question: question.question,
+        a: question.a,
+        b: question.b,
+        c: question.c,
+        d: question.d,
+        e: question.e,
+        answer: question.answer,
+        explanation: question.explanation
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error in /get-question:', error);
+    res.status(500).json({ 
+      success: false,
+      message: 'Internal server error' 
+    });
+  }
+});
 
 app.post('/generate-problem1', async (req, res) => {
   try {
@@ -209,3 +357,30 @@ app.post('/generate-problem4', async (req, res) => {
   }
 });
 
+app.post('/generate-problem5', async (req, res) => 
+{
+  try {
+    const count = await getProblemsCount('questions');
+    
+    if (count === 0) {
+      await regenerateProblems();
+      const newCount = await getProblemsCount('questions');
+      
+      if (newCount === 0) {
+        return res.status(500).json({ message: 'No problems available after regeneration.' });
+      }
+    }
+
+    const problem = await getRandomProblem('questions');
+    
+    if (!problem) {
+      return res.status(500).json({ message: 'No problem found in questions table.' });
+    }
+
+    res.json(problem);
+
+  } catch (error) {
+    console.error('Error generating problem from questions:', error);
+    res.status(500).json({ message: 'Server error generating problem.' });
+  }
+});
