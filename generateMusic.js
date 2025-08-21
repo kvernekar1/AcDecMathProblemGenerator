@@ -7,7 +7,7 @@ dotenv.config();
 
 const music = await new PDFLoader('Music-Resource-Guide.pdf').load();
 
-let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
+let ai = new GoogleGenAI({apiKey: process.env.API_KEY2});
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
