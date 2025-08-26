@@ -1158,20 +1158,60 @@
         });
       }
 
-      document.getElementById('next-question').addEventListener('click', async function () {
-        const availableGenerators = getAvailableGenerators();
+      document.getElementById("next-question").addEventListener("click", async () => {
+        const mode = document.getElementById("mode").value;
         
-        if (availableGenerators.length === 0) {
-          document.getElementById("question").textContent = "Please select at least one topic to practice.";
-          document.getElementById("options").innerHTML = "";
-          return;
+        if (mode === "test") {
+          await generateTest();
+        } else {
+          if (selectedSubject === 'Math') {
+            const availableGenerators = getAvailableGenerators();
+            
+            if (availableGenerators.length === 0) {
+              document.getElementById("question").textContent = "Please select at least one topic to practice.";
+              document.getElementById("options").innerHTML = "";
+              return;
+            }
+            
+            const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
+            const result = await generator();
+            const { question, answer, A, B, C, D, E, explanation } = result;
+            const options = A ? { A, B, C, D, E } : null;
+            renderQuestion(question, answer, options, explanation);
+          } 
+          else {
+            try {
+              const response = await fetch('/get-question', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  subject: selectedSubject,
+                  sections: selectedTopics
+                })
+              });
+              
+              if (!response.ok) {
+                throw new Error('Failed to fetch question');
+              }
+              
+              const data = await response.json();
+              if (data.success && data.question) {
+                const { question, a, b, c, d, e, answer, explanation } = data.question;
+                const options = { A: a, B: b, C: c, D: d, E: e };
+                renderQuestion(question, answer, options, explanation);
+              } else {
+                document.getElementById("question").textContent = `No ${selectedSubject} questions found for the selected sections.`;
+                document.getElementById("options").innerHTML = "";
+              }
+            } catch (error) {
+              console.error('Error fetching question:', error);
+              document.getElementById("question").textContent = `Error loading ${selectedSubject} questions. Please try again.`;
+              document.getElementById("options").innerHTML = "";
+            }
+          }
         }
-        
-        const generator = availableGenerators[Math.floor(Math.random() * availableGenerators.length)];
-        const result = await generator();
-        const { question, answer, A, B, C, D, E, explanation } = result;
-        const options = A ? { A, B, C, D, E } : null;
-        renderQuestion(question, answer, options, explanation);
       });
     }
   </script>  
