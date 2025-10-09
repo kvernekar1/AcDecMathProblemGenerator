@@ -700,20 +700,6 @@
 
     updateTopicSelector();
     
-    document.querySelectorAll('.topic-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('selected');
-        
-        selectedTopics = Array.from(document.querySelectorAll('.topic-chip.selected'))
-          .map(chip => chip.dataset.topic);
-        
-        if (selectedTopics.length === 0) {
-          document.getElementById("question").textContent = "Please select at least one topic to practice.";
-          document.getElementById("options").innerHTML = "";
-        }
-      });
-    });
-
     function getRandomSelectedTopic() {
       if (selectedTopics.length === 0) return null;
       return selectedTopics[Math.floor(Math.random() * selectedTopics.length)];
