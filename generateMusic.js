@@ -27,7 +27,9 @@ Your task: create {questions} multiple-choice questions strictly based on the co
 Guidelines:
 - Be specific and factually grounded in the provided content only.
 - You may include roman numeral multiple-choice questions when appropriate.
-- Provide five options labeled A, B, C, D, E.
+- Provide five options labeled A, B, C, D, E. Only one option should be correct.
+- Make sure these questions are challenging and are relevant to the subject matter.
+- Don't ask questions about content not present in the provided text or anything related to how this guide was created.
 - Return ONLY valid JSON (no markdown fences). The output must be a JSON array of objects with these keys:
     question, a, b, c, d, e, answer, explanation.
 
