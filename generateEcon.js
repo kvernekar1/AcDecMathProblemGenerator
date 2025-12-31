@@ -7,7 +7,7 @@ dotenv.config();
 
 const economics = await new PDFLoader('Economics-Resource-Guide.pdf').load();
 
-let ai = new GoogleGenAI({apiKey: process.env.API_KEY2});
+let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
