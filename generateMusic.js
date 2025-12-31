@@ -30,6 +30,7 @@ Guidelines:
 - Provide five options labeled A, B, C, D, E. Only one option should be correct.
 - Make sure these questions are challenging and are relevant to the subject matter.
 - Don't ask questions about content not present in the provided text or anything related to how this guide was created.
+- Since this is for the Music subject, focus on topics such as music theory, history, genres, influential composers and musicians, and significant musical works.
 - Return ONLY valid JSON (no markdown fences). The output must be a JSON array of objects with these keys:
     question, a, b, c, d, e, answer, explanation.
 
