@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
-let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
+let ai = new GoogleGenAI({apiKey: process.env.API_KEY2});
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL.replace('?sslmode=require', ''),

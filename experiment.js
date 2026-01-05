@@ -5,9 +5,9 @@ import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf'
 
 dotenv.config();
 
-const literature = await new PDFLoader('Literature-Resource-Guide.pdf').load();
+const music = await new PDFLoader('Music-Resource-Guide.pdf').load();
 
-let ai = new GoogleGenAI({apiKey: process.env.API_KEY2});
+let ai = new GoogleGenAI({apiKey: process.env.API_KEY});
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -30,7 +30,7 @@ Guidelines:
 - Provide five options labeled A, B, C, D, E. Only one option should be correct.
 - Make sure these questions are challenging and are relevant to the subject matter.
 - Don't ask questions about content not present in the provided text or anything related to how this guide was created.
-- Since this is for the Literature subject, focus on topics such as literary genres, authors, historical contexts, literary devices, and significant works.
+- Since this is for the Music subject, focus on topics such as music theory, history, genres, influential composers and musicians, and significant musical works.
 - Return ONLY valid JSON (no markdown fences). The output must be a JSON array of objects with these keys:
     question, a, b, c, d, e, answer, explanation.
 
@@ -52,23 +52,26 @@ There must be NOTHING before and after the json, so no \`\`\`json should be ther
 `;
 
 let page = 1;
-let section = 2;
+let section = 1;
 const prompts = [];
 const sections = [];
 
-for (const chunk of literature) {
-  if (page > 86) {
+for (const chunk of music) {
+  if(page > 16) break;
+  if (page > 119) {
     break;
   }
-  if (page < 10) {
+  if (page < 6) {
     page++;
     continue;
   }
-  if (page >= 53) {
+  if (page >= 88) {
     section = 4;
-  } else if (page >= 21) {
+  } else if (page >= 60) {
     section = 3;
-  } 
+  } else if (page >= 41) {
+    section = 2;
+  }
 
   const contextText = chunk.pageContent || chunk.toString();
   
@@ -82,13 +85,16 @@ for (const chunk of literature) {
   page++;
 }
 
-const requests = prompts.map((prompt) => ({
+const requests = prompts.map((prompt, index) => ({
   contents: [
     {
       role: 'user',
       parts: [{ text: prompt }]
     }
   ],
+  metadata: {
+    section: sections[index]
+  }
 }));
 
 console.log(requests);
@@ -97,7 +103,7 @@ const model = await ai.batches.create({
     model: 'gemini-2.5-flash',
     src: requests,
     config: {
-        displayName: 'Literature Test Generation Batch',
+        displayName: 'Music Test Generation Batch',
         temperature: 0.3
     }
 });
