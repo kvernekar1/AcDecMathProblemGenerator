@@ -642,10 +642,9 @@
         <option value="test">Test Mode</option>
       </select>
       <div id="test-options" style="display: none; gap: 1rem; align-items: center;">
-          </div>
-        </main>
-
-        <div class="footer">
+        <div>
+          <label for="question-count" style="margin-right: 0.5rem; font-weight: 500;">Questions:</label>
+          <input type="number" id="question-count" min="1" max="50" value="45" style="width: 80px; padding: 0.4rem 0.8rem; font-size: 0.9rem; border-radius: 8px; border: 2px solid #e9ecef; background: #f8f9fa;">
         </div>
         <div>
           <label for="time-limit" style="margin-right: 0.5rem; font-weight: 500;">Time (min):</label>
@@ -675,7 +674,8 @@
       <div id="test-questions"></div>
       <button type="button" class="submit-test-btn" id="submit-test">Submit Test</button>
     </div>
-  </div>
+    </div>
+  </main>
 
   <div class="footer" role="contentinfo">
     <h3>Academic Decathlon Trainer</h3>
