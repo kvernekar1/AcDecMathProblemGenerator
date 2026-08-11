@@ -604,9 +604,12 @@
     </div>
   </div>
   
-  <div class="container">
+  <main id="main" role="main">
+    <div class="container">
     <h1>Academic Decathlon Trainer</h1>
+    <h2 class="sr-only">Trainer</h2>
     <div class="controls">
+      <label for="subject-select" class="sr-only">Subject</label>
       <select id="subject-select" style="margin-right: 1rem;">
         <option value="Math">Math</option>
         <option value="Art">Art</option>
@@ -616,14 +619,16 @@
         <option value="Science">Science</option>
         <option value="Social Science">Social Science</option>
       </select>
+      <label for="mode" class="sr-only">Mode</label>
       <select id="mode">
         <option value="practice">Practice Mode</option>
         <option value="test">Test Mode</option>
       </select>
       <div id="test-options" style="display: none; gap: 1rem; align-items: center;">
-        <div>
-          <label for="question-count" style="margin-right: 0.5rem; font-weight: 500;">Questions:</label>
-          <input type="number" id="question-count" min="1" max="50" value="45" style="width: 80px; padding: 0.4rem 0.8rem; font-size: 0.9rem; border-radius: 8px; border: 2px solid #e9ecef; background: #f8f9fa;">
+          </div>
+        </main>
+
+        <div class="footer">
         </div>
         <div>
           <label for="time-limit" style="margin-right: 0.5rem; font-weight: 500;">Time (min):</label>
