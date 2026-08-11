@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Practice Academic Decathlon questions and timed tests for Math and other subjects to help students prepare effectively." />
   <meta name="google-site-verification" content="w-ihkTB26IYBb4MAE4gb-2UjNGkzBMtewLXOC2rqDik" />
   <title>Academic Decathlon Trainer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -14,15 +15,46 @@
       font-family: 'Inter', sans-serif;
     }
 
+    .skip-link {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: #fff;
+      color: #000;
+      padding: 8px 12px;
+      z-index: 9999;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
     body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      <a class="skip-link" href="#main">Skip to main content</a>
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="logo">
+            <a href="#">Academic Decathlon Trainer</a>
+        </div>
+        <div class="nav-links">
       background-attachment: fixed;
       min-height: 100vh;
       color: #333;
       padding: 2rem;
       position: relative;
     }
+        </div>
+      </nav>
 
+      <main id="main" role="main">
+        <div class="container">
     .navbar {
       position: sticky;
       display: flex;
@@ -626,7 +658,7 @@
     <p>Created by Kedar to help students excel in Academic Decathlon</p>
     <p>© 2025 Academic Decathlon Trainer. All rights reserved.</p>
     <p>
-      <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Report Bugs/Suggest Features</a> | 
+        <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank" rel="noopener noreferrer">Report Bugs/Suggest Features</a> | 
       <a href="update.html">Subscribe for Updates</a> | 
       <a href="about.html">About</a>
     </p>

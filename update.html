@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Subscribe to Academic Decathlon Trainer for updates, new features, and practice question releases." />
   <title>Subscribe For Updates - Academic Decathlon Trainer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -11,6 +12,36 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: #fff;
+      color: #000;
+      padding: 8px 12px;
+      z-index: 9999;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
     }
 
     body {
@@ -361,24 +392,27 @@
   </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo">
-            <a href="#">Academic Decathlon Trainer</a>
-        </div>
-        <div class="nav-links">
-          <a href="index.html">Trainer</a>
-          <a href="learn.html">Math Learner</a>
-          <a href="about.html">About the Creator</a>
-          <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
-          <a href="update.html" class="active">Subscribe for Updates!</a>
-        </div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">
+      <a href="#">Academic Decathlon Trainer</a>
     </div>
-    <div class="container">
+    <div class="nav-links">
+      <a href="index.html">Trainer</a>
+      <a href="learn.html">Math Learner</a>
+      <a href="about.html">About the Creator</a>
+      <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank" rel="noopener noreferrer">Bug/Feature Report</a>
+      <a href="update.html" class="active">Subscribe for Updates!</a>
+    </div>
+  </nav>
+  <main id="main" role="main">
+  <div class="container">
         <h2>Subscribe For Updates</h2>
         <p>Stay tuned for the latest updates and features!</p>
         <form action="https://formspree.io/f/mqalvjpn" method="POST" class="form-container">
-            <input type="email" name="email" placeholder="Enter your email" required class="form-input" />
-            <button type="submit" class="form-button">Subscribe</button>
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" type="email" name="email" placeholder="Enter your email" required class="form-input" />
+          <button type="submit" class="form-button">Subscribe</button>
         </form>
     </div>
     <div class="footer">
@@ -386,7 +420,7 @@
         <p>Created by Kedar to help students excel in Academic Decathlon</p>
         <p>© 2025 Academic Decathlon Trainer. All rights reserved.</p>
         <p>
-            <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Report Bugs/Suggest Features</a> | 
+            <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank" rel="noopener noreferrer">Report Bugs/Suggest Features</a> | 
             <a href="update.html">Subscribe for Updates</a> | 
             <a href="about.html">About</a>
         </p>
