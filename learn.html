@@ -35,6 +35,18 @@
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    a:focus, button:focus {
+      outline: 3px solid #ffea00;
+      outline-offset: 2px;
+    }
 
     body {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -352,7 +364,7 @@
     </div>
     <div class="nav-links">
       <a href="index.html">Trainer</a>
-      <a href="learn.html" class="active">Math Learner</a>
+          <a href="learn.html" class="active" aria-current="page">Math Learner</a>
       <a href="about.html">About the Creator</a>
       <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank" rel="noopener noreferrer">Bug/Feature Report</a>
       <a href="update.html">Subscribe for Updates!</a>
@@ -603,7 +615,7 @@
     </div>
     </main>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         <h3>Academic Decathlon Trainer</h3>
         <p>Created by Kedar to help students excel in Academic Decathlon</p>
         <p>© 2025 Academic Decathlon Trainer. All rights reserved.</p>

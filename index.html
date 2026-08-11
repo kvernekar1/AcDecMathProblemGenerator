@@ -36,6 +36,18 @@
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    a:focus, button:focus {
+      outline: 3px solid #ffea00;
+      outline-offset: 2px;
+    }
 
     body {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -579,12 +591,12 @@
   </style>
 </head>
 <body>
-  <div class="navbar">
+  <div class="navbar" role="navigation" aria-label="Main navigation">
     <div class="logo">
         <a href="#">Academic Decathlon Trainer</a>
     </div>
     <div class="nav-links">
-      <a href="index.html" class="active">Trainer</a>
+      <a href="index.html" class="active" aria-current="page">Trainer</a>
       <a href="learn.html">Math Learner</a>
       <a href="about.html">About the Creator</a>
       <a href="https://forms.gle/aqzFw1qdEbcLuwkN6" target="_blank">Bug/Feature Report</a>
@@ -618,7 +630,7 @@
           <input type="number" id="time-limit" min="1" max="60" value="30" style="width: 80px; padding: 0.4rem 0.8rem; font-size: 0.9rem; border-radius: 8px; border: 2px solid #e9ecef; background: #f8f9fa;">
         </div>
       </div>
-      <button class="generate-btn" id="generate-btn">Generate Question</button>
+      <button type="button" class="generate-btn" id="generate-btn">Generate Question</button>
     </div>
 
     <div class="topic-selector-container">
@@ -639,11 +651,11 @@
     <div class="test-container" id="test-container">
       <div class="timer" id="timer">Time Remaining: --:--</div>
       <div id="test-questions"></div>
-      <button class="submit-test-btn" id="submit-test">Submit Test</button>
+      <button type="button" class="submit-test-btn" id="submit-test">Submit Test</button>
     </div>
   </div>
 
-  <div class="footer">
+  <div class="footer" role="contentinfo">
     <h3>Academic Decathlon Trainer</h3>
     <p>Created by Kedar to help students excel in Academic Decathlon</p>
     <p>© 2025 Academic Decathlon Trainer. All rights reserved.</p>
@@ -1099,14 +1111,14 @@
       if (options && options.A) {
         optionsBox.innerHTML = `
           <div class="multiple-choice">
-            <button class="option-btn" data-choice="A">A) ${options.A}</button>
-            <button class="option-btn" data-choice="B">B) ${options.B}</button>
-            <button class="option-btn" data-choice="C">C) ${options.C}</button>
-            <button class="option-btn" data-choice="D">D) ${options.D}</button>
-            <button class="option-btn" data-choice="E">E) ${options.E}</button>
+            <button type="button" class="option-btn" data-choice="A">A) ${options.A}</button>
+            <button type="button" class="option-btn" data-choice="B">B) ${options.B}</button>
+            <button type="button" class="option-btn" data-choice="C">C) ${options.C}</button>
+            <button type="button" class="option-btn" data-choice="D">D) ${options.D}</button>
+            <button type="button" class="option-btn" data-choice="E">E) ${options.E}</button>
           </div>
-          <button class='generate-btn' id='check-answer'>Check Answer</button>
-          <button class='generate-btn' id='next-question'>Next Question</button>
+          <button type="button" class='generate-btn' id='check-answer'>Check Answer</button>
+          <button type="button" class='generate-btn' id='next-question'>Next Question</button>
           <div id='feedback'></div>
         `;
         
@@ -1144,10 +1156,10 @@
       {
         optionsBox.innerHTML = `
           <div class="answer-field">
-            <input type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
+            <input aria-label='Answer' type='text' id='answer' placeholder='Type your answer here' style="margin-bottom: 1rem;" />
           </div>
-          <button class='generate-btn' id='check-answer'>Check Answer</button>
-          <button class='generate-btn' id='next-question'>Next Question</button>
+          <button type="button" class='generate-btn' id='check-answer'>Check Answer</button>
+          <button type="button" class='generate-btn' id='next-question'>Next Question</button>
           <div id='feedback'></div>
         `;
 
